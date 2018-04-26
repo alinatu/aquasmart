@@ -81,7 +81,7 @@
       
       #bottomdiv {
         bottom: 0;
-        height: 100px;
+        height: 50px;
         position: fixed;
         width: 100%;
         background-color: #f0f1ee;
@@ -125,6 +125,9 @@
       
       #login {
      	display: block;
+        width: 200px;
+        height: 70px;
+        margin: 0 auto;
       }
       
       
