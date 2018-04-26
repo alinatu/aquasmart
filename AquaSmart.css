@@ -140,7 +140,13 @@
      	display: block;
         width: 200px;
         height: 70px;
-        margin: 0 auto;
+        margin-left: 25%;
+        background-color: white;
+        float: left;    
       }
+
+#submit {
+    margin-left: 25%;
+}
       
       
