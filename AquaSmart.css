@@ -20,6 +20,7 @@
       #navbar {
         height: 15%; 
         float: left;
+        margin-top: 0;
       }
       
       #navbar > li {
@@ -30,16 +31,16 @@
         width: 100px;
         list-style: none;
         float: left;
+        margin-left: -20%;
       }
       
       #cityname {
-        display: block;
         line-height: 80px;
         text-align: center;
+        width: 100%;
       }
       
       li > a {
-        display: block;
         color: black;
         line-height: 80px;
         text-align: center;
