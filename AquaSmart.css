@@ -108,6 +108,7 @@
       }
       
       #bottombar > li {
+        display: inline-block;
         font-family: "IBM Plex Sans";
         font-weight: bold;
         width: 100px;
@@ -133,6 +134,26 @@
         float: right;
       }
       
+#newGame {
+  font-family: "IBM Plex Sans";
+}
+
+#about {
+  line-height: 80px;
+  font-family: "IBM Plex Sans";
+  float: right;
+  height: 100px;
+}
+
+#about > a {
+  text-decoration: none;
+  color: black;
+}
+
+#about > a:hover{
+        background-color: #000c47;
+        color: white;
+      }
       #login {
      	display: block;
       }
