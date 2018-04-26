@@ -6,6 +6,7 @@ function myFunction() {
     var cityName = document.getElementById("cityName").value;
     document.getElementById("userName").innerHTML = name;
     document.getElementById("userCity").innerHTML = cityName;
-  document.getElementById("waterLevel").innerHTML = waterLevel;
-  document.getElementById("map").style.filter = "blur(0px)";
+    document.getElementById("waterLevel").innerHTML = waterLevel;
+    document.getElementById("map").style.filter = "blur(0px)";
+    document.getElementById("login").style.display = "none";
 }

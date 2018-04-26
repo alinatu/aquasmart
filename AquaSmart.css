@@ -122,6 +122,9 @@
         display: block;
         float: right;
       }
+#waterLevel img {
+  width: 50px;
+}
       
       #login {
      	display: block;
