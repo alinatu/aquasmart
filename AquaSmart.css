@@ -18,16 +18,32 @@
       }
       
       #navbar {
-        height: 15%; 
+        height: 15%;
+        margin-top: 2.5%;
         float: left;
+
+        line-height: 30px;
+      }
+
+      #userName{
+        font-size: 15px;
+
         margin-top: 0;
+
       }
       
-      #navbar > li {
-        line-height: 80px;
+      #userCity {
+        font-weight: bold;
+
+      }
+      
+      #navbar > p {
         text-align: center;
         font-family: "IBM Plex Sans";
-        font-weight: bold;
+        width: 200px;
+      }
+      
+      #cityname {
         width: 100px;
         list-style: none;
         float: left;
@@ -44,12 +60,6 @@
         color: black;
         line-height: 80px;
         text-align: center;
-        text-decoration: none;
-      }
-      
-      li > a:hover{
-        background-color: #000c47;
-        color: white;
       }
       
     
