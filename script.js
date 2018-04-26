@@ -1,6 +1,8 @@
-$name = document.getElementById("#name").innerHTML;
-$cityName = document.getElementById("#cityName").innerHTML;
-$("#submit").click(function(){
-    document.getElementById("#userName").innerHTML = $name;
-    document.getElementById("#userCity").innerHTML = $cityName;
-});
+var name;
+var cityName;
+function myFunction() {
+    var name = document.getElementById("name").value;
+    var cityName = document.getElementById("cityName").value;
+    document.getElementById("userName").innerHTML = name;
+    document.getElementById("userCity").innerHTML = cityName;
+}
