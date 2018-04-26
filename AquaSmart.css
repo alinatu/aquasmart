@@ -20,7 +20,7 @@
         height: 15%;
         margin-top: 2.5%;
         float: left;
-
+        clear: none;
         line-height: 30px;
       }
 
@@ -43,7 +43,7 @@
       }
       
       #cityname {
-        width: 100px;
+        
         list-style: none;
         float: left;
         margin-left: -20%;
@@ -52,7 +52,7 @@
       #cityname {
         line-height: 80px;
         text-align: center;
-        width: 100%;
+      
       }
       ul {
         list-style: none;
@@ -75,14 +75,12 @@ li{
       
     
       #logo {
-        width: 200px;
-        height: 90px;
         float: left; 
       }
       
       #logosize {
-        padding-left: 50px;
-        width: 49%;
+        
+        width: 30%;
       }
       
       #gamediv {
@@ -128,6 +126,7 @@ li{
         margin-top: 1.3%;
         display: block;
         float: right;
+        clear: none;
       }
 #waterLevel img {
   width: 50px;
