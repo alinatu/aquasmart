@@ -64,6 +64,8 @@
       #gamediv {
         margin-top: 4%;
         width: 100%;
+        height: 500px;
+         
       }
       
       #gamediv > img{
@@ -71,6 +73,7 @@
         height: 550px;
         border-top: 5px solid black;
         border-bottom: 5px solid black;
+        z-index: -100;
       }
       
       #bottomdiv {
