@@ -18,37 +18,29 @@
       }
       
       #navbar {
-        height: 15%; 
+        height: 15%;
+        margin-top: 2.5%;
         float: left;
+        line-height: 30px;
+      }
+
+      #userName{
+        font-size: 15px;
       }
       
-      #navbar > li {
-        line-height: 80px;
+      #userCity {
+        font-weight: bold;
+      }
+      
+      #navbar > p {
         text-align: center;
         font-family: "IBM Plex Sans";
-        font-weight: bold;
-        width: 100px;
-        list-style: none;
-        float: left;
+        width: 200px;
       }
       
       #cityname {
-        display: block;
         line-height: 80px;
         text-align: center;
-      }
-      
-      li > a {
-        display: block;
-        color: black;
-        line-height: 80px;
-        text-align: center;
-        text-decoration: none;
-      }
-      
-      li > a:hover{
-        background-color: #000c47;
-        color: white;
       }
       
     
