@@ -7,4 +7,5 @@ function myFunction() {
     document.getElementById("userName").innerHTML = name;
     document.getElementById("userCity").innerHTML = cityName;
   document.getElementById("waterLevel").innerHTML = waterLevel;
+  document.getElementById("map").style.filter = "blur(0px)";
 }

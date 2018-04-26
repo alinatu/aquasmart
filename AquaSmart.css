@@ -21,15 +21,20 @@
         height: 15%;
         margin-top: 2.5%;
         float: left;
+<<<<<<< HEAD
         line-height: 30px;
       }
 
       #userName{
         font-size: 15px;
+=======
+        margin-top: 0;
+>>>>>>> 1c8249e2bf387b480fd09732b368f5c434e2b585
       }
       
       #userCity {
         font-weight: bold;
+<<<<<<< HEAD
       }
       
       #navbar > p {
@@ -39,6 +44,22 @@
       }
       
       #cityname {
+=======
+        width: 100px;
+        list-style: none;
+        float: left;
+        margin-left: -20%;
+      }
+      
+      #cityname {
+        line-height: 80px;
+        text-align: center;
+        width: 100%;
+      }
+      
+      li > a {
+        color: black;
+>>>>>>> 1c8249e2bf387b480fd09732b368f5c434e2b585
         line-height: 80px;
         text-align: center;
       }
@@ -67,6 +88,7 @@
         border-top: 5px solid black;
         border-bottom: 5px solid black;
         z-index: -100;
+        filter: blur(3px);
       }
       
       #bottomdiv {
