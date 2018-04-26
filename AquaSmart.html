@@ -3,6 +3,7 @@
   <head>
     <title>Aqua Smart</title>
     <meta charset="utf-8"/>
+    <script src="script.js"></script>
     <style>
       @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
       
@@ -127,14 +128,19 @@
         <img id="logosize" src="aquasmart.jpg" alt="Aqua Smart"/>
       </div>
       <ul id="navbar">
-        <li><a href="item">Home</a></li>
-        <li id="cityname">Vancouver</li>
+        <li id="userCity"></li>
+        <li id="userName"></li>
         <li><a href="item"></a></li>
       </ul>
     </div>
     <div id="gamediv">
       <img src="vancouver.jpg"/>
     </div>
+    <form id="login">
+      <input id="name" type="text">
+      <input id="cityName" type="text">
+      <img id="submit" src="images/play-button%20(1).png" alt="play">
+    </form>
     <div id="bottomdiv">
       <div id="bottombar">
         <ul>
@@ -142,4 +148,5 @@
         </ul>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </body>
