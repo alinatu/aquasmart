@@ -115,8 +115,10 @@
         background-color: #000c47;
         color: white;
       }
-#waterLevel {
-  float: right;
-}
+      #waterLevel {
+        margin-top: 1.3%;
+        display: block;
+        float: right;
+      }
       
       
