@@ -75,6 +75,7 @@
         border-top: 5px solid black;
         border-bottom: 5px solid black;
         z-index: -100;
+        filter: blur(3px);
       }
       
       #bottomdiv {
