@@ -54,11 +54,24 @@
         text-align: center;
         width: 100%;
       }
+      ul {
+        list-style: none;
+      }
+li{
+  font-weight: bold;
+  color: white;
+}
       
       li > a {
+        display: block;
         color: black;
-        line-height: 80px;
         text-align: center;
+        text-decoration: none;
+      }
+
+      li > a:hover{
+        background-color: #000c47;
+        color: white;
       }
       
     
@@ -105,31 +118,13 @@
       }
       
       #bottombar {
-        height: 15%; 
         float: left;
       }
       
       #bottombar > li {
-        display: inline-block;
-        font-family: "IBM Plex Sans";
-        font-weight: bold;
-        width: 100px;
-        list-style: none;
         float: left;
       }
       
-      li > a {
-        display: block;
-        color: black;
-        line-height: 80px;
-        text-align: center;
-        text-decoration: none;
-      }
-      
-      li > a:hover{
-        background-color: #000c47;
-        color: white;
-      }
       #waterLevel {
         margin-top: 1.3%;
         display: block;
@@ -144,32 +139,26 @@
 }
 
 #about {
-  line-height: 80px;
+
   font-family: "IBM Plex Sans";
   float: right;
-  height: 100px;
 }
 
-#about > a {
-  text-decoration: none;
-  color: black;
-}
 
-#about > a:hover{
-        background-color: #000c47;
-        color: white;
-      }
       #login {
+        margin: 0 auto;
+        border: 3px solid #000c47;
         text-align: center;
         top: 150px;
         position: relative;
      	display: block;
-        width: 100%;
+        width: 50%;
         background-color: #ebf0f9;
         z-index: 1;
       }
 #login button {
-  margin-left: -13px;
+  margin-top: 2%;
+  margin-left: -1px;
   background-color: #ebf0f9;
   border: none;
   box-shadow: none;
