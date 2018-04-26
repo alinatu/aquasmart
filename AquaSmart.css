@@ -23,6 +23,8 @@
       }
       
       #navbar > li {
+        line-height: 80px;
+        text-align: center;
         font-family: "IBM Plex Sans";
         font-weight: bold;
         width: 100px;
