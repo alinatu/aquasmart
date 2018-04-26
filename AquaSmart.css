@@ -149,6 +149,7 @@ li{
         border: 3px solid #000c47;
         text-align: center;
         top: 150px;
+        line-height: 25px;
         position: relative;
      	display: block;
         width: 50%;
