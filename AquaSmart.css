@@ -6,8 +6,8 @@
       }
       
       body {
-        /**background-color: #e6e6e6; */
         background-color: #bff2f0;
+        color: #000c47;
       }
       
       #menu {
@@ -59,19 +59,18 @@
       }
 li{
   font-weight: bold;
-  color: white;
+  
 }
       
       li > a {
         display: block;
-        color: black;
+        color: #000c47;
         text-align: center;
         text-decoration: none;
       }
 
       li > a:hover{
-        background-color: #000c47;
-        color: white;
+        color: #0baef4;
       }
       
     
