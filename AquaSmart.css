@@ -129,7 +129,7 @@ li > a:hover{
     width: 5%;
 }
 
-#about {
+#aboutdiv {
   float: right;
 }
 
@@ -162,5 +162,15 @@ li > a:hover{
 #userCity{
   font-size: 200%;
 }
-      
-      
+     
+#about {
+    display: none;
+    margin: 0 auto;
+    border: 3px solid #000c47;
+    line-height: 25px;
+    position: relative;
+    width: 100%;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+}

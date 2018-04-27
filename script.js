@@ -10,6 +10,12 @@ function myFunction() {
     document.getElementById("map").style.filter = "blur(0px)";
     document.getElementById("login").style.display = "none";
 }
+$(document).ready(function(){
+  $("#aboutdiv").click(function(){
+    document.getElementById("about").style.display = "block";
+    document.getElementById("login").style.display = "none";
+  });
+});
 /*
 $test = "test";
 console.log($test);
