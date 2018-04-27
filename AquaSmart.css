@@ -17,10 +17,10 @@
       }
       
       #navbar {
-        height: 15%;
+        margin-left: 7%;
+        font-size: 75%;
         margin-top: 2.5%;
         float: left;
-        clear: none;
         line-height: 30px;
       }
 
@@ -75,12 +75,15 @@ li{
       
     
       #logo {
+        margin-left: 2%;
+        line-height: 110px;
+        width: 30%;
         float: left; 
       }
       
       #logosize {
         
-        width: 30%;
+        width: 100%;
       }
       
       #gamediv {
