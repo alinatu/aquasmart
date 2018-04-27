@@ -1,159 +1,153 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
       
-      * {
-        margin: 0px;
-        padding: 0px;
-      }
+* {
+    margin: 0px;
+    padding: 0px;
+}
       
-      body {
-        background-color: #bff2f0;
-        color: #000c47;
-        font-family: "IBM Plex Sans";
-      }
+body {
+    background-color: #bff2f0;
+    color: #000c47;
+    font-family: "IBM Plex Sans";
+}
       
-      #menu {
-        width: 100%;
-        height: 80px;
-        background: #ebf0f9;
-      }
+#menu {
+    width: 100%;
+    height: 80px;
+    background: #ebf0f9;
+}
       
-      #navbar {
-        margin-left: 7%;
-        font-size: 75%;
-        margin-top: 2.5%;
-        float: left;
-        line-height: 30px;
-        width: 30%;
-      }
+#navbar {
+    margin-left: 7%;
+    font-size: 75%;
+    margin-top: 2.5%;
+    float: left;
+    line-height: 30px;
+    width: 30%;
+}
 
-      #userName{
-        font-size: 15px;
+#userName{
+    font-size: 15px;
+    margin-top: 0;
+}
+      
+#userCity {
+    font-weight: bold;
+}
+      
+#navbar > p {
+    text-align: center;
+    font-family: "IBM Plex Sans";
+    width: 200px;
+}
+      
+#cityname {        
+    list-style: none;
+    float: left;
+    margin-left: -20%;
+}
+      
+#cityname {
+    line-height: 80px;
+    text-align: center;  
+}
 
-        margin-top: 0;
+ul {
+    list-style: none;
+}
 
-      }
-      
-      #userCity {
-        font-weight: bold;
-
-      }
-      
-      #navbar > p {
-        text-align: center;
-        font-family: "IBM Plex Sans";
-        width: 200px;
-      }
-      
-      #cityname {
-        
-        list-style: none;
-        float: left;
-        margin-left: -20%;
-      }
-      
-      #cityname {
-        line-height: 80px;
-        text-align: center;
-      
-      }
-      ul {
-        list-style: none;
-      }
 li{
   font-weight: bold;
   
 }
       
-      li > a {
-        display: block;
-        color: #000c47;
-        text-align: center;
-        text-decoration: none;
-      }
+li > a {
+    display: block;
+    color: #000c47;
+    text-align: center;
+    text-decoration: none;
+}
 
-      li > a:hover{
-        color: #0baef4;
-      }
+li > a:hover{
+    color: #0baef4;
+}
       
     
-      #logo {
-        margin-left: 2%;
-        line-height: 110px;
-        width: 30%;
-        float: left; 
-      }
+#logo {
+    margin-left: 2%;
+    line-height: 110px;
+    width: 30%;
+    float: left; 
+}
       
-      #logosize {
-        
-        width: 100%;
-      }
+#logosize {        
+    width: 100%;
+}
       
-      #gamediv {
-        height: 500px;
-         z-index: -1;
-        margin-top: -100px;
-      }
+#gamediv {
+    height: 500px;
+    z-index: -1;
+    margin-top: -100px;
+}
       
-      #gamediv > img{
-        
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-top: 5px solid black;
-        border-bottom: 5px solid black;
-        z-index: -1;
-        filter: blur(3px);
-        
-      }
+#gamediv > img{        
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    z-index: -1;
+    filter: blur(3px);    
+}
       
-      #bottomdiv {
-        bottom: 0;
-        height: 50px;
-        position: fixed;
-        width: 100%;
-        background-color: #ebf0f9;
-      } 
+#bottomdiv {
+    bottom: 0;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    background-color: #ebf0f9;
+} 
       
-      #bottomdiv > img {
-        width: 20%;  
-        
-      }
+#bottomdiv > img {
+    width: 20%;      
+}
       
-      #bottombar {
-        float: left;
-      }
+#bottombar {
+    float: left;
+}
       
-      #bottombar > li {
-        float: left;
-      }
+#bottombar > li {
+    float: left;
+}
       
-      #waterLevel {
-        margin-top: 1.3%;
-        display: block;
-        float: right;
-        margin-right: 10%;
-        clear: none;
-        width: 5%;
-      }
+#waterLevel {
+    margin-top: 1.3%;
+    display: block;
+    float: right;
+    margin-right: 10%;
+    clear: none;
+    width: 5%;
+}
 
 #about {
   float: right;
 }
 
 
-      #login {
-        margin: 0 auto;
-        border: 3px solid #000c47;
-        text-align: center;
-        top: 150px;
-        line-height: 25px;
-        position: relative;
-     	display: block;
-        width: 50%;
-        background-color: #ebf0f9;
-        z-index: 1;
-        clear: left;
-      }
+#login {
+    margin: 0 auto;
+    border: 3px solid #000c47;
+    text-align: center;
+    top: 150px;
+    line-height: 25px;
+    position: relative;
+    display: block;
+    width: 50%;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+}
+
 #login button {
   margin-top: 2%;
   margin-left: -1px;
