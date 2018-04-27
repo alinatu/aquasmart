@@ -8,6 +8,7 @@
       body {
         background-color: #bff2f0;
         color: #000c47;
+        font-family: "IBM Plex Sans";
       }
       
       #menu {
@@ -134,14 +135,8 @@ li{
 #waterLevel img {
   width: 50px;
 }
-      
-#newGame {
-  font-family: "IBM Plex Sans";
-}
 
 #about {
-
-  font-family: "IBM Plex Sans";
   float: right;
 }
 
@@ -157,6 +152,7 @@ li{
         width: 50%;
         background-color: #ebf0f9;
         z-index: 1;
+        clear: left;
       }
 #login button {
   margin-top: 2%;
