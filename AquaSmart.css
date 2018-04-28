@@ -174,3 +174,6 @@ li > a:hover{
     z-index: 1;
     clear: left;
 }
+#about h2 {
+  text-align: center;
+}

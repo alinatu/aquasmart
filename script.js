@@ -14,6 +14,7 @@ $(document).ready(function(){
   $("#aboutdiv").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
+    document.getElementById("gamediv").style.display = "none";
   });
 });
 /*
