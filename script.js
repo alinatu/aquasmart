@@ -9,7 +9,10 @@ function myFunction() {
     document.getElementById("waterLevel").innerHTML = $waterLevel;
     document.getElementById("map").style.filter = "blur(0px)";
     document.getElementById("login").style.display = "none";
+  
+    
 }
+
 /*
 $test = "test";
 console.log($test);
