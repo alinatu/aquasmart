@@ -37,6 +37,7 @@ $(document).ready(function(){
         document.getElementById("waterLevel").innerHTML = "";
         document.getElementById("setNames").reset();
     });
+    //function for the back button
   $("#back").click(function(){
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
