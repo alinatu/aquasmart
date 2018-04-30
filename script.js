@@ -37,6 +37,16 @@ $(document).ready(function(){
         document.getElementById("waterLevel").innerHTML = "";
         document.getElementById("setNames").reset();
     });
+  $("#back").click(function(){
+        document.getElementById("about").style.display = "none";
+        document.getElementById("gamediv").style.display = "block";
+        document.getElementById("map").style.filter = "blur(3px)";
+        document.getElementById("login").style.display = "block";
+        document.getElementById("userCity").innerHTML = "";
+        document.getElementById("userName").innerHTML = "";
+        document.getElementById("waterLevel").innerHTML = "";
+        document.getElementById("setNames").reset();
+    });
 });
 //series of functions for checking the names entered are valid
 function isString(s) {
