@@ -22,6 +22,7 @@ $(document).ready(function(){
   $("#aboutdiv").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
+
     document.getElementById("gamediv").style.display = "none";
   });
 });
@@ -62,6 +63,7 @@ function validCityLength(s) {
 function validNameLength(s) {
     return s.length > 0 && s.length <= 20;
 }
+
 /*
 function hasSpecial(s) {
     return /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(s);
