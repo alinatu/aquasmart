@@ -1,1 +1,2 @@
-Hi, my name is Tomas
+Hi, my name is Tomas.
+Hello.
