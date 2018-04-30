@@ -177,3 +177,11 @@ li > a:hover{
 #about h2 {
   text-align: center;
 }
+
+#picsOfUs {
+text-align: center;
+}
+#picsOfUs img {
+	width: 30%;
+	height: auto;
+}
