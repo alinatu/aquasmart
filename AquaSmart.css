@@ -185,3 +185,21 @@ text-align: center;
 	width: 30%;
 	height: auto;
 }
+
+#scores {
+    margin: 0 auto;
+    border: 3px solid #000c47;
+    text-align: center;
+    top: 150px;
+    line-height: 25px;
+    position: relative;
+    display: none;
+    width: 50%;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+}
+
+#scoresDiv {
+    float: left;
+}
