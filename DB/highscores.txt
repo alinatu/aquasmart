@@ -1,0 +1,17 @@
+CREATE TABLE highscores (
+    ID INT NOT NULL AUTO_INCREMENT,
+    user_name VARCHAR(30),
+    user_score INT,
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 1", 300);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 2", 500);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 3", 550);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 4", 110);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 5", 1120);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 6", 475);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 7", 700);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 8", 950);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 9", 1120);
+INSERT INTO highscores (user_name, user_score) VALUES ("Player 10", 750);
