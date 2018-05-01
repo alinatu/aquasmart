@@ -148,6 +148,12 @@ canvas {
     clear: left;
 }
 
+#login input {
+	font-size: 14pt;
+	border-radius: 10px;
+	border: 0;
+}
+
 #login button {
   margin-top: 2%;
   margin-left: -1px;
