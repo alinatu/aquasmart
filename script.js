@@ -22,8 +22,8 @@ $(document).ready(function(){
   $("#aboutdiv").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
-
     document.getElementById("gamediv").style.display = "none";
+    document.getElementById("scores").style.display = "none";
   });
 });
 //Function for the new game button
@@ -36,6 +36,7 @@ $(document).ready(function(){
         document.getElementById("userCity").innerHTML = "";
         document.getElementById("userName").innerHTML = "";
         document.getElementById("waterLevel").innerHTML = "";
+        document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
     });
     //function for the back button on the about and highscores pages
@@ -48,6 +49,7 @@ $(document).ready(function(){
         document.getElementById("userCity").innerHTML = "";
         document.getElementById("userName").innerHTML = "";
         document.getElementById("waterLevel").innerHTML = "";
+        document.getElementById("scoreList").innerHTML = "";
         document.getElementById("setNames").reset();
     });
     //function for the highscores button
@@ -56,7 +58,7 @@ $(document).ready(function(){
         document.getElementById("login").style.display = "none";
         document.getElementById("scores").style.display = "block";
         document.getElementById("gamediv").style.display = "none";
-
+        document.getElementById("scoreList").innerHTML = "";
         e.preventDefault();
         console.log("Clicked for JSON");
 
@@ -76,6 +78,7 @@ $(document).ready(function(){
                 }
                 listData += "</table>";
                 $("#scoreList").append(listData);
+                listData = "";
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 $("#scores").text(textStatus + " " + errorThrown + jqXHR.responseText);
