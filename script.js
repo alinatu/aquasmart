@@ -97,6 +97,64 @@ function validNameLength(s) {
     return s.length > 0 && s.length <= 20;
 }
 
+/* Canvas Setup */
+      var myGamePiece;
+      function startGame() {
+        myGameArea.start();
+        gameMap = new component(1920, 1080, "images/Map.png", 0, 0, "image");
+        district1 = new component(439, 267, "images/District1.png", 250, 235, "image");
+        district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
+        district3 = new component(468, 369, "images/District3.png", 1300, 300, "image");
+      }
+      
+      var myGameArea = {
+        canvas : document.createElement("canvas"),
+        start : function() {
+          this.canvas.width = 1920;
+          this.canvas.height = 1080;
+          this.context = this.canvas.getContext("2d");
+          this.canvas.setAttribute("id", "map");
+          document.getElementById("gamediv").appendChild(this.canvas);
+          this.interval = setInterval(updateGameArea, 100);
+        },
+        clear : function() {
+          this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+      }
+      
+      function component(width, height, color, x, y, type) {
+        this.type = type;
+        if (type == "image") {
+          this.image = new Image();
+          this.image.src = color;
+        } 
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        
+        this.update = function() {
+          ctx = myGameArea.context;
+          if (type == "image") {
+              ctx.drawImage(this.image, 
+                this.x, 
+                this.y, 
+                this.width, this.height);
+          } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+          }
+        }
+        
+      }
+      
+      function updateGameArea() {
+        myGameArea.clear();
+        gameMap.update();
+        district1.update();
+        district2.update();
+        district3.update();
+      }
 /*
 function hasSpecial(s) {
     return /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(s);

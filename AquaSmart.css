@@ -90,7 +90,7 @@ li > a:hover{
     margin-top: -100px;
 }
       
-#gamediv > img{        
+canvas {        
     display: block;
     width: 100%;
     height: 100%;
