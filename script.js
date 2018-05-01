@@ -108,7 +108,7 @@ function validNameLength(s) {
         district1 = new component(439, 267, "images/District1.png", 250, 235, "image");
         district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
         district3 = new component(468, 369, "images/District3.png", 1300, 300, "image");
-        drop1 = new droplet(50, 50, "images/waterdrop.png", 250, 235, true);
+        drop1 = new droplet(50, 50, "images/waterdrop.png", 250, 235, false);
         drop2 = new droplet(50, 50, "images/waterdrop.png", 590, 450, false);
         drop3 = new droplet(50, 50, "images/waterdrop.png", 1300, 300, true);
       }
@@ -152,6 +152,7 @@ function validNameLength(s) {
         this.height = height;
         this.x = x;
         this.y = y;
+       
         
         this.update = function() {
           ctx = myGameArea.context;
@@ -175,8 +176,10 @@ function validNameLength(s) {
         this.height = height;
         this.x = x;
         this.y = y;
+        var ogx = x;
+        var ogy = y;
         
-        this.show = show;
+        //this.show = show;
         
         this.update = function() {
           ctx = myGameArea.context;
@@ -185,18 +188,20 @@ function validNameLength(s) {
         
           if(x == 1){
             this.show = true;
-            console.log(show);
-          } else {
+            console.log(this.show);
             
+       
+          } else {
             this.show = false;
-            console.log(show);
+            console.log(this.show);
+         
           }
         
           
-          if (show == true) {
+          if (this.show == true) {
               ctx.drawImage(this.image, 
-                this.x, 
-                this.y, 
+                ogx, 
+                ogy, 
                 this.width, this.height);
           } else {
               this.x = -50;
