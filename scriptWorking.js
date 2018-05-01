@@ -38,10 +38,9 @@ $(document).ready(function(){
         document.getElementById("waterLevel").innerHTML = "";
         document.getElementById("setNames").reset();
     });
-    //function for the back button on the about and highscores pages
-  $(".back").click(function(){
+    //function for the back button
+  $("#back").click(function(){
         document.getElementById("about").style.display = "none";
-        document.getElementById("scores").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
         document.getElementById("login").style.display = "block";
@@ -49,38 +48,6 @@ $(document).ready(function(){
         document.getElementById("userName").innerHTML = "";
         document.getElementById("waterLevel").innerHTML = "";
         document.getElementById("setNames").reset();
-    });
-    //function for the highscores button
-    $("#scoresDiv").click(function(e){
-        document.getElementById("about").style.display = "none";
-        document.getElementById("login").style.display = "none";
-        document.getElementById("scores").style.display = "block";
-        document.getElementById("gamediv").style.display = "none";
-
-        e.preventDefault();
-        console.log("Clicked for JSON");
-
-        $.ajax({
-            url: "./DB/getGlobalScores.php",
-            dataType: "json",
-            type: "GET",
-            data: {output: 'json', },
-            success: function(data) {
-                console.log(data);
-                var highest = data['high'];
-
-                var listData = "<table><th>Player Name</th><th>Score</th></tr>";
-                for (var i in highest) {
-                    var highscore = highest[i];
-                    listData += "<tr><td>" + highscore['user_name'] + "</td><td>" + highscore['user_score'] + "</td></tr>";
-                }
-                listData += "</table>";
-                $("#scoreList").append(listData);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $("#scores").text(textStatus + " " + errorThrown + jqXHR.responseText);
-            }
-        });
     });
 });
 //series of functions for checking the names entered are valid
@@ -105,11 +72,8 @@ function validNameLength(s) {
         district1 = new component(439, 267, "images/District1.png", 250, 235, "image");
         district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
         district3 = new component(468, 369, "images/District3.png", 1300, 300, "image");
-        drop1 = new droplet(50, 50, "images/waterdrop.png", 250, 235, true);
-        drop2 = new droplet(50, 50, "images/waterdrop.png", 590, 450, false);
-        drop3 = new droplet(50, 50, "images/waterdrop.png", 1300, 300, true);
       }
-
+      
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
@@ -118,27 +82,13 @@ function validNameLength(s) {
           this.context = this.canvas.getContext("2d");
           this.canvas.setAttribute("id", "map");
           document.getElementById("gamediv").appendChild(this.canvas);
-          this.interval = setInterval(updateGameArea, 1000);
-          
+          this.interval = setInterval(updateGameArea, 100);
         },
         clear : function() {
           this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
       }
       
-      var option = {
-        name: "Option Name",
-        desc : "Option Description",
-        difficulty : 10,
-        waterSaved : 12000,
-        create : function(name, desc, difficulty, waterSaved) {
-          this.name = name;
-          this.desc = desc;
-          this.difficulty = difficulty;
-          this.waterSaved = waterSaved;
-        }
-      }
-
       function component(width, height, color, x, y, type) {
         this.type = type;
         if (type == "image") {
@@ -161,65 +111,17 @@ function validNameLength(s) {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
           }
-        } 
-      }
-
-      function droplet(width, height, image, x, y, show) {
-        this.image = new Image();
-        this.image.src = image;
+        }
         
-        this.width = width;
-        this.height = height;
-        this.x = x;
-        this.y = y;
-        
-        this.show = show;
-        
-        this.update = function() {
-          ctx = myGameArea.context;
-          var x = Math.floor((Math.random() * 2) + 1);
-          console.log(x);
-        
-          if(x == 1){
-            this.show = true;
-            console.log(show);
-          } else {
-            
-            this.show = false;
-            console.log(show);
-          }
-        
-          
-          if (show == true) {
-              ctx.drawImage(this.image, 
-                this.x, 
-                this.y, 
-                this.width, this.height);
-          } else {
-              this.x = -50;
-              this.y = -50;
-              ctx.drawImage(this.image,
-                this.x,
-                this.y,
-                this.width, this.height);
-          }
-        } 
       }
       
-
       function updateGameArea() {
         myGameArea.clear();
         gameMap.update();
         district1.update();
         district2.update();
         district3.update();
-        drop1.update();
-        drop2.update();
-        drop3.update();
       }
-      
-
-      
 /*
 function hasSpecial(s) {
     return /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(s);
