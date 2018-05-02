@@ -82,16 +82,16 @@
         this.update = function() {
           ctx = myGameArea.context;
           var x = Math.floor((Math.random() * 2) + 1);
-          console.log(x);
+          //console.log(x);
         
           if(x == 1){
             this.show = true;
-            console.log(this.show);
+            //console.log(this.show);
             
        
           } else {
             this.show = false;
-            console.log(this.show);
+            //console.log(this.show);
          
           }
         
