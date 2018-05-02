@@ -3,14 +3,14 @@
       function startGame() {
         myGameArea.start();
         gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
-        district1 = new component(75, 75, "images/District1Redone.png", 75, 75, "image");
-        paint1 = new toggleComponent(75, 75, "images/paintstroke.png", 75, 75, false);
+        district1 = new component(100, 100, "images/District1Redone.png", 65, 100, "image");
+        paint1 = new toggleComponent(100, 100, "images/paintstroke.png", 65, 100, false);
         
-        district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
-        paint2 = new toggleComponent(434, 311, "images/paintstroke.png", 590, 450, false);
+        district2 = new component(100, 100, "images/District2.png", 125, 160, "image");
+        paint2 = new toggleComponent(100, 100, "images/paintstroke.png", 125, 160, false);
         
-        district3 = new component(468, 369, "images/District3.png", 1300, 300, "image");
-        paint3 = new toggleComponent(468, 369, "images/paintstroke.png", 1300, 300, false);
+        district3 = new component(100, 100, "images/District3.png", 250, 125, "image");
+        paint3 = new toggleComponent(100, 100, "images/paintstroke.png", 250, 125, false);
         
         drop1 = new toggleComponent(50, 50, "images/waterdrop.png", 250, 235, false);
         drop2 = new toggleComponent(50, 50, "images/waterdrop.png", 590, 450, false);
@@ -20,24 +20,12 @@
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
-          this.canvas.width = 1920;
-          this.canvas.height = 1080;
+          this.canvas.width = 375;
+          this.canvas.height = 400;
           this.context = this.canvas.getContext("2d");
           this.canvas.setAttribute("id", "map");
           this.canvas.addEventListener('mousedown', onDown, false);
-<<<<<<< HEAD
-          this.canvas.addEventListener('mousemove', function(event) {
-            var mousePos = getMousePos(myGameArea.canvas, event);
-            var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
-            console.log(mousePos.x + ", " + mousePos.y);
-            if (center1.x - 250 > mousePos.x < center1.x + 250 && center1.y - 250 > mousePos.y < center1.y + 250){
-              alert("YES");
-            }
-            
-          }, false);
-=======
           this.canvas.addEventListener('mousemove', mouseHover, false);
->>>>>>> 132e851ce607c2e23f6030504e2468557e2518ca
           document.getElementById("gamediv").appendChild(this.canvas);
           this.interval = setInterval(updateGameArea, 1000);
           
@@ -60,9 +48,6 @@
         cy = event.pageY;
       }
       
-<<<<<<< HEAD
-     /* function debugMessage(canvas, message) {
-=======
       function mouseHover() {
           var mousePos = getMousePos(myGameArea.canvas, event);
           var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
@@ -73,32 +58,26 @@
           } else {
             paint1.show = false;
           }
+          if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
+              && mousePos.y > district2.y && mousePos.y < district2.y + district2.height) {
+            paint2.show = true;
+          } else {
+            paint2.show = false;
+          }
+          if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
+              && mousePos.y > district3.y && mousePos.y < district3.y + district3.height) {
+            paint3.show = true;
+          } else {
+            paint3.show = false;
+          }
       }
       /* function debugMessage(canvas, message) {
->>>>>>> 132e851ce607c2e23f6030504e2468557e2518ca
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.font = '18pt Calibri';
         context.fillStyle = 'black';
         context.fillText(message, 10, 25);
-<<<<<<< HEAD
-      }*/
-
-      var center1 = {
-        x: 437,
-        y: 343
-      };
-      var center2 = {
-        x: 770,
-        y: 587
-      };
-      var center3 = {
-        x: 1470,
-        y: 473
-      };
-=======
       } */
->>>>>>> 132e851ce607c2e23f6030504e2468557e2518ca
 
       
       
@@ -159,21 +138,13 @@
         
         this.update = function() {
           ctx = myGameArea.context;
-<<<<<<< HEAD
-          /*var x = Math.floor((Math.random() * 2) + 1);
-=======
           /* var x = Math.floor((Math.random() * 2) + 1); */
->>>>>>> 132e851ce607c2e23f6030504e2468557e2518ca
           
           /* if(x == 1){
             this.show = true;   
           } else {
             this.show = false;
-<<<<<<< HEAD
-          }*/
-=======
           } */
->>>>>>> 132e851ce607c2e23f6030504e2468557e2518ca
         
           
           if (this.show == true) {
@@ -205,8 +176,4 @@
         drop1.update();
         drop2.update();
         drop3.update();
-<<<<<<< HEAD
-  
-=======
->>>>>>> 132e851ce607c2e23f6030504e2468557e2518ca
       }

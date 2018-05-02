@@ -84,8 +84,8 @@ li > a:hover{
       
 canvas {        
     display: block;
-    width: 1920px;
-    height: 1080px;
+    width: 375px;
+    height: 400px;
     border-top: 5px solid black;
     border-bottom: 5px solid black;
     z-index: -1;
