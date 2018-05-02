@@ -44,7 +44,6 @@ $(document).ready(function(){
 //Function for the new game button
 $(document).ready(function(){
     $("#newGame").click(function(){
-        $("#newGame").css("cursor", "pointer");
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -56,6 +55,7 @@ $(document).ready(function(){
         resetProgBar();
     });
     //function for the back button on the about and highscores pages
+  $(".back").css("cursor", "pointer");
   $(".back").click(function(){
         document.getElementById("about").style.display = "none";
         document.getElementById("scores").style.display = "none";
