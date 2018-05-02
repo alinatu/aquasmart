@@ -137,7 +137,7 @@ canvas {
     
     position: relative;
     display: block;
-    width: 70%;
+    width: 300px;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
@@ -148,6 +148,7 @@ canvas {
 	font-size: 14pt;
 	border-radius: 10px;
     border: none;
+    margin-bottom: 3%;
 }
 
 #login button {
