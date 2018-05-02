@@ -120,14 +120,7 @@ canvas {
     float: left;
 }
       
-#waterLevel {
-    margin-top: 1.3%;
-    display: block;
-    float: right;
-    margin-right: 10%;
-    clear: none;
-    width: 5%;
-}
+
 
 #aboutdiv {
   float: right;
@@ -208,4 +201,19 @@ text-align: center;
 
 #scoresDiv {
     float: left;
+}
+#guy {
+  float: left;
+  background-color: #bff2f0;
+  border: none;
+}
+#guy img {
+  width: 40px;
+}
+.progress {
+  width: 80%;
+  float: right;
+}
+#inner {
+  background-color: #0baef4;
 }
