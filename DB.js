@@ -1,6 +1,6 @@
 //function for the highscores button
 $(document).ready(function(){
-    $("#scoresDiv").click(function(e){
+    $("#highscores").click(function(e){
         document.getElementById("about").style.display = "none";
         document.getElementById("login").style.display = "none";
         document.getElementById("scores").style.display = "block";
@@ -43,6 +43,6 @@ $(document).ready(function(){
 function addPlayer($playerName) {
     console.log("Adding record to DB with Player Name: " + $playerName);
     $.ajax({
-        
+
     });
 }
