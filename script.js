@@ -114,10 +114,3 @@ function validCityLength(s) {
 function validNameLength(s) {
     return s.length > 0 && s.length <= 20;
 }
-
-      
-/*
-function hasSpecial(s) {
-    return /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(s);
-}
-*/
