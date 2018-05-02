@@ -43,6 +43,7 @@ $(document).ready(function(){
 //Function for the new game button
 $(document).ready(function(){
     $("#newGameDiv").click(function(){
+        $("#newGameDiv").css("cursor", "pointer");
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";

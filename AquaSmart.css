@@ -53,15 +53,6 @@ body {
     text-align: center;  
 }
 
-ul {
-    list-style: none;
-}
-
-li{
-  font-weight: bold;
-  
-}
-      
 li > a {
     display: block;
     color: #000c47;
@@ -123,7 +114,7 @@ canvas {
       
 
 
-#aboutdiv {
+#aboutlink {
   float: right;
 }
 
@@ -147,6 +138,7 @@ canvas {
 	font-size: 14pt;
 	border-radius: 10px;
     border: none;
+
     width: 90%;
     margin-bottom: 3%;
 }
@@ -204,8 +196,12 @@ text-align: center;
     clear: left;
 }
 
-#scoresDiv {
+#highscores {
     float: left;
+}
+
+#newGame {
+    float:left;
 }
 #guy {
   float: left;
@@ -223,4 +219,8 @@ text-align: center;
 }
 #inner {
   background-color: #0baef4;
+}
+
+a:hover {
+    text-decoration: unset;
 }
