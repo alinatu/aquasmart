@@ -4,7 +4,7 @@
     $servername = "localhost";
     $dblogin = "root";
     $password = "";
-    $dbname = "scores";
+    $dbname = "aquasmart";
 
     $data = array("status" => "fail", "msg" => "on $methodType");
 
@@ -17,13 +17,18 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM highscores ORDER BY user_score DESC";
+                $sqlPlayer = "SELECT * FROM player ORDER BY user_score DESC";
 
-                $statement = $conn->prepare($sql);
-                $statement->execute();
-                $count = $statement->rowCount();
-
-                $data = array("status" => "success", "high" => $statement->fetchAll(PDO::FETCH_ASSOC));
+                $statementPlayer = $conn->prepare($sqlPlayer);
+                $statementPlayer->execute();
+                $count = $statementPlayer->rowCount();
+                /*
+                $sqlScore = "SELECT * FROM scores ORDER BY user_score DESC";
+                $statementScore = $conn->prepare($sqlScore);
+                $statementScore->execute();
+                $count2 = $statementScore->rowCount();
+                */
+                $data = array("status" => "success", "players" => $statementPlayer->fetchAll(PDO::FETCH_ASSOC));//, "scores" => $statementScore->fetchAll(PDO::FETCH_ASSOC));
             } catch (PDOEXception $e) {
                 $data = array("error", $e->getMessage());
             }
@@ -45,4 +50,49 @@
 } else {
     echo $data;
 }
+/*
+class DB {
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $dbname = "scores";
+
+    //connect to DB
+    public function connect() {
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        return;
+    }
+
+    //Insert into DB
+    //Att: make sure table is created
+    public function InsertPlayer($userName) {
+        $sql = "INSERT INTO player (user_name) VALUES (\"$userName\")";
+        $result = $this->conn->query($sql);
+        if ($result == true) {
+        }
+    }
+
+    //Read from DB
+    public function listPlayers() {
+        $sql = "SELECT * FROM player ORDER BY user_ID ASC";
+        $result = $this->conn->query($sql);
+        $data = array("status" => "success", "high" => $result->fetch_assoc());
+        echo $data->num_rows;
+        if ($data->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+            }
+        } else {
+            echo "No results :: Test";
+        }
+    }
+
+    public function disconnect() {
+        $this->conn->close();
+    }
+}
+
+$obj = new DB();
+$obj->connect();
+$obj->listPlayers();
+*/
 ?>
