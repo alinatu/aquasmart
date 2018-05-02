@@ -9,6 +9,7 @@ body {
     background-color: #bff2f0;
     color: #000c47;
     font-family: "IBM Plex Sans";
+    font-size: 13pt;
 }
       
 #menu {
@@ -52,15 +53,6 @@ body {
     text-align: center;  
 }
 
-ul {
-    list-style: none;
-}
-
-li{
-  font-weight: bold;
-  
-}
-      
 li > a {
     display: block;
     color: #000c47;
@@ -85,9 +77,9 @@ li > a:hover{
 }
       
 #gamediv {
-    height: 500px;
+    height: 550px;
     z-index: -1;
-    margin-top: -100px;
+    margin-top: -180px;
 }
       
 canvas {        
@@ -102,7 +94,7 @@ canvas {
       
 #bottomdiv {
     bottom: 0;
-    height: 50px;
+    height: 9%;
     position: fixed;
     width: 100%;
     background-color: #ebf0f9;
@@ -122,29 +114,33 @@ canvas {
       
 
 
-#aboutdiv {
+#aboutlink {
   float: right;
 }
 
 
 #login {
     margin: 0 auto;
-    border: 3px solid #000c47;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
     text-align: center;
     top: 150px;
-    line-height: 25px;
     position: relative;
     display: block;
-    width: 50%;
+    width: 300px;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
+    padding: 8px;
 }
 
 #login input {
 	font-size: 14pt;
 	border-radius: 10px;
-	border: 0;
+    border: none;
+
+    width: 90%;
+    margin-bottom: 3%;
 }
 
 #login button {
@@ -187,7 +183,8 @@ text-align: center;
 
 #scores {
     margin: 0 auto;
-    border: 3px solid #000c47;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
     text-align: center;
     top: 150px;
     line-height: 25px;
@@ -199,21 +196,31 @@ text-align: center;
     clear: left;
 }
 
-#scoresDiv {
+#highscores {
     float: left;
+}
+
+#newGame {
+    float:left;
 }
 #guy {
   float: left;
   background-color: #bff2f0;
-  border: none;
-}
-#guy img {
-  width: 40px;
+  padding: 0;
+  border: 0;
+
 }
 .progress {
   width: 80%;
   float: right;
+  margin-right: 2%;
+  padding: 0;
+  margin-top: 2%;
 }
 #inner {
   background-color: #0baef4;
+}
+
+a:hover {
+    text-decoration: unset;
 }
