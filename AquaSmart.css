@@ -51,19 +51,7 @@ body {
     text-align: center;  
 }
 
-ul {
-    list-style: none;
-}
 
-li{
-  font-weight: bold;
-  
-}
-
-a {
-    cursor: pointer;
-}
-      
 li > a {
     display: block;
     color: #000c47;
@@ -105,8 +93,9 @@ canvas {
 }
       
 #bottomdiv {
+    text-align: center;
     bottom: 0;
-    height: 9%;
+    height: 5%;
     position: fixed;
     width: 100%;
     background-color: #ebf0f9;
@@ -116,19 +105,13 @@ canvas {
     width: 20%;      
 }
       
-#bottombar {
-    float: left;
-}
+
       
 #bottombar > li {
     float: left;
 }
       
 
-
-#aboutdiv {
-  float: right;
-}
 
 
 #login {
@@ -150,6 +133,7 @@ canvas {
 	font-size: 14pt;
 	border-radius: 10px;
     border: none;
+
     width: 90%;
     margin-bottom: 3%;
 }
@@ -189,7 +173,7 @@ text-align: center;
 }
 #picsOfUs img {
 	width: 30%;
-	height: auto;
+    height: auto;
 }
 
 #scores {
@@ -207,8 +191,13 @@ text-align: center;
     clear: left;
 }
 
-#scoresDiv {
+
+#newGame {
     float: left;
+}
+
+#aboutlink {
+   float: right;
 }
 #guy {
   float: left;
@@ -226,4 +215,13 @@ text-align: center;
 }
 #inner {
   background-color: #0baef4;
+}
+
+a:hover {
+    text-decoration: unset;
+    color: #66ff99;
+}
+
+a {
+    color: #0baef4;
 }
