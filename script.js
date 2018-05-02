@@ -5,6 +5,7 @@ var $cityName;
 function myFunction() {
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
+    addPlayer($name);
     if (isString($name) == false || hasNum($name) == true || validNameLength($name) == false) {// || hasSpecial($name) == true) {
         alert ("Invalid Name");
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {

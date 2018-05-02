@@ -39,3 +39,10 @@ $(document).ready(function(){
         });
     });
 });
+
+function addPlayer($playerName) {
+    console.log("Adding record to DB with Player Name: " + $playerName);
+    $.ajax({
+        
+    });
+}

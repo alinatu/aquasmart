@@ -50,6 +50,10 @@
 } else {
     echo $data;
 }
+
+if ($methodType == 'POST') {
+    
+}
 /*
 class DB {
     private $servername = "localhost";
