@@ -1,17 +1,37 @@
-CREATE TABLE highscores (
-    ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE player (
+    user_ID INT NOT NULL AUTO_INCREMENT,
     user_name VARCHAR(30),
     user_score INT,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (user_ID)
 );
 
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 1", 300);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 2", 500);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 3", 550);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 4", 110);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 5", 1120);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 6", 475);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 7", 700);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 8", 950);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 9", 1120);
-INSERT INTO highscores (user_name, user_score) VALUES ("Player 10", 750);
+INSERT INTO player (user_name, user_score) VALUES ("Player 1", 300);
+INSERT INTO player (user_name, user_score) VALUES ("Player 2", 500);
+INSERT INTO player (user_name, user_score) VALUES ("Player 3", 550);
+INSERT INTO player (user_name, user_score) VALUES ("Player 4", 110);
+INSERT INTO player (user_name, user_score) VALUES ("Player 5", 1120);
+INSERT INTO player (user_name, user_score) VALUES ("Player 6", 475);
+INSERT INTO player (user_name, user_score) VALUES ("Player 7", 700);
+INSERT INTO player (user_name, user_score) VALUES ("Player 8", 950);
+INSERT INTO player (user_name, user_score) VALUES ("Player 9", 1120);
+INSERT INTO player (user_name, user_score) VALUES ("Player 10", 750);
+
+/*CREATE TABLE scores (
+    ID INT NOT NULL AUTO_INCREMENT,
+    user_score INT,
+    user_ID INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (user_ID) REFERENCES player(user_ID)
+);
+
+INSERT INTO scores (user_score, user_ID) VALUES (300, 1);
+INSERT INTO scores (user_score, user_ID) VALUES (500, 2);
+INSERT INTO scores (user_score, user_ID) VALUES (550, 3);
+INSERT INTO scores (user_score, user_ID) VALUES (110, 4);
+INSERT INTO scores (user_score, user_ID) VALUES (1120, 5);
+INSERT INTO scores (user_score, user_ID) VALUES (475, 6);
+INSERT INTO scores (user_score, user_ID) VALUES (700, 7);
+INSERT INTO scores (user_score, user_ID) VALUES (950, 8);
+INSERT INTO scores (user_score, user_ID) VALUES (1120, 9);
+INSERT INTO scores (user_score, user_ID) VALUES (750, 10);
+*/
