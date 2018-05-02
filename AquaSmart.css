@@ -205,7 +205,9 @@ text-align: center;
 #guy {
   float: left;
   background-color: #bff2f0;
-  border: none;
+  padding: 0;
+  border: 0;
+
 }
 #guy img {
   width: 40px;
@@ -213,6 +215,8 @@ text-align: center;
 .progress {
   width: 80%;
   float: right;
+  padding: 0;
+  margin-top: 2%;
 }
 #inner {
   background-color: #0baef4;
