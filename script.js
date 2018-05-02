@@ -19,13 +19,18 @@ function myFunction() {
 }
 
 //Function fot the progressBar 
-$(document).ready(function(){
+$(function() {
     $level = 100;
     $("#guy").click(function(){
         $level = $level - 10;
         $(".progress-bar").width($level + '%');
     });
 });
+
+function resetProgBar() {
+    $level = 100;
+    $(".progress-bar").width($level + '%');
+}
 //Function for the About button
 $(document).ready(function(){
   $("#aboutdiv").click(function(){
@@ -46,7 +51,7 @@ $(document).ready(function(){
         document.getElementById("userName").innerHTML = "";
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
-        $(".progress-bar").width(100 + '%');
+        resetProgBar();
     });
     //function for the back button on the about and highscores pages
   $(".back").click(function(){
