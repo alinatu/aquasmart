@@ -1,6 +1,6 @@
 var $name;
 var $cityName;
-var $waterLevel = "<img src='images/waterdrop.png' alt='water'>";
+
 //function for the Play arrow button
 function myFunction() {
     $name = document.getElementById("name").value;
@@ -12,7 +12,7 @@ function myFunction() {
     } else {
         document.getElementById("userName").innerHTML = "Mayor " + $name;
         document.getElementById("userCity").innerHTML = $cityName;
-        document.getElementById("waterLevel").innerHTML = $waterLevel;
+       
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
     }
@@ -40,7 +40,7 @@ $(document).ready(function(){
         document.getElementById("login").style.display = "block";
         document.getElementById("userCity").innerHTML = "";
         document.getElementById("userName").innerHTML = "";
-        document.getElementById("waterLevel").innerHTML = "";
+
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
     });
@@ -53,7 +53,7 @@ $(document).ready(function(){
         document.getElementById("login").style.display = "block";
         document.getElementById("userCity").innerHTML = "";
         document.getElementById("userName").innerHTML = "";
-        document.getElementById("waterLevel").innerHTML = "";
+     
         document.getElementById("scoreList").innerHTML = "";
         document.getElementById("setNames").reset();
     });
