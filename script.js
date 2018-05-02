@@ -19,6 +19,11 @@ function myFunction() {
 }
 //Function for the About button
 $(document).ready(function(){
+    $level = 100;
+            $("#guy").click(function(){
+                $level = $level - 10;
+                $(".progress-bar").width($level + '%');
+            });
   $("#aboutdiv").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";

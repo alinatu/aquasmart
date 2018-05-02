@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width = device-width, initial-scale = 1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            #outer {
+                border: solid black;
+                height: 100px;
+                width: 40px;
+            }
+            #inner {
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <div class="progress">
+            <div id="inner" class="progress-bar" role="progressbar" style="width: 100%"></div>
+          </div>
+    <button id="guy">click</button>
+    <script language="JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $level = 100;
+            $("#guy").click(function(){
+                $level = $level - 10;
+                $(".progress-bar").width($level + '%');
+            });
+        });
+    </script>
+</html>
