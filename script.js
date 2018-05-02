@@ -5,6 +5,7 @@ var $cityName;
 function myFunction() {
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
+    addPlayer($name);
     if (isString($name) == false || hasNum($name) == true || validNameLength($name) == false) {// || hasSpecial($name) == true) {
         alert ("Invalid Name");
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {
@@ -19,16 +20,21 @@ function myFunction() {
 }
 
 //Function fot the progressBar 
-$(document).ready(function(){
+$(function() {
     $level = 100;
     $("#guy").click(function(){
         $level = $level - 10;
         $(".progress-bar").width($level + '%');
     });
 });
+
+function resetProgBar() {
+    $level = 100;
+    $(".progress-bar").width($level + '%');
+}
 //Function for the About button
 $(document).ready(function(){
-  $("#aboutdiv").click(function(){
+  $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
@@ -37,7 +43,8 @@ $(document).ready(function(){
 });
 //Function for the new game button
 $(document).ready(function(){
-    $("#newGameDiv").click(function(){
+    $("#newGame").click(function(){
+        $("#newGame").css("cursor", "pointer");
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -46,7 +53,7 @@ $(document).ready(function(){
         document.getElementById("userName").innerHTML = "";
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
-        $(".progress-bar").width(100 + '%');
+        resetProgBar();
     });
     //function for the back button on the about and highscores pages
   $(".back").click(function(){
@@ -60,39 +67,6 @@ $(document).ready(function(){
      
         document.getElementById("scoreList").innerHTML = "";
         document.getElementById("setNames").reset();
-    });
-    //function for the highscores button
-    $("#scoresDiv").click(function(e){
-        document.getElementById("about").style.display = "none";
-        document.getElementById("login").style.display = "none";
-        document.getElementById("scores").style.display = "block";
-        document.getElementById("gamediv").style.display = "none";
-        document.getElementById("scoreList").innerHTML = "";
-        e.preventDefault();
-        console.log("Clicked for JSON");
-
-        $.ajax({
-            url: "./DB/getGlobalScores.php",
-            dataType: "json",
-            type: "GET",
-            data: {output: 'json', },
-            success: function(data) {
-                console.log(data);
-                var highest = data['high'];
-
-                var listData = "<table><th>Player Name</th><th>Score</th></tr>";
-                for (var i in highest) {
-                    var highscore = highest[i];
-                    listData += "<tr><td>" + highscore['user_name'] + "</td><td>" + highscore['user_score'] + "</td></tr>";
-                }
-                listData += "</table>";
-                $("#scoreList").append(listData);
-                listData = "";
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $("#scores").text(textStatus + " " + errorThrown + jqXHR.responseText);
-            }
-        });
     });
 });
 //series of functions for checking the names entered are valid
@@ -108,10 +82,3 @@ function validCityLength(s) {
 function validNameLength(s) {
     return s.length > 0 && s.length <= 20;
 }
-
-      
-/*
-function hasSpecial(s) {
-    return /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(s);
-}
-*/

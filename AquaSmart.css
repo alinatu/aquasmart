@@ -9,11 +9,13 @@ body {
     background-color: #bff2f0;
     color: #000c47;
     font-family: "IBM Plex Sans";
+    font-size: 13pt;
 }
       
 #menu {
+    margin-top: -10px;
     width: 100%;
-    height: 80px;
+    height: 70px;
     background: #ebf0f9;
 }
       
@@ -45,22 +47,11 @@ body {
     list-style: none;
     float: left;
     margin-left: -20%;
-}
-      
-#cityname {
     line-height: 80px;
     text-align: center;  
 }
 
-ul {
-    list-style: none;
-}
 
-li{
-  font-weight: bold;
-  
-}
-      
 li > a {
     display: block;
     color: #000c47;
@@ -77,6 +68,7 @@ li > a:hover{
     margin-left: 2%;
     line-height: 110px;
     width: 30%;
+    margin-top: -8px;
     float: left; 
 }
       
@@ -85,15 +77,15 @@ li > a:hover{
 }
       
 #gamediv {
-    height: 500px;
+    height: 550px;
     z-index: -1;
-    margin-top: -100px;
+    margin-top: -180px;
 }
       
 canvas {        
     display: block;
-    width: 100%;
-    /*height: 100%;*/
+    width: 1920px;
+    height: 1080px;
     border-top: 5px solid black;
     border-bottom: 5px solid black;
     z-index: -1;
@@ -101,50 +93,47 @@ canvas {
 }
       
 #bottomdiv {
+    text-align: center;
     bottom: 0;
-    height: 50px;
+    height: 5%;
     position: fixed;
     width: 100%;
     background-color: #ebf0f9;
+    text-align: center;
 } 
-      
-#bottomdiv > img {
-    width: 20%;      
-}
-      
-#bottombar {
-    float: left;
-}
-      
-#bottombar > li {
-    float: left;
-}
-      
 
 
-#aboutdiv {
-  float: right;
+#newGame{
+    float:left;
+  
 }
 
+#aboutlink {
+    float: right;
+}
 
 #login {
     margin: 0 auto;
-    border: 3px solid #000c47;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
     text-align: center;
     top: 150px;
-    line-height: 25px;
     position: relative;
     display: block;
-    width: 50%;
+    width: 300px;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
+    padding: 8px;
 }
 
 #login input {
 	font-size: 14pt;
 	border-radius: 10px;
-	border: 0;
+    border: none;
+
+    width: 90%;
+    margin-bottom: 3%;
 }
 
 #login button {
@@ -182,12 +171,13 @@ text-align: center;
 }
 #picsOfUs img {
 	width: 30%;
-	height: auto;
+    height: auto;
 }
 
 #scores {
     margin: 0 auto;
-    border: 3px solid #000c47;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
     text-align: center;
     top: 150px;
     line-height: 25px;
@@ -199,21 +189,31 @@ text-align: center;
     clear: left;
 }
 
-#scoresDiv {
-    float: left;
-}
+
 #guy {
   float: left;
   background-color: #bff2f0;
-  border: none;
-}
-#guy img {
-  width: 40px;
+  padding: 0;
+  border: 0;
+
 }
 .progress {
   width: 80%;
   float: right;
+  margin-right: 2%;
+  padding: 0;
+  margin-top: 2%;
 }
 #inner {
   background-color: #0baef4;
+}
+
+a:hover {
+    text-decoration: unset;
+    color: #66ff99;
+
+}
+
+a {
+    color: #0baef4;
 }
