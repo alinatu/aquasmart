@@ -2,9 +2,9 @@
       var myGamePiece;
       function startGame() {
         myGameArea.start();
-        gameMap = new component(1920, 1080, "images/Map.png", 0, 0, "image");
-        district1 = new component(439, 267, "images/District1Redone.png", 250, 235, "image");
-        paint1 = new toggleComponent(439, 267, "images/paintstroke.png", 250, 235, false);
+        gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
+        district1 = new component(75, 75, "images/District1Redone.png", 75, 75, "image");
+        paint1 = new toggleComponent(75, 75, "images/paintstroke.png", 75, 75, false);
         
         district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
         paint2 = new toggleComponent(434, 311, "images/paintstroke.png", 590, 450, false);
@@ -16,7 +16,7 @@
         drop2 = new toggleComponent(50, 50, "images/waterdrop.png", 590, 450, false);
         drop3 = new toggleComponent(50, 50, "images/waterdrop.png", 1300, 300, false);
       }
-
+      
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
@@ -25,11 +25,7 @@
           this.context = this.canvas.getContext("2d");
           this.canvas.setAttribute("id", "map");
           this.canvas.addEventListener('mousedown', onDown, false);
-          this.canvas.addEventListener('mousemove', function(event) {
-            var mousePos = getMousePos(myGameArea.canvas, event);
-            var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
-            console.log(mousePos.x + ", " + mousePos.y);
-          }, false);
+          this.canvas.addEventListener('mousemove', mouseHover, false);
           document.getElementById("gamediv").appendChild(this.canvas);
           this.interval = setInterval(updateGameArea, 1000);
           
@@ -52,13 +48,24 @@
         cy = event.pageY;
       }
       
-      function debugMessage(canvas, message) {
+      function mouseHover() {
+          var mousePos = getMousePos(myGameArea.canvas, event);
+          var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
+          console.log(mousePos.x + ", " + mousePos.y);
+          if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
+              && mousePos.y > district1.y && mousePos.y < district1.y + district1.height) {
+            paint1.show = true;
+          } else {
+            paint1.show = false;
+          }
+      }
+      /* function debugMessage(canvas, message) {
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.font = '18pt Calibri';
         context.fillStyle = 'black';
         context.fillText(message, 10, 25);
-      }
+      } */
 
       var option = {
         name: "Option Name",
@@ -114,13 +121,13 @@
         
         this.update = function() {
           ctx = myGameArea.context;
-          var x = Math.floor((Math.random() * 2) + 1);
+          /* var x = Math.floor((Math.random() * 2) + 1); */
           
-          if(x == 1){
+          /* if(x == 1){
             this.show = true;   
           } else {
             this.show = false;
-          }
+          } */
         
           
           if (this.show == true) {
@@ -152,5 +159,4 @@
         drop1.update();
         drop2.update();
         drop3.update();
-        
       }
