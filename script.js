@@ -33,7 +33,7 @@ function resetProgBar() {
 }
 //Function for the About button
 $(document).ready(function(){
-  $("#aboutdiv").click(function(){
+  $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
@@ -42,8 +42,8 @@ $(document).ready(function(){
 });
 //Function for the new game button
 $(document).ready(function(){
-    $("#newGameDiv").click(function(){
-        $("#newGameDiv").css("cursor", "pointer");
+    $("#newGame").click(function(){
+        $("#newGame").css("cursor", "pointer");
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -68,7 +68,7 @@ $(document).ready(function(){
         document.getElementById("setNames").reset();
     });
     //function for the highscores button
-    $("#scoresDiv").click(function(e){
+    $("#highscores").click(function(e){
         document.getElementById("about").style.display = "none";
         document.getElementById("login").style.display = "none";
         document.getElementById("scores").style.display = "block";
