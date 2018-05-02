@@ -2,9 +2,9 @@
       var myGamePiece;
       function startGame() {
         myGameArea.start();
-        gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
-        district1 = new component(75, 75, "images/District1Redone.png", 75, 75, "image");
-        paint1 = new toggleComponent(75, 75, "images/paintstroke.png", 75, 75, false);
+        gameMap = new component(1920, 1080, "images/Map.png", 0, 0, "image");
+        district1 = new component(439, 267, "images/District1Redone.png", 250, 230, "image");
+        paint1 = new toggleComponent(439, 267, "images/paintstroke.png", 250, 230, false);
         
         district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
         paint2 = new toggleComponent(434, 311, "images/paintstroke.png", 590, 450, false);
