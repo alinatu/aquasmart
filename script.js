@@ -34,7 +34,7 @@ function resetProgBar() {
 }
 //Function for the About button
 $(document).ready(function(){
-  $("#aboutdiv").click(function(){
+  $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
@@ -43,8 +43,8 @@ $(document).ready(function(){
 });
 //Function for the new game button
 $(document).ready(function(){
-    $("#newGameDiv").click(function(){
-        $("#newGameDiv").css("cursor", "pointer");
+    $("#newGame").click(function(){
+        $("#newGame").css("cursor", "pointer");
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -68,6 +68,39 @@ $(document).ready(function(){
         document.getElementById("scoreList").innerHTML = "";
         document.getElementById("setNames").reset();
     });
+    //function for the highscores button
+    $("#highscores").click(function(e){
+        document.getElementById("about").style.display = "none";
+        document.getElementById("login").style.display = "none";
+        document.getElementById("scores").style.display = "block";
+        document.getElementById("gamediv").style.display = "none";
+        document.getElementById("scoreList").innerHTML = "";
+        e.preventDefault();
+        console.log("Clicked for JSON");
+
+        $.ajax({
+            url: "./DB/getGlobalScores.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json', },
+            success: function(data) {
+                console.log(data);
+                var highest = data['high'];
+
+                var listData = "<table><th>Player Name</th><th>Score</th></tr>";
+                for (var i in highest) {
+                    var highscore = highest[i];
+                    listData += "<tr><td>" + highscore['user_name'] + "</td><td>" + highscore['user_score'] + "</td></tr>";
+                }
+                listData += "</table>";
+                $("#scoreList").append(listData);
+                listData = "";
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                $("#scores").text(textStatus + " " + errorThrown + jqXHR.responseText);
+            }
+        });
+    });
 });
 //series of functions for checking the names entered are valid
 function isString(s) {
@@ -82,10 +115,3 @@ function validCityLength(s) {
 function validNameLength(s) {
     return s.length > 0 && s.length <= 20;
 }
-
-      
-/*
-function hasSpecial(s) {
-    return /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(s);
-}
-*/
