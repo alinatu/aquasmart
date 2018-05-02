@@ -13,8 +13,9 @@ body {
 }
       
 #menu {
+    margin-top: -10px;
     width: 100%;
-    height: 80px;
+    height: 70px;
     background: #ebf0f9;
 }
       
@@ -46,9 +47,6 @@ body {
     list-style: none;
     float: left;
     margin-left: -20%;
-}
-      
-#cityname {
     line-height: 80px;
     text-align: center;  
 }
@@ -60,6 +58,10 @@ ul {
 li{
   font-weight: bold;
   
+}
+
+a {
+    cursor: pointer;
 }
       
 li > a {
@@ -78,6 +80,7 @@ li > a:hover{
     margin-left: 2%;
     line-height: 110px;
     width: 30%;
+    margin-top: -8px;
     float: left; 
 }
       
