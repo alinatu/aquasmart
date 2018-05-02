@@ -148,6 +148,7 @@ canvas {
 	border-radius: 10px;
     border: none;
     width: 90%;
+    margin-bottom: 3%;
 }
 
 #login button {
