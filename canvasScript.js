@@ -29,6 +29,10 @@
             var mousePos = getMousePos(myGameArea.canvas, event);
             var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
             console.log(mousePos.x + ", " + mousePos.y);
+            if (center1.x - 250 > mousePos.x < center1.x + 250 && center1.y - 250 > mousePos.y < center1.y + 250){
+              alert("YES");
+            }
+            
           }, false);
           document.getElementById("gamediv").appendChild(this.canvas);
           this.interval = setInterval(updateGameArea, 1000);
@@ -52,14 +56,30 @@
         cy = event.pageY;
       }
       
-      function debugMessage(canvas, message) {
+     /* function debugMessage(canvas, message) {
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.font = '18pt Calibri';
         context.fillStyle = 'black';
         context.fillText(message, 10, 25);
-      }
+      }*/
 
+      var center1 = {
+        x: 437,
+        y: 343
+      };
+      var center2 = {
+        x: 770,
+        y: 587
+      };
+      var center3 = {
+        x: 1470,
+        y: 473
+      };
+
+      
+      
+      
       var option = {
         name: "Option Name",
         desc : "Option Description",
@@ -99,6 +119,8 @@
         } 
       }
 
+      
+
       function toggleComponent(width, height, image, x, y, show) {
         this.image = new Image();
         this.image.src = image;
@@ -114,13 +136,13 @@
         
         this.update = function() {
           ctx = myGameArea.context;
-          var x = Math.floor((Math.random() * 2) + 1);
+          /*var x = Math.floor((Math.random() * 2) + 1);
           
           if(x == 1){
             this.show = true;   
           } else {
             this.show = false;
-          }
+          }*/
         
           
           if (this.show == true) {
@@ -152,5 +174,5 @@
         drop1.update();
         drop2.update();
         drop3.update();
-        
+  
       }
