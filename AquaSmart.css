@@ -99,20 +99,18 @@ canvas {
     position: fixed;
     width: 100%;
     background-color: #ebf0f9;
+    text-align: center;
 } 
-      
-#bottomdiv > img {
-    width: 20%;      
+
+
+#newGame{
+    float:left;
+  
 }
-      
 
-      
-#bottombar > li {
-    float: left;
+#aboutlink {
+    float: right;
 }
-      
-
-
 
 #login {
     margin: 0 auto;
@@ -192,13 +190,6 @@ text-align: center;
 }
 
 
-#newGame {
-    float: left;
-}
-
-#aboutlink {
-   float: right;
-}
 #guy {
   float: left;
   background-color: #bff2f0;
@@ -220,6 +211,7 @@ text-align: center;
 a:hover {
     text-decoration: unset;
     color: #66ff99;
+
 }
 
 a {
