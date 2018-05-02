@@ -17,13 +17,17 @@ function myFunction() {
         document.getElementById("login").style.display = "none";
     }
 }
-//Function for the About button
+
+//Function fot the progressBar 
 $(document).ready(function(){
     $level = 100;
-            $("#guy").click(function(){
-                $level = $level - 10;
-                $(".progress-bar").width($level + '%');
-            });
+    $("#guy").click(function(){
+        $level = $level - 10;
+        $(".progress-bar").width($level + '%');
+    });
+});
+//Function for the About button
+$(document).ready(function(){
   $("#aboutdiv").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
@@ -40,9 +44,9 @@ $(document).ready(function(){
         document.getElementById("login").style.display = "block";
         document.getElementById("userCity").innerHTML = "";
         document.getElementById("userName").innerHTML = "";
-
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
+        $(".progress-bar").width(100 + '%');
     });
     //function for the back button on the about and highscores pages
   $(".back").click(function(){
