@@ -76,15 +76,18 @@ li > a:hover{
     width: 100%;
 }
       
-#gamediv {    
+#gamediv {
+    width: 100%;
     z-index: -1;
-    margin-top: -180px;
+    margin: 0 auto;
+    margin-top: -170px;
 }
       
 canvas {        
+    margin: 0 auto;
     display: block;
     width: 100%;
-    height: 100%;
+    height:100%;
     border-top: 5px solid black;
     border-bottom: 5px solid black;
     z-index: -1;
@@ -112,12 +115,12 @@ canvas {
 }
 
 #login {
-    margin: 0 auto;
     border: 10px solid #d4d9e9;
+    position: relative;
+    margin: 0 auto;
+    top: 110px;
     border-radius: 20px;
     text-align: center;
-    top: 150px;
-    position: relative;
     display: block;
     width: 300px;
     background-color: #ebf0f9;
@@ -169,15 +172,15 @@ canvas {
 #option {
     display: none;
     margin: 0 auto;
-    border: 3px solid #000c47;
-    line-height: 25px;
-    position: relative;
-    width: 30%;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%,50%);
+    width: 300px;
     background-color: #ebf0f9;
     z-index: 1;
-    clear: left;
-    min-height: 100px;
-    min-width: 100px;
 }
 #picsOfUs {
 text-align: center;
@@ -192,7 +195,6 @@ text-align: center;
     border: 10px solid #d4d9e9;
     border-radius: 20px;
     text-align: center;
-    top: 150px;
     line-height: 25px;
     position: relative;
     display: none;
@@ -200,6 +202,7 @@ text-align: center;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
+    height: 450px;
 }
 
 
