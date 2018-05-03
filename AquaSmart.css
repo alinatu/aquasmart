@@ -79,10 +79,14 @@ li > a:hover{
 #gamediv {
     height: 450px;
     z-index: -1;
-    margin-top: -180px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+    position: absolute;
 }
       
 canvas {        
+    margin: 0 auto;
     display: block;
     width: 375px;
     height: 400px;
@@ -113,12 +117,12 @@ canvas {
 }
 
 #login {
-    margin: 0 auto;
     border: 10px solid #d4d9e9;
+    margin: 130px 0 0 36px;
     border-radius: 20px;
     text-align: center;
-    top: 150px;
-    position: relative;
+    position: absolute;
+    top: 110px;
     display: block;
     width: 300px;
     background-color: #ebf0f9;
@@ -169,16 +173,13 @@ canvas {
 }
 #option {
     display: none;
-    margin: 0 auto;
-    border: 3px solid #000c47;
-    line-height: 25px;
-    position: relative;
-    width: 100%;
+    margin: 120px 0 0 36px;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
+    position: absolute;
+    width: 300px;
     background-color: #ebf0f9;
     z-index: 1;
-    clear: left;
-    min-height: 100px;
-    min-width: 100px;
 }
 #picsOfUs {
 text-align: center;
