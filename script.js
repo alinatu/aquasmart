@@ -68,6 +68,9 @@ $(document).ready(function(){
         document.getElementById("scoreList").innerHTML = "";
         document.getElementById("setNames").reset();
     });
+    $("#optionExit").click(function(){
+        $("#option").css("display", "none");
+    });
 });
 //series of functions for checking the names entered are valid
 function isString(s) {

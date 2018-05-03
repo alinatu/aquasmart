@@ -165,7 +165,19 @@ canvas {
 #about h2 {
   text-align: center;
 }
-
+#option {
+    display: none;
+    margin: 0 auto;
+    border: 3px solid #000c47;
+    line-height: 25px;
+    position: relative;
+    width: 100%;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+    min-height: 100px;
+    min-width: 100px;
+}
 #picsOfUs {
 text-align: center;
 }
