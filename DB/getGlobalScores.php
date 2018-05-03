@@ -2,8 +2,8 @@
     $methodType = $_SERVER['REQUEST_METHOD'];
  
      $servername = "localhost";
-     $dblogin = "root";
-     $password = "";
+     $dblogin = "aqsmrt";
+     $password = "!@Aquors!@";
      $dbname = "aquasmart";
  
      $data = array("status" => "fail", "msg" => "on $methodType");
