@@ -44,6 +44,7 @@ $(document).ready(function(){
 function addPlayer($playerName) {
     var postPlayer = {"user_name" : $playerName, "user_score" : 0};
     console.log("Adding record to DB with Player Name: " + $playerName);
+    console.log(postPlayer);
     $.ajax({
         url: "./DB/postGlobalScores.php",
         dataType: "json",
@@ -56,6 +57,10 @@ function addPlayer($playerName) {
                 listData += key + ":" + data[key] + " ";
             }
             console.log(listData);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.statusText);
+            console.log("Test");
         }
     });
 }
