@@ -15,7 +15,7 @@
              try {
                  $conn =  new PDO("mysql:host=$servername;dbname=$dbname", $dblogin, $password);
  
-                 $conn >setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
                  $sqlPlayer = "SELECT * FROM player ORDER BY user_score DESC";
  
