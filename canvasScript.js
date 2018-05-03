@@ -1,6 +1,8 @@
 /* Canvas Setup */
       var myGamePiece;
       function startGame() {
+        myGameArea.start();
+        
         gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
         district1 = new component(100, 100, "images/District1Redone.png", 65, 100, "image");
         paint1 = new toggleComponent(100, 100, "images/paintstroke.png", 65, 100, false);
