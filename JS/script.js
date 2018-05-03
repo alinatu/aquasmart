@@ -53,6 +53,7 @@ $(document).ready(function(){
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
         resetProgBar();
+        $("#option").css("display", "none");
     });
     //function for the back button on the about and highscores pages
   $(".back").css("cursor", "pointer");

@@ -5,6 +5,7 @@ $(document).ready(function(){
         document.getElementById("login").style.display = "none";
         document.getElementById("scores").style.display = "block";
         document.getElementById("gamediv").style.display = "none";
+        document.getElementById("option").style.display = "none";
         document.getElementById("scoreList").innerHTML = "";
         e.preventDefault();
         console.log("Clicked for JSON");
@@ -41,8 +42,20 @@ $(document).ready(function(){
 });
 
 function addPlayer($playerName) {
+    var postPlayer = {"user_name" : $playerName, "user_score" : 0};
     console.log("Adding record to DB with Player Name: " + $playerName);
     $.ajax({
-        url: ""
+        url: "./DB/postGlobalScores.php",
+        dataType: "json",
+        type: "POST",
+        data: postPlayer,
+        success: function(data) {
+            console.log("Data returned from server: ", data);
+            var listData = "";
+            for (var key in data) {
+                listData += key + ":" + data[key] + " ";
+            }
+            console.log(listData);
+        }
     });
 }
