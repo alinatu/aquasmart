@@ -76,16 +76,15 @@ li > a:hover{
     width: 100%;
 }
       
-#gamediv {
-    height: 450px;
+#gamediv {    
     z-index: -1;
     margin-top: -180px;
 }
       
 canvas {        
     display: block;
-    width: 375px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     border-top: 5px solid black;
     border-bottom: 5px solid black;
     z-index: -1;
@@ -173,7 +172,7 @@ canvas {
     border: 3px solid #000c47;
     line-height: 25px;
     position: relative;
-    width: 100%;
+    width: 30%;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
