@@ -155,13 +155,14 @@ canvas {
 #about {
     display: none;
     margin: 0 auto;
-    border: 3px solid #000c47;
-    line-height: 25px;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
     position: relative;
-    width: 100%;
+    width: 98%;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
+    padding: 0% 3%;
 }
 #about h2 {
   text-align: center;
