@@ -6,7 +6,7 @@ $methodType = $_SERVER['REQUEST_METHOD'];
      $password = "!@Aquors!@";
      $dbname = "playaqua_aquasmart";
  
-     $data = array("status" => "fail", "msg" => "on $methodType");
+     $data = array("msg" => "on $methodType");
 
 if ($methodType === 'POST') {
     foreach ($_POST as $key => $value) {
@@ -23,7 +23,7 @@ if ($methodType === 'POST') {
             $userScore = $_POST["user_score"];
 
             $data = array("msg" => "Player added to scores list with name $userName and score $userScore");
-
+            /*
             try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dblogin, $password);
 
@@ -33,9 +33,11 @@ if ($methodType === 'POST') {
 
                 $statementInsert = $conn->prepare($sqlInsert);
                 $statementInsert->execute();
+
+                $data = array("status" => "success", "")
             } catch (PDOEXCEPTION $e) {
                 $data = array("error", $e->getMessage());
-            }
+            } */
         }
     }
 }
