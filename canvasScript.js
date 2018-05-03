@@ -27,6 +27,7 @@
           this.canvas.setAttribute("id", "map");
           this.canvas.addEventListener('mousedown', onDown, false);
           this.canvas.addEventListener('mousemove', mouseHover, false);
+          this.canvas.addEventListener('click', mouseClick, false);
           document.getElementById("gamediv").appendChild(this.canvas);
           this.interval = setInterval(updateGameArea, 1000);
           
@@ -72,6 +73,23 @@
             paint3.show = false;
           }
       }
+      function mouseClick() {
+        var mousePos = getMousePos(myGameArea.canvas, event);
+        var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
+        console.log(mousePos.x + ", " + mousePos.y);
+        if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
+            && mousePos.y > district1.y && mousePos.y < district1.y + district1.height) {
+            document.getElementById("option").style.display = "block";
+        } 
+        if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
+            && mousePos.y > district2.y && mousePos.y < district2.y + district2.height) {
+              document.getElementById("option").style.display = "block";
+        } 
+        if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
+            && mousePos.y > district3.y && mousePos.y < district3.y + district3.height) {
+              document.getElementById("option").style.display = "block";
+        } 
+    }
       /* function debugMessage(canvas, message) {
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
