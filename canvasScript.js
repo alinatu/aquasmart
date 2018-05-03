@@ -1,16 +1,15 @@
 /* Canvas Setup */
       var myGamePiece;
       function startGame() {
-        myGameArea.start();
-        gameMap = new component(1920, 1080, "images/Map.png", 0, 0, "image");
-        district1 = new component(439, 267, "images/District1Redone.png", 250, 230, "image");
-        paint1 = new toggleComponent(439, 267, "images/paintstroke.png", 250, 230, false);
+        gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
+        district1 = new component(100, 100, "images/District1Redone.png", 65, 100, "image");
+        paint1 = new toggleComponent(100, 100, "images/paintstroke.png", 65, 100, false);
         
-        district2 = new component(434, 311, "images/District2.png", 590, 450, "image");
-        paint2 = new toggleComponent(434, 311, "images/paintstroke.png", 590, 450, false);
+        district2 = new component(100, 100, "images/District2.png", 125, 160, "image");
+        paint2 = new toggleComponent(100, 100, "images/paintstroke.png", 125, 160, false);
         
-        district3 = new component(468, 369, "images/District3.png", 1300, 300, "image");
-        paint3 = new toggleComponent(468, 369, "images/paintstroke.png", 1300, 300, false);
+        district3 = new component(100, 100, "images/District3.png", 250, 125, "image");
+        paint3 = new toggleComponent(100, 100, "images/paintstroke.png", 250, 125, false);
         
         drop1 = new toggleComponent(50, 50, "images/waterdrop.png", 250, 235, false);
         drop2 = new toggleComponent(50, 50, "images/waterdrop.png", 590, 450, false);
@@ -20,8 +19,8 @@
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
-          this.canvas.width = 1920;
-          this.canvas.height = 1080;
+          this.canvas.width = 375;
+          this.canvas.height = 400;
           this.context = this.canvas.getContext("2d");
           this.canvas.setAttribute("id", "map");
           this.canvas.addEventListener('mousedown', onDown, false);
@@ -58,6 +57,18 @@
           } else {
             paint1.show = false;
           }
+          if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
+              && mousePos.y > district2.y && mousePos.y < district2.y + district2.height) {
+            paint2.show = true;
+          } else {
+            paint2.show = false;
+          }
+          if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
+              && mousePos.y > district3.y && mousePos.y < district3.y + district3.height) {
+            paint3.show = true;
+          } else {
+            paint3.show = false;
+          }
       }
       /* function debugMessage(canvas, message) {
         var context = canvas.getContext('2d');
@@ -67,6 +78,9 @@
         context.fillText(message, 10, 25);
       } */
 
+      
+      
+      
       var option = {
         name: "Option Name",
         desc : "Option Description",
@@ -105,6 +119,8 @@
           }
         } 
       }
+
+      
 
       function toggleComponent(width, height, image, x, y, show) {
         this.image = new Image();
