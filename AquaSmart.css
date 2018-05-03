@@ -193,7 +193,6 @@ text-align: center;
     border: 10px solid #d4d9e9;
     border-radius: 20px;
     text-align: center;
-    top: 150px;
     line-height: 25px;
     position: relative;
     display: none;
@@ -201,6 +200,7 @@ text-align: center;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
+    height: 450px;
 }
 
 
