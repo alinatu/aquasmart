@@ -55,7 +55,7 @@ function addPlayer($playerName) {
             for (var key in data) {
                 listData += key + ":" + data[key] + " ";
             }
-
+            console.log(listData);
         }
     });
 }
