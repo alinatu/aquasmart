@@ -1,18 +1,16 @@
-
-
 /* Canvas Setup */
       var myGamePiece;
       function startGame() {
         myGameArea.start();
         gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
-        district1 = new component(100, 100, "images/District1Redone.png", 65, 100, "image");
-        paint1 = new toggleComponent(100, 100, "images/paintstroke.png", 65, 100, false);
+        district1 = new component(100, 80, "images/District1Redone.png", 48, 92, "image");
+        paint1 = new toggleComponent(100, 80, "images/paintstroke.png", 48, 92, false);
         
-        district2 = new component(100, 100, "images/District2.png", 125, 160, "image");
-        paint2 = new toggleComponent(100, 100, "images/paintstroke.png", 125, 160, false);
+        district2 = new component(100, 90, "images/District2.png", 110, 180, "image");
+        paint2 = new toggleComponent(100, 90, "images/paintstroke.png", 110, 180, false);
         
-        district3 = new component(100, 100, "images/District3.png", 250, 125, "image");
-        paint3 = new toggleComponent(100, 100, "images/paintstroke.png", 250, 125, false);
+        district3 = new component(100, 90, "images/District3.png", 250, 140, "image");
+        paint3 = new toggleComponent(100, 90, "images/paintstroke.png", 250, 140, false);
         
         drop1 = new toggleComponent(50, 50, "images/waterdrop.png", 250, 235, false);
         drop2 = new toggleComponent(50, 50, "images/waterdrop.png", 590, 450, false);
@@ -30,7 +28,7 @@
           this.canvas.addEventListener('mousemove', mouseHover, false);
           this.canvas.addEventListener('click', mouseClick, false);
           document.getElementById("gamediv").appendChild(this.canvas);
-          this.interval = setInterval(updateGameArea, 1000);
+          this.interval = setInterval(updateGameArea, 20);
           
         },
         clear : function() {
