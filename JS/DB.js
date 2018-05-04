@@ -59,3 +59,21 @@ function addPlayer($playerName) {
         }
     });
 }
+
+function getSituationCount() {
+    $.ajax({
+        url: "./DB/getSituationCount.php",
+        dataType: "json",
+        type: "GET",
+        data: {output: 'json', },
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(jqXHR,textStatus, errorThrown) {
+            console.log("Failed");
+            console.log(textStatus);
+            console.log(errorThrown);
+            console.log(jqXHR);
+        }
+    })
+}
