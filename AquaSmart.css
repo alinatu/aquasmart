@@ -170,17 +170,36 @@ canvas {
   text-align: center;
 }
 #option {
+    text-align: center;
+    font-size: 11pt;
     display: none;
     margin: 0 auto;
     border: 10px solid #d4d9e9;
     border-radius: 20px;
     position: absolute;
-    top: -5px;
+    top: -26px;
     left: 50%;
     transform: translate(-50%,50%);
-    width: 300px;
+    width: 330px;
     background-color: #ebf0f9;
     z-index: 1;
+}
+
+#option button:hover {
+    color: #66ff99;
+    background-color: #0baef4;
+}
+
+#option button {
+    background-color: #0baef4;
+}
+
+#decision {
+    text-align: left;
+}
+
+#decision > p {
+    text-align: center;
 }
 #picsOfUs {
 text-align: center;

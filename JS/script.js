@@ -19,19 +19,20 @@ function myFunction() {
     }
 }
 
-//Function fot the progressBar 
+/*Function fot the progressBar 
 $(function() {
     $level = 100;
     $("#guy").click(function(){
         $level = $level - 10;
         $(".progress-bar").width($level + '%');
     });
-});
+});*/
 
 function resetProgBar() {
     $level = 100;
     $(".progress-bar").width($level + '%');
 }
+
 //Function for the About button
 $(document).ready(function(){
   $("#aboutlink").click(function(){
