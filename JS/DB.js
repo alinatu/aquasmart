@@ -1,4 +1,4 @@
-//function for the highscores button
+//function for the highscores button. Pulls the top 10 scores from the database.
 $(document).ready(function(){
     $("#highscores").click(function(e){
         document.getElementById("about").style.display = "none";
@@ -21,7 +21,7 @@ $(document).ready(function(){
                 //var listScores = data['scores'];
     
                 var listData = "<table><th>Player Name</th><th>Score</th></tr>";
-                for (var i in listPlayers) {
+                for (var i = 0; i < 10; i++) {
                     var highscore_player = listPlayers[i];
                     //var highscore_score = listScores[i];
                     listData += "<tr><td>" + highscore_player['user_name'] + "</td><td>" + highscore_player['user_score'] + "</td></tr>";
@@ -40,10 +40,11 @@ $(document).ready(function(){
         });
     });
 });
-
+//Adds player to the DB. Will be fixed later to add a dynamic score.
 function addPlayer($playerName) {
     var postPlayer = {"user_name" : $playerName, "user_score" : 0};
     console.log("Adding record to DB with Player Name: " + $playerName);
+    console.log(postPlayer);
     $.ajax({
         url: "./DB/postGlobalScores.php",
         dataType: "json",
@@ -56,6 +57,10 @@ function addPlayer($playerName) {
                 listData += key + ":" + data[key] + " ";
             }
             console.log(listData);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.statusText);
+            console.log("Test");
         }
     });
 }
