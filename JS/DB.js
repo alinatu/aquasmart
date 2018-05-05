@@ -60,7 +60,7 @@ function addPlayer($playerName) {
     });
 }
 
-function getSituationCount() {
+function getSituationNumber() {
     console.log("Should show # of situations");
     $.ajax({
         url: "./DB/getSituationCount.php",
