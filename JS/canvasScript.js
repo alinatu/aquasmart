@@ -6,10 +6,10 @@
         district1 = new component(100, 80, "images/District1Redone.png", 48, 92, "image");
         paint1 = new toggleComponent(100, 80, "images/paintstroke.png", 48, 92, false);
         
-        district2 = new component(100, 90, "images/District2.png", 110, 180, "image");
-        paint2 = new toggleComponent(100, 90, "images/paintstroke.png", 110, 180, false);
+        district2 = new component(100, 100, "images/District2Redone.png", 85, 190, "image");
+        paint2 = new toggleComponent(100, 90, "images/paintstroke.png", 85, 190, false);
         
-        district3 = new component(100, 90, "images/District3.png", 250, 140, "image");
+        district3 = new component(100, 90, "images/District3Redone.png", 250, 140, "image");
         paint3 = new toggleComponent(100, 90, "images/paintstroke.png", 250, 140, false);
         
         drop1 = new toggleComponent(50, 50, "images/waterdrop.png", 250, 235, false);
