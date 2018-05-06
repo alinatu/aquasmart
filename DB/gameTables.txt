@@ -1,0 +1,28 @@
+CREATE TABLE situation (
+    ID INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(100),
+    description VARCHAR(300),
+    PRIMARY KEY (ID)
+);
+
+INSERT INTO situation (title, description) VALUES ("Lawn Watering", "As the weather heats up, residents are spending treated drinking water for daily lawn watering... We need to find a way to reduce that kind of waste");
+
+
+CREATE TABLE option (
+    option_ID INT NOT NULL AUTO_INCREMENT,
+    situation_ID INT,
+    title VARCHAR(100),
+    description VARCHAR(400),
+    difficulty INT,
+    water_saved INT,
+    reception_change INT,
+    success_description VARCHAR(300),
+    failure_description VARCHAR(300),
+    completionTime INT,
+    isSuccessful INT,
+    PRIMARY KEY (option_ID),    
+    FOREIGN KEY (situation_ID) REFERENCES situation(ID)
+);
+
+INSERT INTO option (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "Promote upgrade to synthetic lawns", "Citizens may be difficult to convince, but installation of large synthetic lawns can cut up to 44,000 gallons in the next year alone!",
+15, 30, 8, "success", "failure", 4, 1);
