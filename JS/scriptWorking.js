@@ -12,6 +12,7 @@ function myFunction() {
     } else {
         document.getElementById("userName").innerHTML = "Mayor " + $name;
         document.getElementById("userCity").innerHTML = $cityName;
+        document.getElementById("days").innerHTML = "Day 1";
         document.getElementById("waterLevel").innerHTML = $waterLevel;
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
