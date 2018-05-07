@@ -26,6 +26,7 @@ function myFunction() {
         document.getElementById("userCity").innerHTML = $cityName;
         document.getElementById("userDays").innerHTML="63";
         document.getElementById("daysLeft").innerHTML="Days Left"
+        document.getElementById("yourScore").innerHTML="Your Score: 0";
        
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
