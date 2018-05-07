@@ -7,11 +7,17 @@ function myFunction() {
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
     getSituationNumber(); 
+    if($name == "dog"){
+        $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
+    }
+    if($name == "cat"){
+        $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
+    }
     if (isString($name) == false || hasNum($name) == true || validNameLength($name) == false) {// || hasSpecial($name) == true) {
         alert ("Invalid Name");
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {
         alert ("Invalid City Name");
-    } else {
+    }else {
         document.getElementById("userName").innerHTML = "Mayor " + $name;
         document.getElementById("userCity").innerHTML = $cityName;
        
