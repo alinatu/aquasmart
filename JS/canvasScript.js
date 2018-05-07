@@ -52,7 +52,7 @@
       function mouseHover() {
           var mousePos = getMousePos(myGameArea.canvas, event);
           var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
-          console.log(mousePos.x + ", " + mousePos.y);
+          //console.log(mousePos.x + ", " + mousePos.y);
           if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
               && mousePos.y > district1.y && mousePos.y < district1.y + district1.height) {
             paint1.show = true;

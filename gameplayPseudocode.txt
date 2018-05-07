@@ -1,0 +1,38 @@
+Setup
+Set max reservoir: (10,000)
+Fill summer days: (90)
+Set bar level to 100%: (Current Reservoir / Max reservoir) * 100
+Set water usage per turn: (150% of Max Reservoir) / summer days
+Set reception to 50%
+
+// Check if there's water and time left
+while (summer days remaining > 0 || water remaining > 0) {
+
+	Roll 3 random numbers for situation ID's
+		Check numbers against previous ID's
+		If situations are repeats, roll again
+		
+	Store situation ID's to prevent repeats
+	
+	Assign situations to a city district
+		Draw water droplet on city with available situation
+	
+	//Check if there's weekdays left
+	while (Weekdays remaining || Decisions left to make) {
+		
+		if user clicks city, check if it has situation
+			When user makes decision
+				reduce water usage per week
+				raise / lower reception
+				lower remaining weekdays
+				remove situation
+		
+	}
+	
+	end turn {
+		reset weekdays
+		summer days - days in week
+		water reservoir remaining - water usage per week
+		remove all situations
+	}
+}
