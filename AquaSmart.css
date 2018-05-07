@@ -20,7 +20,7 @@ body {
 }
       
 #navbar {
-    margin-left: 7%;
+    margin-left: -20px;
     font-size: 75%;
     margin-top: 2.5%;
     float: left;
@@ -29,16 +29,28 @@ body {
 }
 
 #userName{
+    text-align: center;
     font-size: 15px;
     margin-top: 0;
 }
       
 #userCity {
+    text-align: center;
     font-weight: bold;
 }
+
+#days {
+    text-align: center;
+    float: right;
+    width: 30%;
+    font-size: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+    /*margin-right: 30px;*/
+}
+
       
 #navbar > p {
-    text-align: center;
     font-family: "IBM Plex Sans";
     width: 200px;
 }
