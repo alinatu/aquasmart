@@ -1,32 +1,57 @@
+//option variables
+$title = "Water Wasted Brushing teeth";
+$description = "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it?";
+$option1 = "create an ad campaign";
+$option2 = "ban toothbrushes";
+$option3 = "Offer a refund on waterwise taps";
+$description1 = "blah blah";
+$description2 = "blah blah";
+$description3 = "blah blah";
+$optionimage = "/images/sink.png";
+
+
+function setDecision(){
+    $("#opimg").attr("src", $optionimage);
+    $("#option h3").html($title);
+    $("#decisionDescription").html($description);
+    $("#option1").html($option1);
+    $("#option2").html($option2);
+    $("#option3").html($option3);
+    $("#description1").html($description1);
+    $("#description2").html($description2);
+    $("#description3").html($description3);
+}
+
 $(document).ready(function(){
+    
     //dropowns for options
     var $more1 = false;
     $("#more1").click(function(){
         if ($more1 == false){
-            $("#discription1").show();
+            $("#description1").show();
             $more1 = true;
         } else{
-            $("#discription1").hide();
+            $("#description1").hide();
             $more1 = false;
         }
     });
     var $more2 = false;
     $("#more2").click(function(){
         if ($more2 == false){
-            $("#discription2").show();
+            $("#description2").show();
             $more2 = true;
         } else{
-            $("#discription2").hide();
+            $("#description2").hide();
             $more2 = false;
         }
     });
     var $more3 = false;
     $("#more3").click(function(){
         if ($more3 == false){
-            $("#discription3").show();
+            $("#description3").show();
             $more3 = true;
         } else{
-            $("#discription3").hide();
+            $("#description3").hide();
             $more3 = false;
         }
     });
@@ -43,7 +68,6 @@ $(document).ready(function(){
     var $decisionLength = 2;
     var $currentWater = $totalWater;
     var $barLevel = ($currentWater / $totalWater) * 100;
-    
     var $success = false;
     
     logCityStatus();
