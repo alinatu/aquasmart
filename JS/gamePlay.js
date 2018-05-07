@@ -1,4 +1,36 @@
 $(document).ready(function(){
+    //dropowns for options
+    var $more1 = false;
+    $("#more1").click(function(){
+        if ($more1 == false){
+            $("#discription1").show();
+            $more1 = true;
+        } else{
+            $("#discription1").hide();
+            $more1 = false;
+        }
+    });
+    var $more2 = false;
+    $("#more2").click(function(){
+        if ($more2 == false){
+            $("#discription2").show();
+            $more2 = true;
+        } else{
+            $("#discription2").hide();
+            $more2 = false;
+        }
+    });
+    var $more3 = false;
+    $("#more3").click(function(){
+        if ($more3 == false){
+            $("#discription3").show();
+            $more3 = true;
+        } else{
+            $("#discription3").hide();
+            $more3 = false;
+        }
+    });
+
     // Global variables
     var $repeatSituations = [];
     var $summerDays = 60;

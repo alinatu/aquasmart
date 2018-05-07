@@ -7,11 +7,11 @@ function myFunction() {
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
     getSituationNumber(); 
-    if($name == "dog"){
+    if($name == "dog" || "Dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
     }
-    if($name == "cat"){
+    if($name == "cat" || "Cat"){
         $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
         $("#about p").html("meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew.");
     }

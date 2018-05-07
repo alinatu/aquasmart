@@ -253,3 +253,13 @@ a:hover {
 a {
     color: #0baef4;
 }
+
+#discription1 {
+    display: none;
+}
+#discription2 {
+    display: none;
+}
+#discription3 {
+    display: none;
+}
