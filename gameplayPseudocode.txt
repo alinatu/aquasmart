@@ -2,7 +2,7 @@ Setup
 Set max reservoir: (10,000)
 Fill summer days: (90)
 Set bar level to 100%: (Current Reservoir / Max reservoir) * 100
-Set water usage per turn: (150% of Max Reservoir) / summer days
+Set water usage per turn: (150% of Max Reservoir) / summer weeks
 Set reception to 50%
 
 // Check if there's water and time left

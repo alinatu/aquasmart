@@ -33,18 +33,19 @@ $(document).ready(function(){
 
     // Global variables
     var $repeatSituations = [];
-    var $summerDays = 60;
-    var $weekDays = 7;
-    var $barLevel = ($currentWater / $totalWater) * 100;
+    var $summerDays = 63;
+    var $weekDays = 5;
     var $totalWater = 1248000;
-    var $currentWater = $totalWater;
     var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
-    var $cityReception = 50;
+    // var $cityReception = 50;
     // Tracking variables
     var $waterSaved = 0;
     var $decisionLength = 2;
+    var $currentWater = $totalWater;
+    var $barLevel = ($currentWater / $totalWater) * 100;
     
     var $success = false;
+    
     logCityStatus();
     //option choice
         
@@ -94,6 +95,7 @@ $(document).ready(function(){
         $currentWater -= $waterUsage;
         $barLevel = ($currentWater / $totalWater) * 100;
         $(".progress-bar").width($barLevel + '%');
+        $("#userDays").html($summerDays);
         logCityStatus();
         randomSituations();
     }
@@ -135,6 +137,12 @@ $(document).ready(function(){
         console.log("Your city uses " + $waterUsage + " gallons per week.");
         console.log("You have saved " + $waterSaved + " gallons so far!");
     }
+
+    
 });
+
+function optionChosen() {
+    
+}
 
 
