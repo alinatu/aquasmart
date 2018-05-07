@@ -1,8 +1,10 @@
 var $name;
 var $cityName;
+var onLogin = true;
 
 //function for the Play arrow button
 function myFunction() {
+    onLogin = false;
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
@@ -42,10 +44,9 @@ $(document).ready(function(){
     document.getElementById("gamediv").style.display = "none";
     document.getElementById("scores").style.display = "none";
   });
-});
+
 //Function for the new game button
-$(document).ready(function(){
-    $("#newGame").click(function(){
+  $("#newGame").click(function(){
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -56,23 +57,18 @@ $(document).ready(function(){
         document.getElementById("setNames").reset();
         resetProgBar();
         $("#option").css("display", "none");
-    });
-    //function for the back button on the about and highscores pages
-  $(".back").css("cursor", "pointer");
-  $(".back").click(function(){
-        document.getElementById("about").style.display = "none";
-        document.getElementById("scores").style.display = "none";
-        document.getElementById("gamediv").style.display = "block";
-        document.getElementById("map").style.filter = "blur(3px)";
-        document.getElementById("login").style.display = "block";
-        document.getElementById("userCity").innerHTML = "";
-        document.getElementById("userName").innerHTML = "";
-     
-        document.getElementById("scoreList").innerHTML = "";
-        document.getElementById("setNames").reset();
-    });
-    $("#optionExit").click(function(){
-        $("#option").css("display", "none");
+  });
+  $("#optionExit").click(function(){
+    $("#option").css("display", "none");
+  });
+
+    $(".toggle").click(function() {
+        $("#about").css("display", "none");
+        $("#scores").css("display", "none");
+        $("#gamediv").css("display", "block");
+        if (onLogin) {
+          $("#login").css("display", "block");
+        } 
     });
 });
 //series of functions for checking the names entered are valid
