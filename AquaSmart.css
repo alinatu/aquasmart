@@ -20,11 +20,12 @@ body {
 }
       
 #navbar {
+
     margin-left: -20px;
     font-size: 75%;
-    margin-top: 2.5%;
+    margin-top: 15px;
     float: left;
-    line-height: 30px;
+    line-height: 20px;
     width: 30%;
 }
 
@@ -86,6 +87,13 @@ li > a:hover{
       
 #logosize {        
     width: 100%;
+}
+
+#score {
+    width: 110px;
+    font-family: "IBM Plex Sans";
+    font-size: 100%;
+    margin: 0 auto;
 }
       
 #gamediv {

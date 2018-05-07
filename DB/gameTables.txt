@@ -6,6 +6,21 @@ CREATE TABLE situation (
 );
 
 INSERT INTO situation (title, description) VALUES ("Lawn Watering", "As the weather heats up, residents are spending treated drinking water for daily lawn watering... We need to find a way to reduce that kind of waste");
+INSERT INTO situation (title, description) VALUES ("Eco-Friendly Gardens", "Many residents take pride in their beautiful gardens. The upkeep of these gardens is costly, and residents are struggling to find ways to cut down. Maybe you can promote some changes?");
+INSERT INTO situation (title, description) VALUES ("Car Washing", "It’s no secret people are passionate about their vehicles, but regular washes in the summer wastes can be a significant waste. We need to find some way around this.");
+INSERT INTO situation (title, description) VALUES ("Infrastructure & Technologies", "There are ways that we can upgrade our infrastructure in order to reduce water waste on a large scale! This will show our citizens our commitment to a water-wise lifestyle.
+");
+INSERT INTO situation (title, description) VALUES ("Street Water", "Upgrade to prevent runoff, flooding, and recovering buried streams");
+INSERT INTO situation (title, description) VALUES ("Leaky Faucets", "Many of your citizens have old leaky faucets in their homes. Every drop down the drain goes to waste!");
+INSERT INTO situation (title, description) VALUES ("Kids playing in sprinklers or with water guns", "In the summer kids love playing outside with sprinklers and water guns. Unfortunately this wastes a lot of water.");
+INSERT INTO situation (title, description) VALUES ("Swimming pools", "The average home swimming pool holds almost 15,000 gallons of water. Many people drain their outdoor swimming pools for the winder and refill them each summer. This has a huge environmental cost.");
+INSERT INTO situation (title, description) VALUES ("Power washing sidewalks", "Many businesses use power washers to clean the sidewalks outside their storefronts. This is unnecessary and wasteful.");
+INSERT INTO situation (title, description) VALUES ("Restaurants water use", "Restaurants use water for everything. Cooking, dishwashing, cleaning. In a fast paced environment they don't always make the most water wise decisions.");
+INSERT INTO situation (title, description) VALUES ("Dishwashing", "New energy star rated dishwashers use considerably less water than hand washing, but old dishwashers may still use more.");
+INSERT INTO situation (title, description) VALUES ("Laundry", "Old washing machines use 109-170 litres per load. This is a huge amount of water being used when the average household washes about 50 pounds of laundry per week.");
+INSERT INTO situation (title, description) VALUES ("Drinking water", "Your citizens sure do drink a lot in the summer!");
+INSERT INTO situation (title, description) VALUES ("Showers", "Your average citizen is having 30 minute showers sometimes twice a day. This uses over 300 litres of water per shower!");
+INSERT INTO situation (title, description) VALUES ("Baths", "The typical bath uses up to seven times more water than a five minute shower. Yet your citizens are still using baths regularly, especially for children.");
 
 
 CREATE TABLE option (
@@ -24,5 +39,25 @@ CREATE TABLE option (
     FOREIGN KEY (situation_ID) REFERENCES situation(ID)
 );
 
-INSERT INTO option (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "Promote upgrade to synthetic lawns", "Citizens may be difficult to convince, but installation of large synthetic lawns can cut up to 44,000 gallons in the next year alone!",
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "Promote upgrade to synthetic lawns", "Citizens may be difficult to convince, but installation of large synthetic lawns can cut up to 44,000 gallons in the next year alone!",
 15, 30, 8, "success", "failure", 4, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "Regulate lawn watering", "Residents may lament this change, but this is a common approach to control water usage. Lawns only require one inch of watering a day!",
+5, 15, 70, "success", "failure", 3, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "All houses must be painted yellow!", "Maybe if everybody’s houses match the color of an unwatered lawn, they’ll be less inclined to keep it green…?", 7, 3, 5, "success", "failure",
+7, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Promote Water-wise garden design", "A thoughtful design can reduce waste. Indigenous flora require less water to upkeep, and planting trees will break dry winds and conserve moisture in the shade.",
+10, 10, 10, "success", "failure", 5, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Promote Water-wise garden equipment", "Technology has many ways to optimize fresh water usage. From water preserving crystals to trigger nozzle hoses, there are a lot of products that promote a water-wise lifestyle!",
+4, 7, 14, "success", "failure", 6, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Promote business car washes", "Car washes have circulatory water systems that reduce and reuse their water. It’s much more beneficial than hand washing, and reduces needles waste.",
+2, 5, 11, "success", "failure", 3, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Offer Water-wise washing habits", "If residents are insisting to wash by hand, promote the use of buckets to ration water use. Washing over grass or gravel will also help to water plants in the area, and prevent soapy water from draining into street grates.",
+5, 9, 10, "success", "failure", 2, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Put a fine on washing car with a hose", "Continuous water flow wastes too much! We’ll fine anyone caught using hoses to wash their cars!",
+5, 20, 2, "success", "failure", 2, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (4, "Water efficient spray parks", "Water parks are a great way to spend summer days, but they can waste millions of litres of water. Upgrading our circulatory systems can reuse the water used at spray parks, and cut that value drastically.",
+10, 12, 15, "success", "failure", 11, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (4, "Raise building standards to water-wise standards, "Setting guidelines for development would allow designers to create high performing buildings. Development of water wise landscapes will create a healthy and sustainable ecosystem. 
+", 13, 16, 11, "success", "failure", 8, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (4, "Tear down builings that aren't built water-wisely", "If buildings are wasting our water, then we can simply tear down the buildings that are outdated!",
+6, 13, 1, "success", "failure", 9, 0);
