@@ -24,7 +24,7 @@ function myFunction() {
     }else {
         document.getElementById("userName").innerHTML = "Mayor " + $name;
         document.getElementById("userCity").innerHTML = $cityName;
-        document.getElementById("userDays").innerHTML="60";
+        document.getElementById("userDays").innerHTML="63";
         document.getElementById("daysLeft").innerHTML="Days Left"
        
         document.getElementById("map").style.filter = "blur(0px)";
