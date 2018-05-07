@@ -136,7 +136,7 @@ $(document).ready(function(){
             while (!numFound) {
 
             // Checks if unique ID's have been found.
-            if ($repeatSituations.length < 26) {
+            if ($repeatSituations.length < $totalSituations) {
                 // Random number between 1 and number of situations
                 roll = Math.floor(Math.random() * (26) + 1);
             } else {
