@@ -11,9 +11,11 @@ function myFunction() {
     getSituationNumber(); 
     if($name == "dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
+        $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
     }
     if($name == "cat"){
         $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
+        $("#about p").html("meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew.");
     }
     if (isString($name) == false || hasNum($name) == true || validNameLength($name) == false) {// || hasSpecial($name) == true) {
         alert ("Invalid Name");
