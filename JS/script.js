@@ -1,5 +1,6 @@
 var $name;
 var $cityName;
+var $totalSituations;
 var onLogin = true;
 
 //function for the Play arrow button
@@ -26,6 +27,7 @@ function myFunction() {
         document.getElementById("userCity").innerHTML = $cityName;
         document.getElementById("userDays").innerHTML="63";
         document.getElementById("daysLeft").innerHTML="Days Left"
+        document.getElementById("yourScore").innerHTML="Your Score: 0";
        
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
@@ -48,6 +50,7 @@ function resetProgBar() {
 
 //Function for the About button
 $(document).ready(function(){
+    getSituationNumber();
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
