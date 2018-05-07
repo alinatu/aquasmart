@@ -2,19 +2,19 @@
       var myGamePiece;
       function startGame() {
         myGameArea.start();
-        gameMap = new component(375, 400, "images/Map.png", 0, 0, "image");
-        district1 = new component(100, 80, "images/District1Redone.png", 48, 92, "image");
+        gameMap = new component(0, 375, 400, "images/Map.png", 0, 0, "image");
+        district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", false);
         paint1 = new toggleComponent(100, 80, "images/paintstroke.png", 48, 92, false);
         
-        district2 = new component(100, 100, "images/District2Redone.png", 85, 190, "image");
+        district2 = new component(2, 100, 100, "images/District2Redone.png", 85, 190, "image", true);
         paint2 = new toggleComponent(100, 90, "images/paintstroke.png", 85, 190, false);
         
-        district3 = new component(100, 90, "images/District3Redone.png", 250, 140, "image");
+        district3 = new component(3, 100, 90, "images/District3Redone.png", 250, 140, "image", true);
         paint3 = new toggleComponent(100, 90, "images/paintstroke.png", 250, 140, false);
         
-        drop1 = new toggleComponent(50, 50, "images/waterdrop.png", 250, 235, false);
-        drop2 = new toggleComponent(50, 50, "images/waterdrop.png", 590, 450, false);
-        drop3 = new toggleComponent(50, 50, "images/waterdrop.png", 1300, 300, false);
+        drop1 = new toggleComponent(25, 25, "images/waterdrop.png", 48, 92, false);
+        drop2 = new toggleComponent(25, 25, "images/waterdrop.png", 85, 190, false);
+        drop3 = new toggleComponent(25, 25, "images/waterdrop.png", 250, 140, false);
       }
       
       var myGameArea = {
@@ -77,15 +77,18 @@
         var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
         console.log(mousePos.x + ", " + mousePos.y);
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
-            && mousePos.y > district1.y && mousePos.y < district1.y + district1.height) {
+            && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
+            && district1.hasEvent) {
             document.getElementById("option").style.display = "block";
         } 
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
-            && mousePos.y > district2.y && mousePos.y < district2.y + district2.height) {
+            && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
+            && district2.hasEvent) {
               document.getElementById("option").style.display = "block";
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
-            && mousePos.y > district3.y && mousePos.y < district3.y + district3.height) {
+            && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
+            && district3.hasEvent) {
               document.getElementById("option").style.display = "block";
         } 
     }
@@ -113,7 +116,8 @@
         }
       }
 
-      function component(width, height, color, x, y, type) {
+      function component(id, width, height, color, x, y, type, hasEvent) {
+        this.id = id;
         this.type = type;
         if (type == "image") {
           this.image = new Image();
@@ -123,7 +127,7 @@
         this.height = height;
         this.x = x;
         this.y = y;
-       
+        this.hasEvent = hasEvent;
         
         this.update = function() {
           ctx = myGameArea.context;
@@ -135,6 +139,24 @@
           } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
+          }
+
+          if (hasEvent && this.id == 1) {
+            drop1.show = true;
+          } else if (!hasEvent && this.id == 1) {
+            drop1.show = false;
+          }
+
+          if (hasEvent && this.id == 2) {
+            drop2.show = true;
+          } else if (!hasEvent && this.id == 2) {
+            drop2.show = false;
+          }
+
+          if (hasEvent && this.id == 3) {
+            drop3.show = true;
+          } else if (!hasEvent && this.id == 3) {
+            drop3.show = false;
           }
         } 
       }
