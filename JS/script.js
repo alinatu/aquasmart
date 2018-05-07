@@ -11,9 +11,11 @@ function myFunction() {
     getSituationNumber(); 
     if($name == "dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
+        $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
     }
     if($name == "cat"){
         $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
+        $("#about p").html("meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew.");
     }
     if (isString($name) == false || hasNum($name) == true || validNameLength($name) == false) {// || hasSpecial($name) == true) {
         alert ("Invalid Name");
@@ -55,6 +57,7 @@ $(document).ready(function(){
 
 //Function for the new game button
   $("#newGame").click(function(){
+        onLogin = true;
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -79,6 +82,7 @@ $(document).ready(function(){
         if (onLogin) {
           $("#login").css("display", "block");
         } 
+        $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
 });
 //series of functions for checking the names entered are valid
