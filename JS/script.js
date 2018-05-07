@@ -9,12 +9,12 @@ function myFunction() {
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
-    console.log($totalSituations);
-    if($name == "dog"){
+    getSituationNumber(); 
+    if($name == "dog" || "Dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
     }
-    if($name == "cat"){
+    if($name == "cat" || "Cat"){
         $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
         $("#about p").html("meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew.");
     }
@@ -72,6 +72,21 @@ $(document).ready(function(){
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
         resetProgBar();
+         // Global variables
+    var $repeatSituations = [];
+    var $summerDays = 60;
+    var $weekDays = 7;
+    var $barLevel = ($currentWater / $totalWater) * 100;
+    var $totalWater = 1248000;
+    var $currentWater = $totalWater;
+    var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
+    var $cityReception = 50;
+    // Tracking variables
+    var $waterSaved = 0;
+    var $decisionLength = 2;
+    
+    var $success = false;
+    logCityStatus();
         $("#option").css("display", "none");
   });
   $("#optionExit").click(function(){
