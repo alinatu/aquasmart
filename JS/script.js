@@ -61,6 +61,8 @@ $(document).ready(function(){
         document.getElementById("login").style.display = "block";
         document.getElementById("userCity").innerHTML = "";
         document.getElementById("userName").innerHTML = "";
+        document.getElementById("userDays").innerHTML = "";
+        document.getElementById("daysLeft").innerHTML = "";
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
         resetProgBar();
