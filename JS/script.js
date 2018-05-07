@@ -1,5 +1,6 @@
 var $name;
 var $cityName;
+var $totalSituations;
 var onLogin = true;
 
 //function for the Play arrow button
@@ -8,7 +9,7 @@ function myFunction() {
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
-    getSituationNumber(); 
+    console.log($totalSituations);
     if($name == "dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
@@ -48,6 +49,7 @@ function resetProgBar() {
 
 //Function for the About button
 $(document).ready(function(){
+    getSituationNumber();
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
