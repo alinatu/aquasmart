@@ -299,6 +299,40 @@ a {
     color: #0baef4;
 }
 
+#endGame {
+    text-align: center;
+    top: 90px;
+    display: none;
+    margin: 0 auto;
+    font-family:  "IBM Plex Sans";
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
+    position: relative;
+    width: 400px;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+    padding: 0% 3%;
+}
+
+#youWin {
+    width: 100%;
+    font-weight: bold;
+    font-size: 200%;
+    color: #000c47;
+}
+
+#youLose {
+    width: 100%;
+    font-weight: bold;
+    font-size: 200%;
+    color: #000c47;
+}
+
+#endLogo {
+  width: 100px;  
+}
+
 #description1 {
     display: none;
 }
@@ -308,3 +342,4 @@ a {
 #description3 {
     display: none;
 }
+
