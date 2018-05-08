@@ -184,6 +184,15 @@ $(document).ready(function(){
         $("#userDays").html($summerDays);
         logCityStatus();
         randomSituations();
+
+        if($summerDays == 0){
+            document.getElementById("endGame").style.display = "block";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("login").style.display = "none";
+            document.getElementById("map").style.filter = "blur(3px)";
+            document.getElementById("scores").style.display = "none";
+            document.getElementById("option").style.display = "none";
+        }
         setDecision();
     }
     
@@ -232,6 +241,9 @@ function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
     var playerScore = ($waterSaved * receptionModifier);
 
+
+
+
     if ($currentWater <= 0) {
         playerScore /= 2;
     }
@@ -239,3 +251,4 @@ function updateScore() {
     console.log("Your score is " + playerScore);
     $("#yourScore").html("Your Score: " + playerScore);
 }
+
