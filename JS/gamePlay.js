@@ -75,6 +75,7 @@ $(document).ready(function(){
     //option choice
         
         $("#option1").click(function(){
+            $("#option").css("height", "280px");
             // This is a prototype of what each option should calculate
             $("#decision").html("Water waste reduced by 2% (" + ($waterUsage * 0.02) + " gallons per week)!");
             console.log("This decision took " + 2 + " days to complete.");
@@ -85,11 +86,13 @@ $(document).ready(function(){
             $success = true;
         });
         $("#option2").click(function(){
+            $("#option").css("height", "280px");
             $("#decision").html("Oh no! You're citizens didn't listen, they're still wasting water");
             $success = false;
             endTurn();
         });
         $("#option3").click(function(){
+            $("#option").css("height", "280px");
             $("#decision").html("Water waste reduced by 5% (" + ($waterUsage * 0.05) + " gallons per week)!");
             console.log("This decision took " + 5 + " days to complete");
             $weekDays -= 5;
