@@ -1,4 +1,5 @@
 // Global variables
+var $chosen = false;
 var $repeatSituations = [];
 var $summerDays = 63;
 var $weekDays = 5;
@@ -53,51 +54,27 @@ var situation1 = {
         outcome : 1,
     }
 };
- function optionChosen1() {
-    $("#option").css("height", "280px");
-    var waterRate = (situation1.option1.rate / 100);
-    if (situation1.option1.outcome == 1) {
-        $("#decision").html("Water waste reduced by " + situation1.option1.rate + "% (" + ($waterUsage * (situation1.option1.rate / 100)) + " gallons per week)!" + situation1.option1.success);
-    } else if (situation1.option1.outcome == 0) {
-        $("#decision").html(situation1.option1.failure);
-    }
-    console.log("This decision took " + situation1.option1.time + " days to complete.");
-    $weekDays -= situation1.option1.time;
-    $waterUsage -= ($waterUsage * (situation1.option1.rate / 100));
-    $waterSaved += ($waterUsage * (situation1.option1.rate / 100));
-    console.log("You have " + $weekDays + " days left to make decisions");
-    updateScore();
+
+function optionChosen(x) {
+    return function(){
+        var waterRate = (x.rate / 100);
+        $("#option").css("height", "280px");
+        if (x.outcome == 1) {
+            $("#decision").html("Water waste reduced by " + x.rate + "% (" + ($waterUsage * (x.rate / 100)) + " gallons per week)!" + x.success);
+        } else if (x.outcome == 0) {
+            $("#decision").html(x.failure);
+        }
+        console.log("This decision took " + x.time + " days to complete.");
+        $weekDays -= x.time;
+        $waterUsage -= ($waterUsage * (x.rate / 100));
+        $waterSaved += ($waterUsage * (x.rate / 100));
+        console.log("You have " + $weekDays + " days left to make decisions");
+        updateScore();
+        $chosen = true;
+    };
+
 }
-function optionChosen2() {
-    $("#option").css("height", "280px");
-    var waterRate = (situation1.option2.rate / 100);
-    if (situation1.option2.outcome == 1) {
-        $("#decision").html("Water waste reduced by " + situation1.option2.rate + "% (" + ($waterUsage * (situation1.option2.rate / 100)) + " gallons per week)!" + situation1.option2.success);
-    } else if (situation1.option2.outcome == 0) {
-        $("#decision").html(situation1.option2.failure);
-    }
-    console.log("This decision took " + situation1.option2.time + " days to complete.");
-    $weekDays -= situation1.option2.time;
-    $waterUsage -= ($waterUsage * (situation1.option2.rate / 100));
-    $waterSaved += ($waterUsage * (situation1.option2.rate / 100));
-    console.log("You have " + $weekDays + " days left to make decisions");
-    updateScore();
-}
-function optionChosen3() {
-    $("#option").css("height", "280px");
-    var waterRate = (situation1.option3.rate / 100);
-    if (situation1.option3.outcome == 1) {
-        $("#decision").html("Water waste reduced by " + situation1.option3.rate + "% (" + ($waterUsage * (situation1.option3.rate / 100)) + " gallons per week)!" + situation1.option3.success);
-    } else if (situation1.option3.outcome == 0) {
-        $("#decision").html(situation1.option3.failure);
-    }
-    console.log("This decision took " + situation1.option3.time + " days to complete.");
-    $weekDays -= situation1.option3.time;
-    $waterUsage -= ($waterUsage * (situation1.option3.rate / 100));
-    $waterSaved += ($waterUsage * (situation1.option3.rate / 100));
-    console.log("You have " + $weekDays + " days left to make decisions");
-    updateScore();
-}
+
 function setDecision(){
     // Setup div contents
     $("#opimg").attr("src", situation1.imageBanner);
@@ -106,17 +83,17 @@ function setDecision(){
 
     // Setup button 1
     $("#option1").html(situation1.option1.title);
-    $("#option1").click(optionChosen1);
+    $("#option1").click(optionChosen(situation1.option1));
     $("#description1").html(situation1.option1.description);
 
     //Setup button 2
     $("#option2").html(situation1.option2.title);
-    $("#option2").click(optionChosen2);
+    $("#option2").click(optionChosen(situation1.option2));
     $("#description2").html(situation1.option2.description);
     
     //Setup button 3
     $("#option3").html(situation1.option3.title);
-    $("#option3").click(optionChosen3);
+    $("#option3").click(optionChosen(situation1.option3));
     $("#description3").html(situation1.option3.description);
 }
 
@@ -159,10 +136,10 @@ $(document).ready(function(){
     logCityStatus();
     //option choice
         
+        $("#option1").click(optionChosen(situation1.option1));
+        $("#option2").click(optionChosen(situation1.option2));
+        $("#option3").click(optionChosen(situation1.option3));
 
-        $("#option1").click(optionChosen1);
-        $("#option2").click(optionChosen2);
-        $("#option3").click(optionChosen3);
 
 
     //while ($summerDays >= 0 || $currentWater >= 0) {
