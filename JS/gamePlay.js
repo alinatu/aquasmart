@@ -9,7 +9,7 @@ $description2 = "blah blah";
 $description3 = "blah blah";
 $optionimage = "/images/sink.png";
 
-
+//sets option variables in the decision div
 function setDecision(){
     $("#opimg").attr("src", $optionimage);
     $("#option h3").html($title);
@@ -136,7 +136,7 @@ $(document).ready(function(){
             while (!numFound) {
 
             // Checks if unique ID's have been found.
-            if ($repeatSituations.length < $totalSituations) {
+            if ($repeatSituations.length < 26) {
                 // Random number between 1 and number of situations
                 roll = Math.floor(Math.random() * (26) + 1);
             } else {
