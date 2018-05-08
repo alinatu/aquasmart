@@ -7,10 +7,11 @@ $option3 = "Offer a refund on waterwise taps";
 $description1 = "blah blah";
 $description2 = "blah blah";
 $description3 = "blah blah";
-$optionimage = "/images/sink.png";
+$optionimage = "./images/situationBanners/toothbrush.png";
 
 
 function setDecision(){
+    console.log($optionimage);
     $("#opimg").attr("src", $optionimage);
     $("#option h3").html($title);
     $("#decisionDescription").html($description);
