@@ -55,6 +55,7 @@ var situation1 = {
 };
 
  function optionChosen1() {
+    $("#option").css("height", "280px");
     var waterRate = (situation1.option1.rate / 100);
     if (situation1.option1.outcome == 1) {
         $("#decision").html("Water waste reduced by " + situation1.option1.rate + "% (" + ($waterUsage * (situation1.option1.rate / 100)) + " gallons per week)!" + situation1.option1.success);
@@ -69,6 +70,7 @@ var situation1 = {
     updateScore();
 }
 function optionChosen2() {
+    $("#option").css("height", "280px");
     var waterRate = (situation1.option2.rate / 100);
     if (situation1.option2.outcome == 1) {
         $("#decision").html("Water waste reduced by " + situation1.option2.rate + "% (" + ($waterUsage * (situation1.option2.rate / 100)) + " gallons per week)!" + situation1.option2.success);
@@ -83,6 +85,7 @@ function optionChosen2() {
     updateScore();
 }
 function optionChosen3() {
+    $("#option").css("height", "280px");
     var waterRate = (situation1.option3.rate / 100);
     if (situation1.option3.outcome == 1) {
         $("#decision").html("Water waste reduced by " + situation1.option3.rate + "% (" + ($waterUsage * (situation1.option3.rate / 100)) + " gallons per week)!" + situation1.option3.success);
@@ -157,9 +160,11 @@ $(document).ready(function(){
     logCityStatus();
     //option choice
         
+
         $("#option1").click(optionChosen1);
         $("#option2").click(optionChosen2);
         $("#option3").click(optionChosen3);
+
 
     //while ($summerDays >= 0 || $currentWater >= 0) {
     /*    if ($weekDays <= 7) {
