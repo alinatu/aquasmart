@@ -11,7 +11,6 @@ $optionimage = "./images/situationBanners/toothbrush.png";
 
 
 function setDecision(){
-    console.log($optionimage);
     $("#opimg").attr("src", $optionimage);
     $("#option h3").html($title);
     $("#decisionDescription").html($description);

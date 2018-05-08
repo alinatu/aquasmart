@@ -84,3 +84,21 @@ function getSituationNumber() {
         }
     });
 }
+function getSituations() {
+    console.log("Pulling situations from DB");
+    $.ajax({
+        url: "./DB/getSituations.php",
+        dataType: "json",
+        type: "GET",
+        data: {output: 'json', },
+        success: function(data) {
+            console.log(data);
+            $situationList = data['returnSituations'];
+            console.log($situationList);
+        }
+    });
+}
+//Sets the 3 situations with the situation and option data from the database.
+function setSituations() {
+    
+}

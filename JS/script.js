@@ -1,6 +1,7 @@
 var $name;
 var $cityName;
 var $totalSituations;
+var $situationList;
 var onLogin = true;
 
 //function for the Play arrow button
@@ -10,6 +11,7 @@ function myFunction() {
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
     console.log($totalSituations);
+    getSituations();
     if($name == "dog" || $name == "Dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
