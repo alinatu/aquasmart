@@ -29,8 +29,8 @@ function myFunction() {
         document.getElementById("userCity").innerHTML = $cityName;
         document.getElementById("userDays").innerHTML="63";
         document.getElementById("daysLeft").innerHTML="Days Left"
-        document.getElementById("yourScore").innerHTML="Your Score: 0";
-        
+        updateScore();
+       
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
     }
@@ -70,6 +70,7 @@ $(document).ready(function(){
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
         resetProgBar();
+        updateScore();
          // Global variables
         var $repeatSituations = [];
         var $summerDays = 60;
@@ -92,7 +93,9 @@ $(document).ready(function(){
     $("#option").css("display", "none");
     $("#option").css("height", "330px");
     $("#decision").html("<p id='decisionDescription'></p><button id='option1'></button><button id='more1'>...</button><p id='description1'></p><br><button id='option2'></button><button id='more2'>...</button><p id='description2'></p><br><button id='option3'></button><button id='more3'>...</button><p id='description3'></p><br><p id='success'></p>");
+    updateScore();
   });
+
     //function for the back arrow in about me and scores pages
     $(".toggle").click(function() {
         $("#about").css("display", "none");

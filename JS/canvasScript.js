@@ -84,6 +84,7 @@
             && district1.hasEvent) {
             setDecision();
             setDropDowns();
+            updateScore();
             document.getElementById("option").style.display = "block";
             var district1Clicked = false;
         } 

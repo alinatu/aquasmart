@@ -149,8 +149,8 @@ function optionChosen(x) {
         $waterUsage -= ($waterUsage * (x.rate / 100));
         $waterSaved += ($waterUsage * (x.rate / 100));
         console.log("You have " + $weekDays + " days left to make decisions");
-        updateScore();
         $chosen = true;
+        updateScore();
     };
 
 }
@@ -258,7 +258,7 @@ $(document).ready(function(){
             document.getElementById("about").style.display = "none";
             document.getElementById("login").style.display = "none";
             document.getElementById("map").style.filter = "blur(3px)";
-            document.getElementById("scores").style.display = "none";
+            //document.getElementById("scores").style.display = "none";
             document.getElementById("option").style.display = "none";
         }
         setDecision();
@@ -307,16 +307,12 @@ $(document).ready(function(){
 
 function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
-    var playerScore = ($waterSaved * receptionModifier);
-
-
-
-
+    $playerScore = ($waterSaved * receptionModifier);
     if ($currentWater <= 0) {
-        playerScore /= 2;
+        $playerScore /= 2;
     }
-    playerScore = Math.round(playerScore);
-    console.log("Your score is " + playerScore);
-    $("#yourScore").html("Your Score: " + playerScore);
+    $playerScore = Math.round($playerScore);
+    console.log("Your score is " + $playerScore);
+    $("#yourScore").html($playerScore);
 }
 
