@@ -2,7 +2,7 @@
 var $chosen = false;
 var $repeatSituations = [];
 var $summerDays = 63;
-var $weekDays = 5;
+var $weekDays = 7;
 var $totalWater = 1248000;
 var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / ($weekDays + 2));
 // Tracking variables
@@ -150,6 +150,7 @@ function optionChosen(x) {
         $waterSaved += ($waterUsage * (x.rate / 100));
         console.log("You have " + $weekDays + " days left to make decisions");
         updateScore();
+        endTurn();
         $chosen = true;
     };
 
@@ -230,26 +231,7 @@ $(document).ready(function(){
     //} */
 
     // Resets day count and decrements reservoir and days remaining
-    function endTurn() {
-        $weekDays = 7;
-        $summerDays -= $weekDays;
-        $currentWater -= $waterUsage;
-        $barLevel = ($currentWater / $totalWater) * 100;
-        $(".progress-bar").width($barLevel + '%');
-        $("#userDays").html($summerDays);
-        logCityStatus();
-        randomSituations();
 
-        if($summerDays == 0){
-            document.getElementById("endGame").style.display = "block";
-            document.getElementById("about").style.display = "none";
-            document.getElementById("login").style.display = "none";
-            document.getElementById("map").style.filter = "blur(3px)";
-            document.getElementById("scores").style.display = "none";
-            document.getElementById("option").style.display = "none";
-        }
-        setDecision();
-    }
     
     // Rolls for a situation ID. Does not accept ID's that have been rolled before
     // Returns an array of three values
@@ -280,21 +262,15 @@ $(document).ready(function(){
         }
         return threeValues;
     }
-
-    // Logs all variables to the console. Used for score and status tracking
-    function logCityStatus() {
-        console.log($summerDays + " days left in summer!");
-        console.log("You have " + $currentWater + " gallons in your reservoir.");
-        console.log("Your city uses " + $waterUsage + " gallons per week.");
-        console.log("You have saved " + $waterSaved + " gallons so far!");
-    }
-
-    
 });
 
-function updateScore() {
-    var receptionModifier = ($cityReception / 100) + 1;
-    var playerScore = ($waterSaved * receptionModifier);
+// Logs all variables to the console. Used for score and status tracking
+function logCityStatus() {
+    console.log($summerDays + " days left in summer!");
+    console.log("You have " + $currentWater + " gallons in your reservoir.");
+    console.log("Your city uses " + $waterUsage + " gallons per week.");
+    console.log("You have saved " + $waterSaved + " gallons so far!");
+}
 
 function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
@@ -308,14 +284,24 @@ function updateScore() {
     $("#yourScore").html("Your Score: " + playerScore);
 }
 
+function endTurn() {
+    $weekDays = 7;
+    $summerDays -= $weekDays;
+    $currentWater -= $waterUsage;
+    $barLevel = ($currentWater / $totalWater) * 100;
+    $(".progress-bar").width($barLevel + '%');
+    $("#userDays").html($summerDays);
+    logCityStatus();
+    randomSituations();
 
-
-
-    if ($currentWater <= 0) {
-        playerScore /= 2;
+    if($summerDays == 0){
+        document.getElementById("endGame").style.display = "block";
+        document.getElementById("about").style.display = "none";
+        document.getElementById("login").style.display = "none";
+        document.getElementById("map").style.filter = "blur(3px)";
+        document.getElementById("scores").style.display = "none";
+        document.getElementById("option").style.display = "none";
     }
-    playerScore = Math.round(playerScore);
-    console.log("Your score is " + playerScore);
-    $("#yourScore").html("Your Score: " + playerScore);
+    setDecision();
 }
 
