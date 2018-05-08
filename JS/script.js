@@ -48,6 +48,7 @@ function resetProgBar() {
     $(".progress-bar").width($level + '%');
 }
 
+
 //Function for the About button
 $(document).ready(function(){
     getSituationNumber();
@@ -73,19 +74,20 @@ $(document).ready(function(){
         document.getElementById("setNames").reset();
         resetProgBar();
          // Global variables
-    var $repeatSituations = [];
-    var $summerDays = 63;
-    var $weekDays = 5;
-    var $barLevel = ($currentWater / $totalWater) * 100;
-    var $totalWater = 1248000;
-    var $currentWater = $totalWater;
-    var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
-    var $cityReception = 50;
-    // Tracking variables
-    var $waterSaved = 0;
-    var $decisionLength = 2;
-    
-    var $success = false;
+        var $repeatSituations = [];
+        var $summerDays = 60;
+        var $weekDays = 7;
+        var $barLevel = ($currentWater / $totalWater) * 100;
+        var $totalWater = 1248000;
+        var $currentWater = $totalWater;
+        var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
+        var $cityReception = 50;
+        // Tracking variables
+        var $waterSaved = 0;
+        var $decisionLength = 2;
+        
+        var $success = false;
+        logCityStatus();
         $("#option").css("display", "none");
   });
   $("#optionExit").click(function(){
