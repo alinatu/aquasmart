@@ -69,6 +69,12 @@ function getSituationNumber() {
         data: {output: 'json', },
         success: function(data) {
             console.log(data);
+            var listSituations = data['situationCount'];
+            var situationNum = listSituations[0];
+            console.log(situationNum['ID']);
+            $totalSituations = situationNum['ID'];
+            console.log($totalSituations);
+            return situationNum['ID'];
         },
         error: function(jqXHR,textStatus, errorThrown) {
             console.log("Failed");

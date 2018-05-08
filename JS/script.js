@@ -1,5 +1,6 @@
 var $name;
 var $cityName;
+var $totalSituations;
 var onLogin = true;
 
 //function for the Play arrow button
@@ -8,12 +9,12 @@ function myFunction() {
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
     //addPlayer($name);
-    getSituationNumber(); 
-    if($name == "dog"){
+    console.log($totalSituations);
+    if($name == "dog" || $name == "Dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
     }
-    if($name == "cat"){
+    if($name == "cat" || $name == "Cat"){
         $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
         $("#about p").html("meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew meow meow mew.");
     }
@@ -26,6 +27,7 @@ function myFunction() {
         document.getElementById("userCity").innerHTML = $cityName;
         document.getElementById("userDays").innerHTML="63";
         document.getElementById("daysLeft").innerHTML="Days Left"
+        document.getElementById("yourScore").innerHTML="Your Score: 0";
        
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
@@ -48,6 +50,7 @@ function resetProgBar() {
 
 //Function for the About button
 $(document).ready(function(){
+    getSituationNumber();
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
@@ -69,12 +72,27 @@ $(document).ready(function(){
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
         resetProgBar();
+         // Global variables
+    var $repeatSituations = [];
+    var $summerDays = 60;
+    var $weekDays = 7;
+    var $barLevel = ($currentWater / $totalWater) * 100;
+    var $totalWater = 1248000;
+    var $currentWater = $totalWater;
+    var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
+    var $cityReception = 50;
+    // Tracking variables
+    var $waterSaved = 0;
+    var $decisionLength = 2;
+    
+    var $success = false;
+    logCityStatus();
         $("#option").css("display", "none");
   });
   $("#optionExit").click(function(){
     $("#option").css("display", "none");
+    $("#decision").html("<p id='decisionDescription'><p><button id='option1'></button> <button id='more1'>...</button><p id='description1'></p><button id='option2'></button><button id='more2'>...</button><p id='description2'></p><button id='option3'></button><button id='more3'>...</button><p id='description3'></p><p id='success'></p>");
   });
-
     $(".toggle").click(function() {
         $("#about").css("display", "none");
         $("#scores").css("display", "none");
