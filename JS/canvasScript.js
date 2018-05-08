@@ -1,4 +1,7 @@
 /* Canvas Setup */
+      var district1Clicked = false;
+      var district2Clicked = false;
+      var district3Clicked = false;
       var myGamePiece;
       function startGame() {
         myGameArea.start();
@@ -81,20 +84,24 @@
             && district1.hasEvent) {
             setDecision();
             document.getElementById("option").style.display = "block";
+            var district1Clicked = false;
         } 
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
             && district2.hasEvent) {
             setDecision();
               document.getElementById("option").style.display = "block";
+              var district2Clicked = false;
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
             && district3.hasEvent) {
             setDecision();
               document.getElementById("option").style.display = "block";
+              var district3Clicked = false;
         } 
     }
+  
       /* function debugMessage(canvas, message) {
         var context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -102,8 +109,21 @@
         context.fillStyle = 'black';
         context.fillText(message, 10, 25);
       } */
-
-      
+     
+      function districtHide(){
+        if (district1Clicked){
+          district1.hasEvent = false;
+        }
+        if (district2Clicked){
+          district2.hasEvent = false;
+        }
+        if (district3Clicked){
+          district3.hasEvent = false;
+        }
+      }
+      if ($chosen){
+        districtHide();
+      }
       
       
       var option = {
