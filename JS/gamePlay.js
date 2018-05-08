@@ -176,11 +176,11 @@ function setDecision(){
     $("#option3").html(situations[0].option3.title);
     $("#option3").click(optionChosen(situations[0].option3));
     $("#description3").html(situations[0].option3.description);
-}
 
-$(document).ready(function(){
-    
-    //dropowns for options
+
+}
+ //dropowns for options
+ function setDropDowns(){
     var $more1 = false;
     $("#more1").click(function(){
         if ($more1 == false){
@@ -211,7 +211,10 @@ $(document).ready(function(){
             $more3 = false;
         }
     });
+ }
 
+$(document).ready(function(){
+    
 
     
     logCityStatus();

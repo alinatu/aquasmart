@@ -83,6 +83,7 @@
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
             && district1.hasEvent) {
             setDecision();
+            setDropDowns();
             document.getElementById("option").style.display = "block";
             var district1Clicked = false;
         } 
@@ -90,6 +91,7 @@
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
             && district2.hasEvent) {
               setDecision();
+              setDropDowns();
               document.getElementById("option").style.display = "block";
               var district2Clicked = false;
         } 
@@ -97,6 +99,7 @@
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
             && district3.hasEvent) {
               setDecision();
+              setDropDowns();
               document.getElementById("option").style.display = "block";
               var district3Clicked = false;
         } 
