@@ -58,7 +58,7 @@ var situation1 = {
 function optionChosen(x) {
     return function(){
         var waterRate = (x.rate / 100);
-        $("#option").css("height", "280px");
+        $("#option").css("height", "230px");
         if (x.outcome == 1) {
             $("#decision").html("Water waste reduced by " + x.rate + "% (" + ($waterUsage * (x.rate / 100)) + " gallons per week)!" + x.success);
         } else if (x.outcome == 0) {
@@ -78,8 +78,9 @@ function optionChosen(x) {
 function setDecision(){
     // Setup div contents
     $("#opimg").attr("src", situation1.imageBanner);
-    $("#option h3").html(situation1.title);
+    $("#option h4").html(situation1.title);
     $("#decisionDescription").html(situation1.description);
+    $("#startGame").css("display", "none");
 
     // Setup button 1
     $("#option1").html(situation1.option1.title);
