@@ -14,7 +14,7 @@ var $success = false;
 
 //option variables
 var situation1 = {
-    id : 0,
+    id : 1,
     title : "Water Wasted Brushing teeth",
     description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it?",
     imageBanner : "./images/situationBanners/toothbrush.png",
