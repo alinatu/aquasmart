@@ -159,6 +159,8 @@ function setDecision(){
     // Setup div contents
     $("#opimg").attr("src", situations[0].imageBanner);
     $("#option h4").html(situations[0].title);
+    $("#option").css("dispay", "block");
+    $("#option").css("margin-top", "-100px");
     $("#decisionDescription").html(situations[0].description);
     $("#startGame").css("display", "none");
 
