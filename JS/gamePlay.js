@@ -1,18 +1,20 @@
+// Global variables
+var $repeatSituations = [];
+var $summerDays = 63;
+var $weekDays = 5;
+var $totalWater = 12480000;
+var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / ($weekDays + 2));
+// var $cityReception = 50;
+// Tracking variables
+var $waterSaved = 0;
+var $decisionLength = 2;
+var $currentWater = $totalWater;
+var $barLevel = ($currentWater / $totalWater) * 100;
+
+var $success = false;
+
 $(document).ready(function(){
-    // Global variables
-    var $repeatSituations = [];
-    var $summerDays = 63;
-    var $weekDays = 5;
-    var $totalWater = 1248000;
-    var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
-    // var $cityReception = 50;
-    // Tracking variables
-    var $waterSaved = 0;
-    var $decisionLength = 2;
-    var $currentWater = $totalWater;
-    var $barLevel = ($currentWater / $totalWater) * 100;
     
-    var $success = false;
     
     logCityStatus();
     //option choice
