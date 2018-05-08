@@ -58,7 +58,7 @@ $(document).ready(function(){
 
     // Resets day count and decrements reservoir and days remaining
     function endTurn() {
-        $weekDays = 7;
+        $weekDays = 63;
         $summerDays -= $weekDays;
         $currentWater -= $waterUsage;
         $barLevel = ($currentWater / $totalWater) * 100;
@@ -66,6 +66,15 @@ $(document).ready(function(){
         $("#userDays").html($summerDays);
         logCityStatus();
         randomSituations();
+
+        if($summerDays == 0){
+            document.getElementById("endGame").style.display = "block";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("login").style.display = "none";
+            document.getElementById("map").style.filter = "blur(3px)";
+            document.getElementById("scores").style.display = "none";
+            document.getElementById("option").style.display = "none";
+        }
     }
     
     // Rolls for a situation ID. Does not accept ID's that have been rolled before
@@ -112,5 +121,7 @@ $(document).ready(function(){
 function optionChosen() {
     
 }
+
+
 
 

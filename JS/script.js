@@ -47,6 +47,7 @@ function resetProgBar() {
     $(".progress-bar").width($level + '%');
 }
 
+
 //Function for the About button
 $(document).ready(function(){
   $("#aboutlink").click(function(){
