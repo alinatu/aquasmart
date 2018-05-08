@@ -103,16 +103,17 @@ function setDecision(){
 
     // Setup button 1
     $("#option1").html(situation1.option1.title);
-    $("#option1").click(situation1.option1.optionChosen);
+    $("#option1").click(optionChosen1);
     $("#description1").html(situation1.option1.description);
 
     //Setup button 2
     $("#option2").html(situation1.option2.title);
-
+    $("#option2").click(optionChosen2);
     $("#description2").html(situation1.option2.description);
     
     //Setup button 3
     $("#option3").html(situation1.option3.title);
+    $("#option3").click(optionChosen3);
     $("#description3").html(situation1.option3.description);
 }
 
@@ -183,6 +184,7 @@ $(document).ready(function(){
         $("#userDays").html($summerDays);
         logCityStatus();
         randomSituations();
+        setDecision();
     }
     
     // Rolls for a situation ID. Does not accept ID's that have been rolled before
@@ -225,10 +227,6 @@ $(document).ready(function(){
 
     
 });
-
-function optionChosen() {
-    
-}
 
 function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
