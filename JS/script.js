@@ -97,7 +97,7 @@ $(document).ready(function(){
   });
   //function for the back arrow from the option card
   $("#optionExit").click(function(){
-    $("#option").css("height", "350px");
+    $("#option").css("height", "330px");
     $("#option").css("display", "none");
     $("#decision").html("<p id='decisionDescription'><p><button id='option1'></button> <button id='more1'>...</button><p id='description1'></p><button id='option2'></button><button id='more2'>...</button><p id='description2'></p><button id='option3'></button><button id='more3'>...</button><p id='description3'></p><p id='success'></p>");
   });
