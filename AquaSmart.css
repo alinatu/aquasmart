@@ -307,3 +307,14 @@ a {
 #endLogo {
   width: 100px;  
 }
+
+#description1 {
+    display: none;
+}
+#description2 {
+    display: none;
+}
+#description3 {
+    display: none;
+}
+
