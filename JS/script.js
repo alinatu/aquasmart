@@ -23,6 +23,8 @@ function myFunction() {
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {
         alert ("Invalid City Name");
     }else {
+        $("#startGame").css("display", "block");
+        $("#startGame").fadeIn(7000).fadeOut(5000);
         document.getElementById("userName").innerHTML = "Mayor " + $name;
         document.getElementById("userCity").innerHTML = $cityName;
         document.getElementById("userDays").innerHTML="63";
@@ -48,9 +50,11 @@ function resetProgBar() {
     $(".progress-bar").width($level + '%');
 }
 
-//Function for the About button
+
 $(document).ready(function(){
+    $("#startGame").css("display", "none");
     getSituationNumber();
+    //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
@@ -61,6 +65,8 @@ $(document).ready(function(){
 //Function for the new game button
   $("#newGame").click(function(){
         onLogin = true;
+        $("#startGame").css("display", "none");
+        $("#option").css("display", "none");
         document.getElementById("about").style.display = "none";
         document.getElementById("gamediv").style.display = "block";
         document.getElementById("map").style.filter = "blur(3px)";
@@ -89,19 +95,26 @@ $(document).ready(function(){
         logCityStatus();
         $("#option").css("display", "none");
   });
+  //function for the back arrow from the option card
   $("#optionExit").click(function(){
+    $("#option").css("height", "350px");
     $("#option").css("display", "none");
     $("#decision").html("<p id='decisionDescription'><p><button id='option1'></button> <button id='more1'>...</button><p id='description1'></p><button id='option2'></button><button id='more2'>...</button><p id='description2'></p><button id='option3'></button><button id='more3'>...</button><p id='description3'></p><p id='success'></p>");
   });
+    //function for the back arrow in about me and scores pages
     $(".toggle").click(function() {
         $("#about").css("display", "none");
         $("#scores").css("display", "none");
         $("#gamediv").css("display", "block");
+        $("#startGame").css("display", "none");
         if (onLogin) {
           $("#login").css("display", "block");
         } 
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
+
+    
+
 });
 //series of functions for checking the names entered are valid
 function isString(s) {

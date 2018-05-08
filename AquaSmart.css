@@ -99,8 +99,7 @@ li > a:hover{
 #gamediv {
     width: 100%;
     z-index: -1;
-    margin: 0 auto;
-    margin-top: -170px;
+    margin-top: -280px;
 }
       
 canvas {        
@@ -108,8 +107,8 @@ canvas {
     display: block;
     width: 400px;
     height: 375px;
-    border-top: 5px solid black;
-    border-bottom: 5px solid black;
+    border-top: 10px solid #d4d9e9;
+    border-bottom: 10px solid #d4d9e9;
     z-index: -1;
     filter: blur(3px);    
 }
@@ -134,11 +133,26 @@ canvas {
     float: right;
 }
 
+#startGame {
+    border: 10px solid #d4d9e9;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -230px;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+    padding: 8px;
+    font-size: 10pt;
+}
+
 #login {
     border: 10px solid #d4d9e9;
     position: relative;
     margin: 0 auto;
-    top: 110px;
+    top: 70px;
     border-radius: 20px;
     text-align: center;
     display: block;
@@ -147,6 +161,7 @@ canvas {
     z-index: 1;
     clear: left;
     padding: 8px;
+    font-size: 11pt;
     /*box-shadow: 0px 7px 10px #000c47;*/
 }
 
@@ -159,6 +174,9 @@ canvas {
     margin-bottom: 3%;
 }
 
+#login form {
+    margin-top:8%;
+}
 #login button {
   margin-top: 2%;
   margin-left: -1px;
@@ -193,11 +211,10 @@ canvas {
     text-align: center;
     font-size: 11pt;
     display: none;
-    margin: 0 auto;
     border: 10px solid #d4d9e9;
     border-radius: 20px;
     position: absolute;
-    top: -26px;
+    margin-top: -70px;
     left: 50%;
     transform: translate(-50%,50%);
     width: 330px;
@@ -220,6 +237,14 @@ canvas {
 
 #decision > p {
     text-align: center;
+}
+
+#optionExit {
+    position: relative;
+}
+ 
+#option3 {
+    margin-bottom: 5px;
 }
 #picsOfUs {
 text-align: center;
@@ -274,6 +299,40 @@ a {
     color: #0baef4;
 }
 
+#endGame {
+    text-align: center;
+    top: 90px;
+    display: none;
+    margin: 0 auto;
+    font-family:  "IBM Plex Sans";
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
+    position: relative;
+    width: 400px;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+    padding: 0% 3%;
+}
+
+#youWin {
+    width: 100%;
+    font-weight: bold;
+    font-size: 200%;
+    color: #000c47;
+}
+
+#youLose {
+    width: 100%;
+    font-weight: bold;
+    font-size: 200%;
+    color: #000c47;
+}
+
+#endLogo {
+  width: 100px;  
+}
+
 #description1 {
     display: none;
 }
@@ -283,3 +342,4 @@ a {
 #description3 {
     display: none;
 }
+
