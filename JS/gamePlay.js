@@ -14,7 +14,7 @@ var $barLevel = ($currentWater / $totalWater) * 100;
 var $success = false;
 
 //option variables
-var situation1 = {
+var situations = { 0: {
     id : 0,
     title : "Water Wasted Brushing teeth",
     description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it?",
@@ -53,6 +53,86 @@ var situation1 = {
         time : 5,
         outcome : 1,
     }
+}, 1: {
+    id : 1,
+    title : "Water Wasted Brushing teeth",
+    description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it?",
+    imageBanner : "./images/situationBanners/toothbrush.png",
+    option1 : {
+        title : "create an ad campaign",
+        description : "blah blah",
+        difficulty : 5,
+        rate : 2,
+        reception : 20,
+        success : " Way to go!",
+        failure : "Your citizens weren't a fan of your changes.",
+        time : 2,
+        outcome : 1,
+        
+    },
+    option2 : {
+        title : "ban toothbrushes",
+        description : "blah blah",
+        difficulty : 20,
+        rate : 5,
+        reception : 20,
+        success : "good job",
+        failure : "Your citizens weren't a fan of your changes.",
+        time : 3,
+        outcome : 0,
+    },
+    option3 : {
+        title : "Offer a refund on waterwise taps",
+        description : "blah blah",
+        difficulty : 10,
+        rate : 7,
+        reception : 20,
+        success : "",
+        failure : "",
+        time : 5,
+        outcome : 1,
+    }
+}, 2: {
+    id : 2,
+    title : "Water Wasted Brushing teeth",
+    description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it?",
+    imageBanner : "./images/situationBanners/toothbrush.png",
+    option1 : {
+        title : "create an ad campaign",
+        description : "blah blah",
+        difficulty : 5,
+        rate : 2,
+        reception : 20,
+        success : " Way to go!",
+        failure : "Your citizens weren't a fan of your changes.",
+        time : 2,
+        outcome : 1,
+        
+    },
+    option2 : {
+        title : "ban toothbrushes",
+        description : "blah blah",
+        difficulty : 20,
+        rate : 5,
+        reception : 20,
+        success : "good job",
+        failure : "Your citizens weren't a fan of your changes.",
+        time : 3,
+        outcome : 0,
+    },
+    option3 : {
+        title : "Offer a refund on waterwise taps",
+        description : "blah blah",
+        difficulty : 10,
+        rate : 7,
+        reception : 20,
+        success : "",
+        failure : "",
+        time : 5,
+        outcome : 1,
+    }
+},
+    
 };
 
 function optionChosen(x) {
@@ -77,25 +157,25 @@ function optionChosen(x) {
 
 function setDecision(){
     // Setup div contents
-    $("#opimg").attr("src", situation1.imageBanner);
-    $("#option h4").html(situation1.title);
-    $("#decisionDescription").html(situation1.description);
+    $("#opimg").attr("src", situations[0].imageBanner);
+    $("#option h4").html(situations[0].title);
+    $("#decisionDescription").html(situations[0].description);
     $("#startGame").css("display", "none");
 
     // Setup button 1
-    $("#option1").html(situation1.option1.title);
-    $("#option1").click(optionChosen(situation1.option1));
-    $("#description1").html(situation1.option1.description);
+    $("#option1").html(situations[0].option1.title);
+    $("#option1").click(optionChosen(situations[0].option1));
+    $("#description1").html(situations[0].option1.description);
 
     //Setup button 2
-    $("#option2").html(situation1.option2.title);
-    $("#option2").click(optionChosen(situation1.option2));
-    $("#description2").html(situation1.option2.description);
+    $("#option2").html(situations[0].option2.title);
+    $("#option2").click(optionChosen(situations[0].option2));
+    $("#description2").html(situations[0].option2.description);
     
     //Setup button 3
-    $("#option3").html(situation1.option3.title);
-    $("#option3").click(optionChosen(situation1.option3));
-    $("#description3").html(situation1.option3.description);
+    $("#option3").html(situations[0].option3.title);
+    $("#option3").click(optionChosen(situations[0].option3));
+    $("#description3").html(situations[0].option3.description);
 }
 
 $(document).ready(function(){
@@ -137,9 +217,9 @@ $(document).ready(function(){
     logCityStatus();
     //option choice
         
-        $("#option1").click(optionChosen(situation1.option1));
-        $("#option2").click(optionChosen(situation1.option2));
-        $("#option3").click(optionChosen(situation1.option3));
+        $("#option1").click(optionChosen(situations[0].option1));
+        $("#option2").click(optionChosen(situations[0].option2));
+        $("#option3").click(optionChosen(situations[0].option3));
 
 
 
