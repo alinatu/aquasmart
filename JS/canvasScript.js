@@ -85,13 +85,13 @@
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
             && district2.hasEvent) {
-              setDecision();
+            setDecision();
               document.getElementById("option").style.display = "block";
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
             && district3.hasEvent) {
-              setDecision();
+            setDecision();
               document.getElementById("option").style.display = "block";
         } 
     }

@@ -74,8 +74,8 @@ $(document).ready(function(){
         resetProgBar();
          // Global variables
     var $repeatSituations = [];
-    var $summerDays = 60;
-    var $weekDays = 7;
+    var $summerDays = 63;
+    var $weekDays = 5;
     var $barLevel = ($currentWater / $totalWater) * 100;
     var $totalWater = 1248000;
     var $currentWater = $totalWater;
@@ -86,7 +86,6 @@ $(document).ready(function(){
     var $decisionLength = 2;
     
     var $success = false;
-    logCityStatus();
         $("#option").css("display", "none");
   });
   $("#optionExit").click(function(){
