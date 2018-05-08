@@ -73,20 +73,20 @@ $(document).ready(function(){
         document.getElementById("setNames").reset();
         resetProgBar();
          // Global variables
-    var $repeatSituations = [];
-    var $summerDays = 60;
-    var $weekDays = 7;
-    var $barLevel = ($currentWater / $totalWater) * 100;
-    var $totalWater = 1248000;
-    var $currentWater = $totalWater;
-    var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
-    var $cityReception = 50;
-    // Tracking variables
-    var $waterSaved = 0;
-    var $decisionLength = 2;
-    
-    var $success = false;
-    logCityStatus();
+        var $repeatSituations = [];
+        var $summerDays = 60;
+        var $weekDays = 7;
+        var $barLevel = ($currentWater / $totalWater) * 100;
+        var $totalWater = 1248000;
+        var $currentWater = $totalWater;
+        var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
+        var $cityReception = 50;
+        // Tracking variables
+        var $waterSaved = 0;
+        var $decisionLength = 2;
+        
+        var $success = false;
+        logCityStatus();
         $("#option").css("display", "none");
   });
   $("#optionExit").click(function(){
