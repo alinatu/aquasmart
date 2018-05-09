@@ -6,7 +6,7 @@
       function startGame() {
         myGameArea.start();
         gameMap = new component(0, 375, 400, "images/MapTest2.png", 0, 0, "image");
-        district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", false);
+        district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", true);
         paint1 = new toggleComponent(100, 80, "images/paintstroke.png", 48, 92, false);
         
         district2 = new component(2, 100, 100, "images/District2Redone.png", 85, 190, "image", true);
@@ -82,8 +82,8 @@
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
             && district1.hasEvent) {
-            setDecision();
-            setDropDowns();
+            setDecision(0);
+            setDropDowns(0);
             updateScore();
             document.getElementById("option").style.display = "block";
             var district1Clicked = false;
@@ -91,16 +91,16 @@
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
             && district2.hasEvent) {
-              setDecision();
-              setDropDowns();
+              setDecision(1);
+              setDropDowns(1);
               document.getElementById("option").style.display = "block";
               var district2Clicked = false;
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
             && district3.hasEvent) {
-              setDecision();
-              setDropDowns();
+              setDecision(2);
+              setDropDowns(2);
               document.getElementById("option").style.display = "block";
               var district3Clicked = false;
         } 
@@ -168,9 +168,9 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
           }
 
-          if (hasEvent && this.id == 1) {
+          if (hasEvent && this.id == 1 && situations[0].chosen == false) {
             drop1.show = true;
-          } else if (!hasEvent && this.id == 1) {
+          } else if (!hasEvent && this.id == 1 && situations[0].chosen == true) {
             drop1.show = false;
           }
 
