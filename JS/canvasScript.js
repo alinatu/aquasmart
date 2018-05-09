@@ -5,7 +5,7 @@
       var myGamePiece;
       function startGame() {
         myGameArea.start();
-        gameMap = new component(0, 375, 400, "images/Map.png", 0, 0, "image");
+        gameMap = new component(0, 375, 400, "images/MapTest2.png", 0, 0, "image");
         district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", false);
         paint1 = new toggleComponent(100, 80, "images/paintstroke.png", 48, 92, false);
         

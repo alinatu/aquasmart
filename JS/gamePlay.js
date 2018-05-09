@@ -15,7 +15,7 @@ var $success = false;
 
 //option variables
 var situations = { 0: {
-    id : 0,
+    id : 1,
     title : "Water Wasted Brushing teeth",
     description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it?",
     imageBanner : "./images/situationBanners/toothbrush.png",
@@ -220,14 +220,6 @@ $(document).ready(function(){
 
     
     logCityStatus();
-    //option choice
-        
-        $("#option1").click(optionChosen(situations[0].option1));
-        $("#option2").click(optionChosen(situations[0].option2));
-        $("#option3").click(optionChosen(situations[0].option3));
-
-
-
     //while ($summerDays >= 0 || $currentWater >= 0) {
     /*    if ($weekDays <= 7) {
            if ($success){
@@ -307,6 +299,7 @@ $(document).ready(function(){
 
 function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
+
     $playerScore = ($waterSaved * receptionModifier);
     if ($currentWater <= 0) {
         $playerScore /= 2;
