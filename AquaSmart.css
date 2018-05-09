@@ -103,7 +103,11 @@ li > a:hover{
 #gamediv {
     width: 100%;
     z-index: -1;
-    margin-top: -300px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%,50%);
+    
     
 }
       
@@ -140,9 +144,11 @@ canvas {
 
 #startGame {
     border: 10px solid #d4d9e9;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
-    margin-top: -230px;
+    bottom:50%;
+    left: 50%;
+    transform: translate(-50%,50%);
     border-radius: 20px;
     text-align: center;
     width: 300px;
@@ -155,9 +161,10 @@ canvas {
 
 #login {
     border: 10px solid #d4d9e9;
-    position: relative;
-    margin: 0 auto;
-    top: 50px;
+    position: absolute;
+    bottom:50%;
+    left: 50%;
+    transform: translate(-50%,50%);
     border-radius: 20px;
     text-align: center;
     display: block;
@@ -165,7 +172,7 @@ canvas {
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
-    padding: 8px;
+    /*padding: 8px;*/
     font-size: 11pt;
 }
 
@@ -218,10 +225,10 @@ canvas {
     border-radius: 20px;
     position: absolute;
     margin: 0 auto;
-    bottom: 50%;
+    bottom:50%;
     left: 50%;
     transform: translate(-50%,50%);
-    width: 300px;
+    width: 350px;
     height: 330px;
     background-color: #ebf0f9;
     z-index: 1;
@@ -230,17 +237,35 @@ canvas {
 }
 
 #option button:hover {
-    color: #d4d9e9;
+    color: #000c47;
     background-color: #66ff99;
 }
 
-#option button {
+.optionButton {
     background-color: #0baef4;
     border-radius: 20px;
+    width: 80%;
 }
 
+.moreButton {
+    background-color: #0baef4;
+    border-radius: 20px;
+    float: right;
+    width: 20%;
+}
+
+#option button {
+    font-size: 12pt;
+    line-height: 20px;
+    margin-bottom: 7px;
+}
 #option img {
     display: inline-block;
+    
+}
+
+#optionExit {
+    width: 50px;
 }
 
 #decision {
