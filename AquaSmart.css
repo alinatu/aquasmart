@@ -22,12 +22,13 @@ body {
       
 #navbar {
 
-    margin-left: -20px;
-    font-size: 75%;
+    margin-left: 5px;
+    font-size: 50%;
     margin-top: 15px;
     float: left;
     line-height: 20px;
     width: 30%;
+    position: relative;
 }
 
 #userName{
@@ -45,12 +46,16 @@ body {
     text-align: center;
     float: right;
     width: 30%;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 15px;
     font-weight: bold;
-    /*margin-right: 30px;*/
+    margin-right: -20px;
+    padding: 0;
 }
 
+#daysLeft {
+    margin-top: -10px;
+}
       
 #navbar > p {
     font-family: "IBM Plex Sans";
@@ -81,13 +86,15 @@ li > a:hover{
 #logo {
     margin-left: 2%;
     line-height: 110px;
-    width: 30%;
+    width: 25%;
     margin-top: -8px;
     float: left; 
 }
       
-#logosize {        
+#logosize {   
+    position: relative;     
     width: 100%;
+    margin-top: -10px;
 }
 
 #score {
@@ -148,6 +155,24 @@ canvas {
 }
 
 #startGame {
+    border: 10px solid #d4d9e9;
+    position: absolute;
+    margin: 0 auto;
+    bottom:50%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+    padding: 8px;
+    font-size: 10pt;
+}
+
+#noDays {
+    display: none;
     border: 10px solid #d4d9e9;
     position: absolute;
     margin: 0 auto;
@@ -238,7 +263,7 @@ canvas {
     background-color: #ebf0f9;
     z-index: 1;
     font-size: 10pt;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #option button:hover {
@@ -313,19 +338,18 @@ text-align: center;
 
 
 #guy {
-  margin-top: -25px;
-  float: left;
+    margin-top: -25px;
   background-color: #bff2f0;
   padding: 0;
   border: 0;
-
+  float: left;
 }
+
 .progress {
-  width: 80%;
-  float: right;
-  margin-right: 2%;
-  padding: 0;
-  margin-top: 2%;
+    float: right;
+  width: 90%;
+  margin-right: -10px;
+
 }
 #inner {
   background-color: #0baef4;
@@ -384,4 +408,22 @@ a {
 #description3 {
     display: none;
 }
+
+#dropBar {
+    margin: 0 auto;
+    margin-top: 115px;
+    width: 90%;
+    height: 50px;
+}
+
+#drop {
+    width: 60px;
+    float: left;
+    clear: both;
+    margin-right: 0%;
+    margin-left: -20px;
+    margin-top: -20px;
+    padding-right: 0%;
+}
+
 

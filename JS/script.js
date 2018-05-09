@@ -5,6 +5,7 @@ var $situationList;
 var $optionlist;
 var onLogin = true;
 
+
 //function for the Play arrow button
 function myFunction() {
     onLogin = false;
@@ -58,6 +59,11 @@ $(document).ready(function(){
     getOptions();
   });
 
+  //x button for end of week message
+$("#noDays img").click(function(){
+    $("#noDays").css("display", "none");
+});
+
 //Function for the new game button
   $("#newGame").click(function(){
         onLogin = true;
@@ -106,6 +112,7 @@ $(document).ready(function(){
         $("#scores").css("display", "none");
         $("#gamediv").css("display", "block");
         $("#startGame").css("display", "none");
+        $("noDays").css("display", "none");
         if (onLogin) {
           $("#login").css("display", "block");
         } 
