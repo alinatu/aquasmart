@@ -16,9 +16,9 @@ var $success = false;
 //option variables
 var situations = { 0: {
     id : 0,
-    title : "Water Wasted Brushing teeth",
-    description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it? ",
-    imageBanner : "./images/situationBanners/toothbrush.png",
+    title : "",
+    description : "",
+    imageBanner : "",
     option1 : {
         title : "Create an ad campaign to educate. ",
         description : "Leaving the faucet running wastes 6 litres of treated water per minute. Simply communicating this fact may be enough to make people change their habits! ",
@@ -27,7 +27,11 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
+<<<<<<< HEAD
         time : 3,
+=======
+        time : 4,
+>>>>>>> 0aa6383dff0205181b37cb5573d66f89739cc46e
         outcome : 1,
         
     },
@@ -90,7 +94,11 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
+<<<<<<< HEAD
         time : 5,
+=======
+        time : 3,
+>>>>>>> 0aa6383dff0205181b37cb5573d66f89739cc46e
         outcome : 0,
     },
     chosen : false
@@ -107,7 +115,11 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
+<<<<<<< HEAD
         time : 5,
+=======
+        time : 3,
+>>>>>>> 0aa6383dff0205181b37cb5573d66f89739cc46e
         outcome : 1,
         
     },
@@ -119,7 +131,11 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
+<<<<<<< HEAD
         time : 5,
+=======
+        time : 4,
+>>>>>>> 0aa6383dff0205181b37cb5573d66f89739cc46e
         outcome : 1,
     },
     option3 : {
@@ -141,7 +157,17 @@ $(document).ready(function(){
     logCityStatus();
 });
 
+<<<<<<< HEAD
 function optionChosen(x, y) {
+=======
+function hideDroplet(x) {
+    return function() {
+        situations[0].chosen = true;
+    }
+}
+
+function optionChosen(x) {
+>>>>>>> 0aa6383dff0205181b37cb5573d66f89739cc46e
     return function(){
         if (x.time > $weekDays) {
             $("#decision").html("You don't have enough days in the week to make this change... You'll have to choose another.");
@@ -161,10 +187,17 @@ function optionChosen(x, y) {
             $waterSaved += ($waterUsage * (x.rate / 100));
             console.log("You have " + $weekDays + " days left to make decisions");
             updateScore();
+            // hideDroplet(x);
+            var decisionCheck = noDecisionsLeft();
+            console.log("Decision check is: " + decisionCheck);
             $numOfEvents--;
+<<<<<<< HEAD
             y.chosen = true;
             var decisionsLeft = noDecisionsLeft();
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionsLeft) {
+=======
+            if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
+>>>>>>> 0aa6383dff0205181b37cb5573d66f89739cc46e
                 endTurn();
             }
         }
