@@ -149,11 +149,11 @@ function hideDroplet(x) {
 
 function optionChosen(x, y) {
     return function(){
+        $("#option").css("height", "230px");
         if (x.time > $weekDays) {
             $("#decision").html("You don't have enough days in the week to make this change... You'll have to choose another.");
         } else {
             var waterRate = (x.rate / 100);
-            $("#option").css("height", "230px");
             if (x.outcome == 1) {
                 $("#decision").html(x.success + "Water waste reduced by " + x.rate + "% (" 
                     + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week)!");
