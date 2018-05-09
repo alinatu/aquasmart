@@ -1,8 +1,8 @@
 var $name;
 var $cityName;
 var $totalSituations;
-var $situationList1;
-var $optionlist1;
+var $situationList;
+var $optionlist;
 var onLogin = true;
 
 //function for the Play arrow button
@@ -10,7 +10,6 @@ function myFunction() {
     onLogin = false;
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
-    setSituations();
     
     if($name == "dog" || $name == "Dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
