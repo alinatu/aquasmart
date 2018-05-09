@@ -4,7 +4,7 @@ var $repeatSituations = [];
 var $summerDays = 63;
 var $weekDays = 7;
 var $totalWater = 1248000;
-var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / ($weekDays + 2));
+var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
 // Tracking variables
 var $cityReception = 50;
 var $waterSaved = 0;
@@ -150,8 +150,6 @@ function optionChosen(x) {
         $waterSaved += ($waterUsage * (x.rate / 100));
         console.log("You have " + $weekDays + " days left to make decisions");
         updateScore();
-        endTurn();
-        $chosen = true;
     };
 
 }
@@ -160,6 +158,8 @@ function setDecision(){
     // Setup div contents
     $("#opimg").attr("src", situations[0].imageBanner);
     $("#option h4").html(situations[0].title);
+    $("#option").css("dispay", "block");
+    $("#option").css("margin-top", "-100px");
     $("#decisionDescription").html(situations[0].description);
     $("#startGame").css("display", "none");
 
@@ -177,11 +177,11 @@ function setDecision(){
     $("#option3").html(situations[0].option3.title);
     $("#option3").click(optionChosen(situations[0].option3));
     $("#description3").html(situations[0].option3.description);
-}
 
-$(document).ready(function(){
-    
-    //dropowns for options
+
+}
+ //dropowns for options
+ function setDropDowns(){
     var $more1 = false;
     $("#more1").click(function(){
         if ($more1 == false){
@@ -212,56 +212,10 @@ $(document).ready(function(){
             $more3 = false;
         }
     });
+ }
 
-
-    
+$(document).ready(function(){
     logCityStatus();
-    //while ($summerDays >= 0 || $currentWater >= 0) {
-    /*    if ($weekDays <= 7) {
-           if ($success){
-               $waterSaved += 1;
-           }
-           $weekDays += $decisionLength; 
-        } else {
-            $barLevel -= 10 + $waterSaved;
-            $weekDays = 0;
-            $summerDays += 7;
-            $(".progress-bar").width($barLevel + '%');
-        }
-    //} */
-
-    // Resets day count and decrements reservoir and days remaining
-
-    
-    // Rolls for a situation ID. Does not accept ID's that have been rolled before
-    // Returns an array of three values
-    function randomSituations() {
-
-        var numFound = false;
-        var roll;
-        var threeValues = [];
-        for (let i = 0; i < 3; i++) {
-            numFound = false;
-            while (!numFound) {
-
-            // Checks if unique ID's have been found.
-            if ($repeatSituations.length < 24) {
-                // Random number between 1 and number of situations
-                roll = Math.floor(Math.random() * (24) + 1);
-            } else {
-                console.log("No more unique ID's");
-                break;
-            }
-            if (!$repeatSituations.includes(roll)) {
-                $repeatSituations.push(roll);
-                threeValues.push(roll);
-                console.log(roll);
-                numFound = true;
-            }
-            }
-        }
-        return threeValues;
-    }
 });
 
 // Logs all variables to the console. Used for score and status tracking
@@ -274,14 +228,13 @@ function logCityStatus() {
 
 function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
-    var playerScore = ($waterSaved * receptionModifier);
-
+    $playerScore = ($waterSaved * receptionModifier);
     if ($currentWater <= 0) {
-        playerScore /= 2;
+        $playerScore /= 2;
     }
-    playerScore = Math.round(playerScore);
-    console.log("Your score is " + playerScore);
-    $("#yourScore").html("Your Score: " + playerScore);
+    $playerScore = Math.round($playerScore);
+    console.log("Your score is " + $playerScore);
+    $("#yourScore").html($playerScore);
 }
 
 function endTurn() {
@@ -303,5 +256,33 @@ function endTurn() {
         document.getElementById("option").style.display = "none";
     }
     setDecision();
+}
+
+function randomSituations() {
+
+    var numFound = false;
+    var roll;
+    var threeValues = [];
+    for (let i = 0; i < 3; i++) {
+        numFound = false;
+        while (!numFound) {
+
+        // Checks if unique ID's have been found.
+        if ($repeatSituations.length < 24) {
+            // Random number between 1 and number of situations
+            roll = Math.floor(Math.random() * (24) + 1);
+        } else {
+            console.log("No more unique ID's");
+            break;
+        }
+        if (!$repeatSituations.includes(roll)) {
+            $repeatSituations.push(roll);
+            threeValues.push(roll);
+            console.log(roll);
+            numFound = true;
+        }
+        }
+    }
+    return threeValues;
 }
 
