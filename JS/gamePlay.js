@@ -234,7 +234,8 @@ function updateScore() {
     }
     $playerScore = Math.round($playerScore);
     console.log("Your score is " + $playerScore);
-    $("#yourScore").html($playerScore);
+    $("#yourScore").html('Your score: ');
+    $("#yourScore").append($playerScore);
 }
 
 function endTurn() {
