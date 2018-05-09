@@ -260,8 +260,8 @@ canvas {
 }
 
 #option button {
-    font-size: 12pt;
-    line-height: 20px;
+    font-size: 10.5pt;
+    height: 32px;
     margin-bottom: 7px;
 }
 #option img {
