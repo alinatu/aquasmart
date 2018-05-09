@@ -13,7 +13,9 @@ while (summer days remaining > 0 || water remaining > 0) {
 		If situations are repeats, roll again
 		
 	Store situation ID's to prevent repeats
-	
+
+	Pull situations from ID
+
 	Assign situations to a city district
 		Draw water droplet on city with available situation
 	
