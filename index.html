@@ -11,6 +11,7 @@
     <script src="./JS/script.js" type="text/javascript"></script>
     <script src="./JS/canvasScript.js" type="text/javascript"></script>
     <script src="./JS/gamePlay.js" type="text/javascript"></script>
+    <script src="./JS/decisions.js" type="text/javascript"></script>
     <link type="text/css" rel=stylesheet href="AquaSmart.css">
     </head>
   <body onload="startGame()">
@@ -27,11 +28,7 @@
         <p id="daysLeft"></p>
       </div>
 
-      <!--<p id="userInfo">
-        <span id="userCity"></span>
-        <span id="userName"></span>
-        <span id="days"></span>
-      </p> -->
+  
       <div id="waterLevel"></div>
       </div>
      <div class="progress">
@@ -39,16 +36,17 @@
           </div>
     <button id="guy"><img src="images/waterdrop.png" alt="water"></button>
     <div id="score">
+
       <p id="yourScore"></p>
     </div>
 
     <div id="option">
       <img id="opimg" alt="option" width="200px"> 
-      <h4></h4>
+      <h3></h3>
       <div id="decision">
         <p id="decisionDescription"></p>
     
-          <button id="option1"></button> <button id="more1">...</button>
+          <button id="option1"></button><button id="more1">...</button>
           <p id="description1"></p>
           <br>
           <button id="option2"></button><button id="more2">...</button>
@@ -59,7 +57,6 @@
           <br>
           <p id="success"></p>
         </div>
-        
         <img id="optionExit" src="images/back-arrow.png" alt="back"/>
       
     </div>
@@ -87,14 +84,6 @@
       <p id="scoreList"></p>
       <img class="toggle" src="images/back-arrow.png" alt="back"/>
     </div>
-
-    <div id="endGame" class="popup">
-      <p id="youWin">Y O U&nbsp;&nbsp;W I N ! :)</p>
-      <p id="youLose">Y O U&nbsp;&nbsp;L O S T ! :(</p>
-      <p id="ending">Thank you for playing!</p>
-      <p>Click "New Game" to play again!</p>
-      <img id="endLogo" src="images/Aquasmart.png" alt="Aqua Smart"/>
-    </div>
     
     <div id="login" class="popup">
       <img src="images/Aquasmart.png" width="70%">
@@ -108,13 +97,12 @@
     <button id="submit" onclick="myFunction()"> <img src="images/play-button%20(1).png" alt="play" ></button>
       
     </div>
-    <div id="gamediv">
-      
-    </div>
-
-    <div id="startGame" class="toggle">You have 63 days to save as much water as possible!<br>
-    Click on a city with a water drop</div>
+    <div id="gamediv"></div>
      
+    <div id="startGame" class="toggle">You have 63 days to save as much water as possible!<br>
+      Click on a city with a water drop</div>
+
+
     <div id="bottomdiv">
       <a id="newGame">New Game</a>
       <a id="highscores">Highscores</a>
