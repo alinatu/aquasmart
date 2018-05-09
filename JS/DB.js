@@ -84,6 +84,7 @@ function getSituationNumber() {
         }
     });
 }
+//pulls the list of situations from the DB.
 function getSituations() {
     console.log("Pulling situations from DB");
     $.ajax({
@@ -98,7 +99,28 @@ function getSituations() {
         }
     });
 }
+function getOptions() {
+    console.log("Pulling options from DB");
+    $.ajax({
+        url: "./DB/getOptions.php",
+        dataType: "json",
+        type: "GET",
+        data: {output: 'json'},
+        success: function(data) {
+            console.log(data);
+            $optionList = data['returnOptions'];
+            console.log($optionList);
+        }
+    });
+}
 //Sets the 3 situations with the situation and option data from the database.
-function setSituations() {
-    
+function setSituations(sit1, sit2, sit3) {
+    for (var i = 0; i < 3; i++) {
+        var currentSituation = $situationList[i];
+        situations[i].id = currentSituation['ID'];
+        situations[i].title = currentSituation['title'];
+        situations[i].description = currentSituation['description'];
+        situations[i].imageBanner = "./images/situationBanners/" + currentSituation['imageLink'];
+
+    }
 }

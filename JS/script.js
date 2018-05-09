@@ -12,6 +12,7 @@ function myFunction() {
     //addPlayer($name);
     console.log($totalSituations);
     getSituations();
+    getOptions();
     if($name == "dog" || $name == "Dog"){
         $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork bark bark bork.");
