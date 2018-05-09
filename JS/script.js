@@ -107,6 +107,7 @@ $(document).ready(function(){
         $("#scores").css("display", "none");
         $("#gamediv").css("display", "block");
         $("#startGame").css("display", "none");
+        $("noDays").css("display", "none");
         if (onLogin) {
           $("#login").css("display", "block");
         } 
