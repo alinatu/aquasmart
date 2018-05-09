@@ -28,11 +28,7 @@
         <p id="daysLeft"></p>
       </div>
 
-      <!--<p id="userInfo">
-        <span id="userCity"></span>
-        <span id="userName"></span>
-        <span id="days"></span>
-      </p> -->
+  
       <div id="waterLevel"></div>
       </div>
      <div class="progress">
@@ -40,7 +36,7 @@
           </div>
     <button id="guy"><img src="images/waterdrop.png" alt="water"></button>
     <div id="score">
-      <p>Your Score:</p>
+
       <p id="yourScore"></p>
     </div>
 
@@ -90,6 +86,9 @@
     </div>
     
     <div id="login" class="popup">
+      <img src="images/Aquasmart.png" width="70%">
+      <br>
+      Welcome to AquaSmart! <br>Enter a city name and your name to start saving water during this hot summer!
       <br>
     <form id="setNames">
       <input id="cityName" type="text" placeholder="City Name"><br>
@@ -98,10 +97,12 @@
     <button id="submit" onclick="myFunction()"> <img src="images/play-button%20(1).png" alt="play" ></button>
       
     </div>
-    <div id="gamediv">
-      
-    </div>
+    <div id="gamediv"></div>
      
+    <div id="startGame" class="toggle">You have 63 days to save as much water as possible!<br>
+      Click on a city with a water drop</div>
+
+
     <div id="bottomdiv">
       <a id="newGame">New Game</a>
       <a id="highscores">Highscores</a>
