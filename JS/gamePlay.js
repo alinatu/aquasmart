@@ -141,12 +141,6 @@ $(document).ready(function(){
     logCityStatus();
 });
 
-function hideDroplet(x) {
-    return function() {
-        situations[0].chosen = true;
-    }
-}
-
 function optionChosen(x, y) {
     return function(){
         $("#option").css("height", "230px");

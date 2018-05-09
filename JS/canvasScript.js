@@ -105,29 +105,6 @@
               var district3Clicked = false;
         } 
     }
-  
-      /* function debugMessage(canvas, message) {
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
-      } */
-     
-      /* function districtHide(){
-        if (district1Clicked){
-          district1.hasEvent = false;
-        }
-        if (district2Clicked){
-          district2.hasEvent = false;
-        }
-        if (district3Clicked){
-          district3.hasEvent = false;
-        }
-      }
-      if ($chosen){
-        districtHide();
-      } */
       
       
       var option = {
@@ -143,7 +120,7 @@
         }
       }
 
-      function component(id, width, height, color, x, y, type, hasEvent) {
+      function component(id, width, height, color, x, y, type) {
         this.id = id;
         this.type = type;
         if (type == "image") {
@@ -154,7 +131,6 @@
         this.height = height;
         this.x = x;
         this.y = y;
-        this.hasEvent = hasEvent;
         
         this.update = function() {
           ctx = myGameArea.context;
@@ -168,21 +144,21 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
           }
 
-          if (hasEvent && this.id == 1 || situations[0].chosen == false) {
+          if (this.id == 1 || situations[0].chosen == false) {
             drop1.show = true;
-          } else if (!hasEvent && this.id == 1 || situations[0].chosen == true) {
+          } else if (this.id == 1 || situations[0].chosen == true) {
             drop1.show = false;
           }
 
-          if (hasEvent && this.id == 2 || situations[1].chosen == false) {
+          if (this.id == 2 || situations[1].chosen == false) {
             drop2.show = true;
-          } else if (!hasEvent && this.id == 2 || situations[1].chosen == true) {
+          } else if (this.id == 2 || situations[1].chosen == true) {
             drop2.show = false;
           }
 
-          if (hasEvent && this.id == 3 || situations[2].chosen == false) {
+          if (this.id == 3 || situations[2].chosen == false) {
             drop3.show = true;
-          } else if (!hasEvent && this.id == 3 || situations[2].chosen == true) {
+          } else if (this.id == 3 || situations[2].chosen == true) {
             drop3.show = false;
           }
         } 
@@ -232,8 +208,7 @@
         district2.update();
         paint3.update();
         district3.update();
-        drop3.update();
         drop1.update();
         drop2.update();
-      
+        drop3.update();
       }
