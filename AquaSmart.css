@@ -90,10 +90,12 @@ li > a:hover{
 }
 
 #score {
-    width: 110px;
+    text-align: center;
+    width: 100%;
     font-family: "IBM Plex Sans";
     font-size: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
       
 #gamediv {
@@ -222,15 +224,21 @@ canvas {
     background-color: #ebf0f9;
     z-index: 1;
     font-size: 10pt;
+    overflow: scroll;
 }
 
 #option button:hover {
-    color: #66ff99;
-    background-color: #0baef4;
+    color: #d4d9e9;
+    background-color: #66ff99;
 }
 
 #option button {
     background-color: #0baef4;
+    border-radius: 20px;
+}
+
+#option img {
+    display: inline-block;
 }
 
 #decision {

@@ -218,16 +218,9 @@ $(document).ready(function(){
     logCityStatus();
 });
 
-// Logs all variables to the console. Used for score and status tracking
-function logCityStatus() {
-    console.log($summerDays + " days left in summer!");
-    console.log("You have " + $currentWater + " gallons in your reservoir.");
-    console.log("Your city uses " + $waterUsage + " gallons per week.");
-    console.log("You have saved " + $waterSaved + " gallons so far!");
-}
-
 function updateScore() {
     var receptionModifier = ($cityReception / 100) + 1;
+
     $playerScore = ($waterSaved * receptionModifier);
     if ($currentWater <= 0) {
         $playerScore /= 2;
