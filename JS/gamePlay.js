@@ -27,7 +27,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 2,
+        time : 3,
         outcome : 1,
         
     },
@@ -39,7 +39,7 @@ var situations = { 0: {
         reception : 20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
-        time : 3,
+        time : 5,
         outcome : 0,
     },
     option3 : {
@@ -90,7 +90,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 2,
+        time : 5,
         outcome : 0,
     },
     chosen : false
@@ -107,7 +107,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 2,
+        time : 5,
         outcome : 1,
         
     },
@@ -119,7 +119,7 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 3,
+        time : 5,
         outcome : 1,
     },
     option3 : {
@@ -130,7 +130,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 1,
+        time : 5,
         outcome : 0,
     },
     chosen : false
@@ -141,7 +141,7 @@ $(document).ready(function(){
     logCityStatus();
 });
 
-function optionChosen(x) {
+function optionChosen(x, y) {
     return function(){
         if (x.time > $weekDays) {
             $("#decision").html("You don't have enough days in the week to make this change... You'll have to choose another.");
@@ -162,7 +162,9 @@ function optionChosen(x) {
             console.log("You have " + $weekDays + " days left to make decisions");
             updateScore();
             $numOfEvents--;
-            if ($weekDays <= 0 || $numOfEvents <= 0) {
+            y.chosen = true;
+            var decisionsLeft = noDecisionsLeft();
+            if ($weekDays <= 0 || $numOfEvents <= 0 || decisionsLeft) {
                 endTurn();
             }
         }
@@ -170,14 +172,13 @@ function optionChosen(x) {
 }
 
 function noDecisionsLeft() {
-    return function() {
         var counter = 0;
         var noDecisions = false;
-        for (let i = 0; i <= 3; i++) {
+        for (let i = 0; i < 3; i++) {
             // True if all options cannot be selected
-            if (situations[0].option1.time > $weekDays
-            && situations[0].option2.time > $weekDays
-            && situations[0].option3.time > $weekDays) {
+            if (situations[i].option1.time > $weekDays
+            && situations[i].option2.time > $weekDays
+            && situations[i].option3.time > $weekDays) {
                 counter++;
             }
         }
@@ -187,7 +188,6 @@ function noDecisionsLeft() {
         }
         console.log("No Decisions? " + noDecisions);
         return noDecisions;
-    };
 }
 
 function setDecision(x){
@@ -201,17 +201,17 @@ function setDecision(x){
 
     // Setup button 1
     $("#option1").html(situations[x].option1.title);
-    $("#option1").click(optionChosen(situations[x].option1));
+    $("#option1").click(optionChosen(situations[x].option1, situations[x]));
     $("#description1").html(situations[x].option1.description);
 
     //Setup button 2
     $("#option2").html(situations[x].option2.title);
-    $("#option2").click(optionChosen(situations[x].option2));
+    $("#option2").click(optionChosen(situations[x].option2, situations[x]));
     $("#description2").html(situations[x].option2.description);
     
     //Setup button 3
     $("#option3").html(situations[x].option3.title);
-    $("#option3").click(optionChosen(situations[x].option3));
+    $("#option3").click(optionChosen(situations[x].option3, situations[x]));
     $("#description3").html(situations[x].option3.description);
 }
 

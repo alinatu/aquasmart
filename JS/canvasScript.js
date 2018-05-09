@@ -168,21 +168,21 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
           }
 
-          if (hasEvent && this.id == 1 && situations[0].chosen == false) {
+          if (hasEvent && this.id == 1 || situations[0].chosen == false) {
             drop1.show = true;
-          } else if (!hasEvent && this.id == 1 && situations[0].chosen == true) {
+          } else if (!hasEvent && this.id == 1 || situations[0].chosen == true) {
             drop1.show = false;
           }
 
-          if (hasEvent && this.id == 2) {
+          if (hasEvent && this.id == 2 || situations[1].chosen == false) {
             drop2.show = true;
-          } else if (!hasEvent && this.id == 2) {
+          } else if (!hasEvent && this.id == 2 || situations[1].chosen == true) {
             drop2.show = false;
           }
 
-          if (hasEvent && this.id == 3) {
+          if (hasEvent && this.id == 3 || situations[2].chosen == false) {
             drop3.show = true;
-          } else if (!hasEvent && this.id == 3) {
+          } else if (!hasEvent && this.id == 3 || situations[2].chosen == true) {
             drop3.show = false;
           }
         } 
