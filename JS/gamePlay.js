@@ -169,8 +169,8 @@ function optionChosen(x, y) {
             updateScore();
             y.chosen = true;
             var decisionCheck = noDecisionsLeft();
-            console.log("Decision check is: " + decisionCheck);
             $numOfEvents--;
+          
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn();
             }
@@ -274,6 +274,8 @@ function updateScore() {
 }
 
 function endTurn() {
+    $("#noDays").css("display", "block");
+
     $numOfEvents = 3;
     $weekDays = 7;
     $summerDays -= $weekDays;
