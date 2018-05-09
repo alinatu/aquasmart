@@ -91,13 +91,18 @@ li > a:hover{
 }
 
 #score {
+    margin-top: -20px;
     float: left;
     text-align: center;
     width: 100%;
     font-family: "IBM Plex Sans";
     font-size: 100%;
-    margin-bottom: 0%;
     /*overflow: hidden;*/
+}
+
+#score p {
+    margin: 0;
+    padding: 0;
 }
       
 #gamediv {
@@ -305,7 +310,7 @@ text-align: center;
 
 
 #guy {
-  margin-top: -20px;
+  margin-top: -25px;
   float: left;
   background-color: #bff2f0;
   padding: 0;
