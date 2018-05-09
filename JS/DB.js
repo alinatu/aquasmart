@@ -88,14 +88,14 @@ function getSituationNumber() {
 function getSituations() {
     console.log("Pulling situations from DB");
     $.ajax({
-        url: "./DB/getSituations.php",
+        url: "./DB/getSituations1.php",
         dataType: "json",
         type: "GET",
         data: {output: 'json', },
         success: function(data) {
             console.log(data);
-            $situationList = data['returnSituations'];
-            console.log($situationList);
+            $situationList1 = data['returnSituations'];
+            console.log($situationList1);
         }
     });
 }
@@ -108,15 +108,15 @@ function getOptions() {
         data: {output: 'json'},
         success: function(data) {
             console.log(data);
-            $optionList = data['returnOptions'];
-            console.log($optionList);
+            $optionList1 = data['returnOptions'];
+            console.log($optionList1);
         }
     });
 }
 //Sets the 3 situations with the situation and option data from the database.
 function setSituations(sit1, sit2, sit3) {
     for (var i = 0; i < 3; i++) {
-        var currentSituation = $situationList[i];
+        var currentSituation = $situationList1[i];
         situations[i].id = currentSituation['ID'];
         situations[i].title = currentSituation['title'];
         situations[i].description = currentSituation['description'];
