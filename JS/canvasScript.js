@@ -81,7 +81,7 @@
         console.log(mousePos.x + ", " + mousePos.y);
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
-            && district1.hasEvent) {
+            && !situations[0].chosen) {
             setDecision(0);
             setDropDowns(0);
             updateScore();
@@ -90,7 +90,7 @@
         } 
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
-            && district2.hasEvent) {
+            && !situations[1].chosen) {
               setDecision(1);
               setDropDowns(1);
               document.getElementById("option").style.display = "block";
@@ -98,7 +98,7 @@
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
-            && district3.hasEvent) {
+            && !situations[2].chosen) {
               setDecision(2);
               setDropDowns(2);
               document.getElementById("option").style.display = "block";
@@ -205,15 +205,7 @@
         
         this.update = function() {
           ctx = myGameArea.context;
-          /* var x = Math.floor((Math.random() * 2) + 1); */
-          
-          /* if(x == 1){
-            this.show = true;   
-          } else {
-            this.show = false;
-          } */
-        
-          
+
           if (this.show == true) {
               ctx.drawImage(this.image, 
                 ogx, 
@@ -240,7 +232,8 @@
         district2.update();
         paint3.update();
         district3.update();
+        drop3.update();
         drop1.update();
         drop2.update();
-        drop3.update();
+      
       }
