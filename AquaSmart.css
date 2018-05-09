@@ -90,10 +90,12 @@ li > a:hover{
 }
 
 #score {
-    width: 110px;
+    text-align: center;
+    width: 100%;
     font-family: "IBM Plex Sans";
     font-size: 100%;
     margin: 0 auto;
+    overflow: hidden;
 }
       
 #gamediv {
