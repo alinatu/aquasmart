@@ -48,14 +48,14 @@ $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
     getSituationNumber();
-    getSituations();
-    getOptions();
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
     document.getElementById("scores").style.display = "none";
+    getSituations();
+    getOptions();
   });
 
 //Function for the new game button
