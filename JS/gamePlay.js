@@ -16,9 +16,9 @@ var $success = false;
 //option variables
 var situations = { 0: {
     id : 0,
-    title : "Water Wasted Brushing teeth",
-    description : "Your citizens are always leaving the sink on while they brush their teeth. This wastes HUGE amounts of water. What will you do about it? ",
-    imageBanner : "./images/situationBanners/toothbrush.png",
+    title : "",
+    description : "",
+    imageBanner : "",
     option1 : {
         title : "Create an ad campaign to educate. ",
         description : "Leaving the faucet running wastes 6 litres of treated water per minute. Simply communicating this fact may be enough to make people change their habits! ",

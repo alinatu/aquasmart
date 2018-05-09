@@ -85,42 +85,59 @@ function getSituationNumber() {
     });
 }
 //pulls the list of situations from the DB.
-function getSituations() {
+function getSituations1() {
     console.log("Pulling situations from DB");
     $.ajax({
-        url: "./DB/getSituations.php",
+        url: "./DB/getSituations1.php",
         dataType: "json",
         type: "GET",
         data: {output: 'json', },
         success: function(data) {
             console.log(data);
-            $situationList = data['returnSituations'];
+            $situationList1 = data['returnSituations'];
+            console.log($situationList1);
+            setSituations();
+        }
+    });
+}
+function getSituations2() {
+    console.log("Pulling 2nd set of situations from DB");
+    $.ajax({
+        url: "./DB/getSituations2.php",
+        dataType: "json",
+        type: "GET",
+        data: {output: 'json', },
+        success: function(data) {
+            console.log(data);
+            $situationList1 = data['returnSituations'];
             console.log($situationList);
         }
     });
 }
-function getOptions() {
+function getOptions1() {
     console.log("Pulling options from DB");
     $.ajax({
-        url: "./DB/getOptions.php",
+        url: "./DB/getOptions1.php",
         dataType: "json",
         type: "GET",
         data: {output: 'json'},
         success: function(data) {
             console.log(data);
-            $optionList = data['returnOptions'];
-            console.log($optionList);
+            $optionList1 = data['returnOptions'];
+            console.log($optionList1);
         }
     });
 }
 //Sets the 3 situations with the situation and option data from the database.
-function setSituations(sit1, sit2, sit3) {
+function setSituations() {
     for (var i = 0; i < 3; i++) {
-        var currentSituation = $situationList[i];
+        var currentSituation = $situationList1[i];
         situations[i].id = currentSituation['ID'];
         situations[i].title = currentSituation['title'];
         situations[i].description = currentSituation['description'];
         situations[i].imageBanner = "./images/situationBanners/" + currentSituation['imageLink'];
-
     }
+}
+function setOptions() {
+
 }

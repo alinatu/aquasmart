@@ -7,7 +7,7 @@ CREATE TABLE situation (
 
 INSERT INTO situation (title, description) VALUES ("Lawn Watering", "As the weather heats up, residents are spending treated drinking water for daily lawn watering... We need to find a way to reduce that kind of waste");
 INSERT INTO situation (title, description) VALUES ("Eco-Friendly Gardens", "Many residents take pride in their beautiful gardens. The upkeep of these gardens is costly, and residents are struggling to find ways to cut down. Maybe you can promote some changes?");
-INSERT INTO situation (title, description) VALUES ("Car Washing", "It’s no secret people are passionate about their vehicles, but regular washes in the summer wastes can be a significant waste. We need to find some way around this.");
+INSERT INTO situation (title, description) VALUES ("Car Washing", "It is no secret people are passionate about their vehicles, but regular washes in the summer wastes can be a significant waste. We need to find some way around this.");
 INSERT INTO situation (title, description) VALUES ("Infrastructure & Technologies", "There are ways that we can upgrade our infrastructure in order to reduce water waste on a large scale! This will show our citizens our commitment to a water-wise lifestyle.
 ");
 INSERT INTO situation (title, description) VALUES ("Street Water", "Upgrade to prevent runoff, flooding, and recovering buried streams");

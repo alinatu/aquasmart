@@ -13,26 +13,26 @@
             $output = $_GET['output'];
 
             try {
-                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dblogin, $password);
+                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dblogin, $password);
 
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM situation ORDER BY ID ASC";
+                 $sql = "SELECT * FROM gameOption WHERE situation_ID IN (1,2,3) ORDER BY option_ID ASC";
+                
+                 $statement = $conn->prepare($sql);
+                 $statement->execute();
+                 $count = $statement->rowCount();
 
-                $statement = $conn->prepare($sql);
-                $statement->execute();
-                $count = $statement->rowCount();
-
-                $data = array("status" => "success", "returnSituations" => $statement->fetchAll(PDO::FETCH_ASSOC));
+                 $data = array("status" => "success", "returnOptions" => $statement->fetchAll(PDO::FETCH_ASSOC));
             } catch (PDOException $e) {
                 $data = array("error", $e->getMessage());
             }
 
-                switch ($output) {
+                switch($output) {
                     case "json":
                         $data['status'] = 'success';
-                        $data['msg'] = 'Retrieving situations from database';
-                    
+                        $data['msg'] = 'Retrieving options from database';
+
                     $json = json_encode($data);
 
                     echo $json;
