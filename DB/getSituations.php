@@ -17,7 +17,7 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM situation ORDER BY ID ASC ";
+                $sql = "SELECT * FROM situation ORDER BY ID ASC";
 
                 $statement = $conn->prepare($sql);
                 $statement->execute();
