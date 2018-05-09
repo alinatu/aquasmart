@@ -22,12 +22,13 @@ body {
       
 #navbar {
 
-    margin-left: -20px;
-    font-size: 75%;
+    margin-left: 5px;
+    font-size: 50%;
     margin-top: 15px;
     float: left;
     line-height: 20px;
     width: 30%;
+    position: relative;
 }
 
 #userName{
@@ -48,7 +49,7 @@ body {
     font-size: 15px;
     margin-top: 15px;
     font-weight: bold;
-    /*margin-right: 30px;*/
+    margin-right: -20px;
 }
 
       
@@ -81,13 +82,15 @@ li > a:hover{
 #logo {
     margin-left: 2%;
     line-height: 110px;
-    width: 30%;
+    width: 25%;
     margin-top: -8px;
     float: left; 
 }
       
-#logosize {        
+#logosize {   
+    position: relative;     
     width: 100%;
+    margin-top: -10px;
 }
 
 #score {
@@ -313,19 +316,18 @@ text-align: center;
 
 
 #guy {
-  margin-top: -25px;
-  float: left;
+    margin-top: -25px;
   background-color: #bff2f0;
   padding: 0;
   border: 0;
-
+  float: left;
 }
+
 .progress {
-  width: 80%;
-  float: right;
-  margin-right: 2%;
-  padding: 0;
-  margin-top: 2%;
+    float: right;
+  width: 90%;
+  margin-right: -10px;
+
 }
 #inner {
   background-color: #0baef4;
@@ -384,4 +386,22 @@ a {
 #description3 {
     display: none;
 }
+
+#dropBar {
+    margin: 0 auto;
+    margin-top: 115px;
+    width: 90%;
+    height: 50px;
+}
+
+#drop {
+    width: 60px;
+    float: left;
+    clear: both;
+    margin-right: 0%;
+    margin-left: -20px;
+    margin-top: -20px;
+    padding-right: 0%;
+}
+
 
