@@ -261,17 +261,19 @@ canvas {
 }
 
 #option button {
-    font-size: 10.5pt;
+    font-size: 10.7pt;
     height: 32px;
     margin-bottom: 7px;
 }
-#option img {
-    display: inline-block;
-    
+#opimg {
+    margin-left: -43px;
+
 }
 
 #optionExit {
-    width: 50px;
+    height: 40px;
+    float: left;
+    padding: 3px;
 }
 
 #decision {
