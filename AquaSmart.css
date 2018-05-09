@@ -238,6 +238,7 @@ canvas {
     background-color: #ebf0f9;
     z-index: 1;
     font-size: 10pt;
+    overflow: scroll;
 }
 
 #option button:hover {
