@@ -168,9 +168,9 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
           }
 
-          if (hasEvent && this.id == 1 && situations[0].chosen == false) {
+          if (hasEvent && this.id == 1 || situations[0].chosen == false) {
             drop1.show = true;
-          } else if (!hasEvent && this.id == 1 && situations[0].chosen == true) {
+          } else if (!hasEvent && this.id == 1 || situations[0].chosen == true) {
             drop1.show = false;
           }
 

@@ -27,7 +27,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 2,
+        time : 4,
         outcome : 1,
         
     },
@@ -90,7 +90,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 2,
+        time : 3,
         outcome : 0,
     },
     chosen : false
@@ -107,7 +107,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 2,
+        time : 3,
         outcome : 1,
         
     },
@@ -119,7 +119,7 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 3,
+        time : 4,
         outcome : 1,
     },
     option3 : {
@@ -130,7 +130,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 1,
+        time : 5,
         outcome : 0,
     },
     chosen : false
@@ -140,6 +140,12 @@ var situations = { 0: {
 $(document).ready(function(){
     logCityStatus();
 });
+
+function hideDroplet(x) {
+    return function() {
+        situations[0].chosen = true;
+    }
+}
 
 function optionChosen(x) {
     return function(){
@@ -161,8 +167,11 @@ function optionChosen(x) {
             $waterSaved += ($waterUsage * (x.rate / 100));
             console.log("You have " + $weekDays + " days left to make decisions");
             updateScore();
+            // hideDroplet(x);
+            var decisionCheck = noDecisionsLeft();
+            console.log("Decision check is: " + decisionCheck);
             $numOfEvents--;
-            if ($weekDays <= 0 || $numOfEvents <= 0) {
+            if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn();
             }
         }
@@ -170,14 +179,13 @@ function optionChosen(x) {
 }
 
 function noDecisionsLeft() {
-    return function() {
         var counter = 0;
         var noDecisions = false;
-        for (let i = 0; i <= 3; i++) {
+        for (let i = 0; i < 3; i++) {
             // True if all options cannot be selected
-            if (situations[0].option1.time > $weekDays
-            && situations[0].option2.time > $weekDays
-            && situations[0].option3.time > $weekDays) {
+            if (situations[i].option1.time > $weekDays
+            && situations[i].option2.time > $weekDays
+            && situations[i].option3.time > $weekDays) {
                 counter++;
             }
         }
@@ -187,7 +195,6 @@ function noDecisionsLeft() {
         }
         console.log("No Decisions? " + noDecisions);
         return noDecisions;
-    };
 }
 
 function setDecision(x){
