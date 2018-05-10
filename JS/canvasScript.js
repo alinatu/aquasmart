@@ -7,17 +7,22 @@
         myGameArea.start();
         gameMap = new component(0, 375, 400, "images/MapTest2.png", 0, 0, "image");
         district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", true);
-        paint1 = new toggleComponent(100, 80, "images/paintstroke.png", 48, 92, false);
+        paint1 = new toggleComponent(1, 100, 80, "images/paintstroke.png", 48, 92, false);
         
         district2 = new component(2, 100, 100, "images/District2Redone.png", 85, 190, "image", true);
-        paint2 = new toggleComponent(100, 90, "images/paintstroke.png", 85, 190, false);
+        paint2 = new toggleComponent(2, 100, 90, "images/paintstroke.png", 85, 190, false);
         
         district3 = new component(3, 100, 90, "images/District3Redone.png", 250, 140, "image", true);
-        paint3 = new toggleComponent(100, 90, "images/paintstroke.png", 250, 140, false);
+        paint3 = new toggleComponent(3, 100, 90, "images/paintstroke.png", 250, 140, false);
         
-        drop1 = new toggleComponent(25, 25, "images/waterdrop.png", 48, 92, false);
-        drop2 = new toggleComponent(25, 25, "images/waterdrop.png", 85, 190, false);
-        drop3 = new toggleComponent(25, 25, "images/waterdrop.png", 250, 140, false);
+        drops = {
+          0 : drop1 = new toggleComponent(1, 25, 25, "images/waterdrop.png", 48, 92, true),
+          1 : drop2 = new toggleComponent(2, 25, 25, "images/waterdrop.png", 85, 190, true),
+          2 : drop3 = new toggleComponent(3, 25, 25, "images/waterdrop.png", 250, 140, true)
+        }
+
+        calendar = new component(4, 50, 70, "images/calendarTracking/Calendar.png", 5, -5, "image", false);
+        daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "image");
       }
       
       var myGameArea = {
@@ -27,7 +32,6 @@
           this.canvas.height = 400;
           this.context = this.canvas.getContext("2d");
           this.canvas.setAttribute("id", "map");
-          this.canvas.addEventListener('mousedown', onDown, false);
           this.canvas.addEventListener('mousemove', mouseHover, false);
           this.canvas.addEventListener('click', mouseClick, false);
           document.getElementById("gamediv").appendChild(this.canvas);
@@ -45,11 +49,6 @@
           x : event.clientX - bounds.left,
           y : event.clientY - bounds.top
         };
-      }
-
-      function onDown(event) {
-        cx = event.pageX;
-        cy = event.pageY;
       }
       
       function mouseHover() {
@@ -105,43 +104,6 @@
               var district3Clicked = false;
         } 
     }
-  
-      /* function debugMessage(canvas, message) {
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
-      } */
-     
-      /* function districtHide(){
-        if (district1Clicked){
-          district1.hasEvent = false;
-        }
-        if (district2Clicked){
-          district2.hasEvent = false;
-        }
-        if (district3Clicked){
-          district3.hasEvent = false;
-        }
-      }
-      if ($chosen){
-        districtHide();
-      } */
-      
-      
-      var option = {
-        name: "Option Name",
-        desc : "Option Description",
-        difficulty : 10,
-        waterSaved : 12000,
-        create : function(name, desc, difficulty, waterSaved) {
-          this.name = name;
-          this.desc = desc;
-          this.difficulty = difficulty;
-          this.waterSaved = waterSaved;
-        }
-      }
 
       function component(id, width, height, color, x, y, type, hasEvent) {
         this.id = id;
@@ -168,32 +130,27 @@
             ctx.fillRect(this.x, this.y, this.width, this.height);
           }
 
-          if (hasEvent && this.id == 1 || situations[0].chosen == false) {
-            drop1.show = true;
-          } else if (!hasEvent && this.id == 1 || situations[0].chosen == true) {
-            drop1.show = false;
+          var idCount = 1;
+          for (var i = 0; i < 3; i++) {
+            if (this.id == idCount || situations[i].chosen == false) {
+              drops[i].show = true;
+            } else if (this.id == idCount || situations[i].chosen == true) {
+              drops[i].show = false;
+            }
+            // console.log("Drop" + idCount + ": " + drops[i].show);
+            idCount++;
           }
-
-          if (hasEvent && this.id == 2 || situations[1].chosen == false) {
-            drop2.show = true;
-          } else if (!hasEvent && this.id == 2 || situations[1].chosen == true) {
-            drop2.show = false;
-          }
-
-          if (hasEvent && this.id == 3 || situations[2].chosen == false) {
-            drop3.show = true;
-          } else if (!hasEvent && this.id == 3 || situations[2].chosen == true) {
-            drop3.show = false;
-          }
+          
         } 
       }
 
       
 
-      function toggleComponent(width, height, image, x, y, show) {
+      function toggleComponent(id, width, height, image, x, y, show) {
         this.image = new Image();
         this.image.src = image;
         
+        this.id = id;
         this.width = width;
         this.height = height;
         this.x = x;
@@ -201,12 +158,12 @@
         var ogx = x;
         var ogy = y;
         
-        //this.show = show;
+        this.show = show;
         
         this.update = function() {
           ctx = myGameArea.context;
-
-          if (this.show == true) {
+          var index = this.id - 1;
+          if (this.show == true || situations[index].show == true) {
               ctx.drawImage(this.image, 
                 ogx, 
                 ogy, 
@@ -221,19 +178,51 @@
           }
         } 
       }
+
+      function counterComponent(id, width, height, color, x, y, type) {
+        this.id = id;
+        this.type = type;
+        if (type == "image") {
+          this.image = new Image();
+          this.image.src = color;
+        } 
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+
+        this.update = function() {
+
+          var imageName = "images/calendarTracking/" + $weekDays + ".png";
+          // console.log(imageName);
+          this.image = new Image();
+          this.image.src = imageName;
+          myGameArea.context;
+          if (type == "image") {
+              ctx.drawImage(this.image, 
+                this.x, 
+                this.y, 
+                this.width, this.height);
+          } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+          }
+        }
+      }
       
 
       function updateGameArea() {
         myGameArea.clear();
         gameMap.update();
+        calendar.update();
+        daysLeft.update();
         paint1.update();
         district1.update();
         paint2.update();
         district2.update();
         paint3.update();
         district3.update();
-        drop3.update();
-        drop1.update();
-        drop2.update();
-      
+        drops[0].update();
+        drops[1].update();
+        drops[2].update();
       }
