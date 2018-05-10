@@ -1,8 +1,9 @@
 var $name;
 var $cityName;
-var $totalSituations;
+var $situationCount;
 var $situationList;
 var $optionlist;
+var $optionCount;
 var onLogin = true;
 
 //function for the Play arrow button
@@ -47,8 +48,8 @@ $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
     getSituationNumber();
-    getSituations();
-    getOptions();
+    getSituations1();
+    getOptions1();
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
