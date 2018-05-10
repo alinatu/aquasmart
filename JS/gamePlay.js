@@ -214,16 +214,21 @@ function setDecision(x){
     $("#option1").html(situations[x].option1.title);
     $("#option1").click(optionChosen(situations[x].option1, situations[x]));
     $("#description1").html(situations[x].option1.description);
+    $("#more1").prepend(situations[x].option1.time + " Days<br>");
 
     //Setup button 2
     $("#option2").html(situations[x].option2.title);
     $("#option2").click(optionChosen(situations[x].option2, situations[x]));
     $("#description2").html(situations[x].option2.description);
+    $("#more2").prepend(situations[x].option2.time + " Days<br>");
     
     //Setup button 3
     $("#option3").html(situations[x].option3.title);
     $("#option3").click(optionChosen(situations[x].option3, situations[x]));
     $("#description3").html(situations[x].option3.description);
+    $("#more3").prepend(situations[x].option3.time + " Days<br>");
+
+
 }
 
  //dropowns for options
