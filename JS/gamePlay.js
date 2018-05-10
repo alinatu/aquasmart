@@ -12,6 +12,7 @@ var $numOfEvents = 3;
 var $currentWater = $totalWater;
 var $barLevel = ($currentWater / $totalWater) * 100;
 var $success = false;
+var $currentWeek = 1;
 
 //option variables
 var situations = { 0: {
@@ -297,6 +298,14 @@ function endTurn() {
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
     }
+    $currentWeek++;
+    if ($currentWeek == 2) {
+        getSituations2();
+        getOptions2();
+    } else if ($currentWeek == 3) {
+        getSituations3();
+    }
+    console.log("Current Week: " + $currentWeek);
     setDecision();
 }
 

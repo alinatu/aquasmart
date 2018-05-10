@@ -23,7 +23,7 @@ INSERT INTO situation (title, description) VALUES ("Showers", "Your average citi
 INSERT INTO situation (title, description) VALUES ("Baths", "The typical bath uses up to seven times more water than a five minute shower. Yet your citizens are still using baths regularly, especially for children.");
 
 
-CREATE TABLE option (
+CREATE TABLE gameOption (
     option_ID INT NOT NULL AUTO_INCREMENT,
     situation_ID INT,
     title VARCHAR(100),
@@ -49,11 +49,13 @@ INSERT INTO gameOption (situation_ID, title, description, difficulty, water_save
 10, 10, 10, "success", "failure", 5, 1);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Promote Water-wise garden equipment", "Technology has many ways to optimize fresh water usage. From water preserving crystals to trigger nozzle hoses, there are a lot of products that promote a water-wise lifestyle!",
 4, 7, 14, "success", "failure", 6, 1);
-INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Promote business car washes", "Car washes have circulatory water systems that reduce and reuse their water. It’s much more beneficial than hand washing, and reduces needles waste.",
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Replace plants with plastic props", "The movie industry has an excess of plastic props used for foliage. Supply your residents with these to cut down on watering!",
+4, 11, 5, "success", "failure", 2, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Promote business car washes", "Car washes have circulatory water systems that reduce and reuse their water. It\'\s much more beneficial than hand washing, and reduces needles waste.",
 2, 5, 11, "success", "failure", 3, 1);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Offer Water-wise washing habits", "If residents are insisting to wash by hand, promote the use of buckets to ration water use. Washing over grass or gravel will also help to water plants in the area, and prevent soapy water from draining into street grates.",
 5, 9, 10, "success", "failure", 2, 1);
-INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Put a fine on washing car with a hose", "Continuous water flow wastes too much! We’ll fine anyone caught using hoses to wash their cars!",
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (3, "Put a fine on washing car with a hose", "Continuous water flow wastes too much! We\'\ll fine anyone caught using hoses to wash their cars!",
 5, 20, 2, "success", "failure", 2, 0);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (4, "Water efficient spray parks", "Water parks are a great way to spend summer days, but they can waste millions of litres of water. Upgrading our circulatory systems can reuse the water used at spray parks, and cut that value drastically.",
 10, 12, 15, "success", "failure", 11, 1);
@@ -61,5 +63,17 @@ INSERT INTO gameOption (situation_ID, title, description, difficulty, water_save
 ", 13, 16, 11, "success", "failure", 8, 1);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (4, "Tear down builings that aren't built water-wisely", "If buildings are wasting our water, then we can simply tear down the buildings that are outdated!",
 6, 13, 1, "success", "failure", 9, 0);
-INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Replace plants with plastic props", "The movie industry has an excess of plastic props used for foliage. Supply your residents with these to cut down on watering!",
-4, 11, 5, "success", "failure", 2, 0);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (5, "Street Water 1", "Description pending 1",
+3, 5, 2, "success", "failure", 3, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (5, "Street Water 2", "Description pending 2",
+4, 3, 2, "success", "failure", 1, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (5, "Street Water 3", "Description pending 3",
+1, 2, 3, "success", "failure", 4, 0);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (6, "Leaky Faucets 1", "Description Pending 1",
+5, 6, 7, "success", "failure", 2, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (6, "Leaky Faucets 2", "Description pending 2",
+11, 12, 13, "success", "failure", 3, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (6, "Leaky Faucets 3", "Description pending 3",
+9, 8, 7, "success", "failure", 6, 1);

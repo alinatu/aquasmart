@@ -94,8 +94,8 @@ function getSituations1() {
         data: {output: 'json', },
         success: function(data) {
             console.log(data);
-            $situationList1 = data['returnSituations'];
-            console.log($situationList1);
+            $situationList = data['returnSituations'];
+            console.log($situationList);
             setSituations();
         }
     });
@@ -109,8 +109,24 @@ function getSituations2() {
         data: {output: 'json', },
         success: function(data) {
             console.log(data);
-            $situationList1 = data['returnSituations'];
+            $situationList = data['returnSituations'];
             console.log($situationList);
+            setSituations();
+        }
+    });
+}
+function getSituations3() {
+    console.log("Pulling 3rd set of situations from DB");
+    $.ajax({
+        url: "./DB/getSituations3.php",
+        dataType: "json",
+        type: "GET",
+        data: {output: 'json', },
+        success: function(data) {
+            console.log(data);
+            $situationList = data['returnSituations'];
+            console.log($situationList);
+            
         }
     });
 }
@@ -129,17 +145,33 @@ function getOptions1() {
         }
     });
 }
+function getOptions2() {
+    console.log("Pulling 2nd set of options from DB");
+    $.ajax({
+        url: "./DB/getOptions2.php",
+        dataType: "json",
+        type: "GET",
+        data: {output: 'json', },
+        success: function(data) {
+            console.log(data);
+            $optionList = data['returnOptions'];
+            console.log($optionList);
+            setOptions();
+        }
+    });
+}
 //Sets the 3 situations with the situation and option data from the database.
-/*
+
 function setSituations() {
     for (var i = 0; i < 3; i++) {
-        var currentSituation = $situationList1[i];
+        var currentSituation = $situationList[i];
         situations[i].id = currentSituation['ID'];
         situations[i].title = currentSituation['title'];
         situations[i].description = currentSituation['description'];
         situations[i].imageBanner = "./images/situationBanners/" + currentSituation['imageLink'];
     }
 }
+/*
 function setOption1() {
     var currentOption = $optionList[0];
     situations[0].option1.title = currentOption['title'];
@@ -180,6 +212,7 @@ function setOption3() {
 function setOptions() {
     for (var i = 0; i < 3; i++) {
         var opt1 = $optionList[0];
+        console.log($optionList);
         situations[i].option1.title = opt1['title'];
         situations[i].option1.description = opt1['description'];
         situations[i].option1.difficulty = opt1['difficulty'];
@@ -189,7 +222,7 @@ function setOptions() {
         situations[i].option1.failure = opt1['failure_description'];
         situations[i].option1.time = opt1['completionTime'];
         situations[i].option1.outcome = opt1['isSuccessful'];
-        $optionList.shift();
+        console.log($optionList);
 
         var opt2 = $optionList[1];
         situations[i].option2.title = opt2['title'];
@@ -201,7 +234,7 @@ function setOptions() {
         situations[i].option2.failure = opt2['failure_description'];
         situations[i].option2.time = opt2['completionTime'];
         situations[i].option2.outcome = opt2['isSuccessful'];
-        $optionList.shift();
+        console.log($optionList);
 
         var opt3 = $optionList[2];
         situations[i].option3.title = opt3['title'];
@@ -213,6 +246,9 @@ function setOptions() {
         situations[i].option3.failure = opt3['failure_description'];
         situations[i].option3.time = opt3['completionTime'];
         situations[i].option3.outcome = opt3['isSuccessful'];
-        $optionList.shift();
+        console.log($optionList);
+        for (var j = 0; j < 3; j++) {
+            $optionList.shift();
+        }
     }
 }
