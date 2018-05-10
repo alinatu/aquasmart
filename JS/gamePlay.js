@@ -28,7 +28,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 4,
+        time : 3,
         outcome : 1,
         
     },
@@ -40,7 +40,7 @@ var situations = { 0: {
         reception : 20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
-        time : 5,
+        time : 2,
         outcome : 0,
     },
     option3 : {
@@ -80,7 +80,7 @@ var situations = { 0: {
         reception : 20,
         success : "good job",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 5,
+        time : 6,
         outcome : 0,
     },
     option3 : {
@@ -108,7 +108,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 3,
+        time : 5,
         outcome : 1,
         
     },
@@ -120,33 +120,27 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 4,
+        time : 2,
         outcome : 1,
     },
     option3 : {
         title : "Replace plants with plastic props",
-        description : "blah blah",
+        description : "",
         difficulty : 20,
-        rate : 7,
+        rate : 4,
         reception : 20,
         success : "",
-        failure : "",
+        failure : "Your citizens are apalled at your actions. Large plastic plants now fill the town, giving it a very fake feel.",
         time : 5,
         outcome : 0,
     },
     chosen : false
-},
+}
 };
 
 $(document).ready(function(){
     logCityStatus();
 });
-
-function hideDroplet(x) {
-    return function() {
-        situations[0].chosen = true;
-    }
-}
 
 function optionChosen(x, y) {
     return function(){
@@ -196,9 +190,9 @@ function noDecisionsLeft() {
         }
         // If all three situations does not have options to select...
         if (counter == 3) {
+            $("#noDays").css("display", "block");
             noDecisions = true;
         }
-        console.log("No Decisions? " + noDecisions);
         return noDecisions;
 }
 
@@ -215,16 +209,21 @@ function setDecision(x){
     $("#option1").html(situations[x].option1.title);
     $("#option1").click(optionChosen(situations[x].option1, situations[x]));
     $("#description1").html(situations[x].option1.description);
+    $("#more1").prepend(situations[x].option1.time + " Days<br>");
 
     //Setup button 2
     $("#option2").html(situations[x].option2.title);
     $("#option2").click(optionChosen(situations[x].option2, situations[x]));
     $("#description2").html(situations[x].option2.description);
+    $("#more2").prepend(situations[x].option2.time + " Days<br>");
     
     //Setup button 3
     $("#option3").html(situations[x].option3.title);
     $("#option3").click(optionChosen(situations[x].option3, situations[x]));
     $("#description3").html(situations[x].option3.description);
+    $("#more3").prepend(situations[x].option3.time + " Days<br>");
+
+
 }
 
  //dropowns for options
@@ -275,7 +274,6 @@ function updateScore() {
 }
 
 function endTurn() {
-    $("#noDays").css("display", "block");
 
     $numOfEvents = 3;
     $weekDays = 7;
