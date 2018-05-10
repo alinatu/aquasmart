@@ -16,9 +16,9 @@ var $success = false;
 //option variables
 var situations = { 0: {
     id : 0,
-    title : "",
-    description : "",
-    imageBanner : "",
+    title : "Tooth brushes",
+    description : "Your citizens are brushing their teeth. What a bunch of jerks.",
+    imageBanner : "./images/situationBanners/toothbrush.png",
     option1 : {
         title : "Create an ad campaign to educate. ",
         description : "Leaving the faucet running wastes 6 litres of treated water per minute. Simply communicating this fact may be enough to make people change their habits! ",
@@ -27,7 +27,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 2,
+        time : 4,
         outcome : 1,
         
     },
@@ -39,7 +39,7 @@ var situations = { 0: {
         reception : 20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
-        time : 3,
+        time : 5,
         outcome : 0,
     },
     option3 : {
@@ -58,7 +58,7 @@ var situations = { 0: {
     id : 1,
     title : "Excessive Lawn Watering",
     description : "Everyone loves a green lawn... However, using treated drinking water to keep a lawn green is an excessive waste. Surely there's something we can do.",
-    imageBanner : "./images/situationBanners/lawnWatering.png",
+    imageBanner : "./images/situationBanners/situationimage1.png",
     option1 : {
         title : "Regulate water usage for lawns",
         description : "blah blah",
@@ -90,7 +90,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 2,
+        time : 3,
         outcome : 0,
     },
     chosen : false
@@ -98,7 +98,7 @@ var situations = { 0: {
     id : 2,
     title : "Eco-Friendly Gardens",
     description : "Many residents take pride in their beautiful gardens, but the upkeep of these gardens is strenuous on our water supply",
-    imageBanner : "./images/situationBanners/ecoGardens.png",
+    imageBanner : "./images/situationBanners/situationimage2.png",
     option1 : {
         title : "Promote water-wise garden design",
         description : "blah blah",
@@ -107,7 +107,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 2,
+        time : 3,
         outcome : 1,
         
     },
@@ -119,7 +119,7 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 3,
+        time : 4,
         outcome : 1,
     },
     option3 : {
@@ -130,7 +130,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 1,
+        time : 5,
         outcome : 0,
     },
     chosen : false
@@ -141,13 +141,19 @@ $(document).ready(function(){
     logCityStatus();
 });
 
-function optionChosen(x) {
+function hideDroplet(x) {
+    return function() {
+        situations[0].chosen = true;
+    }
+}
+
+function optionChosen(x, y) {
     return function(){
+        $("#option").css("height", "230px");
         if (x.time > $weekDays) {
             $("#decision").html("You don't have enough days in the week to make this change... You'll have to choose another.");
         } else {
             var waterRate = (x.rate / 100);
-            $("#option").css("height", "230px");
             if (x.outcome == 1) {
                 $("#decision").html(x.success + "Water waste reduced by " + x.rate + "% (" 
                     + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week)!");
@@ -161,8 +167,11 @@ function optionChosen(x) {
             $waterSaved += ($waterUsage * (x.rate / 100));
             console.log("You have " + $weekDays + " days left to make decisions");
             updateScore();
+            y.chosen = true;
+            var decisionCheck = noDecisionsLeft();
             $numOfEvents--;
-            if ($weekDays <= 0 || $numOfEvents <= 0) {
+          
+            if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn();
             }
         }
@@ -170,15 +179,18 @@ function optionChosen(x) {
 }
 
 function noDecisionsLeft() {
-    return function() {
         var counter = 0;
         var noDecisions = false;
-        for (let i = 0; i <= 3; i++) {
+        for (let i = 0; i < 3; i++) {
             // True if all options cannot be selected
-            if (situations[0].option1.time > $weekDays
-            && situations[0].option2.time > $weekDays
-            && situations[0].option3.time > $weekDays) {
+            if (situations[i].chosen == true){
                 counter++;
+            } else if (situations[i].chosen == false){
+                if (situations[i].option1.time > $weekDays
+                && situations[i].option2.time > $weekDays
+                && situations[i].option3.time > $weekDays) {
+                    counter++;
+                }
             }
         }
         // If all three situations does not have options to select...
@@ -187,7 +199,6 @@ function noDecisionsLeft() {
         }
         console.log("No Decisions? " + noDecisions);
         return noDecisions;
-    };
 }
 
 function setDecision(x){
@@ -201,17 +212,17 @@ function setDecision(x){
 
     // Setup button 1
     $("#option1").html(situations[x].option1.title);
-    $("#option1").click(optionChosen(situations[x].option1));
+    $("#option1").click(optionChosen(situations[x].option1, situations[x]));
     $("#description1").html(situations[x].option1.description);
 
     //Setup button 2
     $("#option2").html(situations[x].option2.title);
-    $("#option2").click(optionChosen(situations[x].option2));
+    $("#option2").click(optionChosen(situations[x].option2, situations[x]));
     $("#description2").html(situations[x].option2.description);
     
     //Setup button 3
     $("#option3").html(situations[x].option3.title);
-    $("#option3").click(optionChosen(situations[x].option3));
+    $("#option3").click(optionChosen(situations[x].option3, situations[x]));
     $("#description3").html(situations[x].option3.description);
 }
 
@@ -263,6 +274,8 @@ function updateScore() {
 }
 
 function endTurn() {
+    $("#noDays").css("display", "block");
+
     $numOfEvents = 3;
     $weekDays = 7;
     $summerDays -= $weekDays;
@@ -272,6 +285,9 @@ function endTurn() {
     $("#userDays").html($summerDays);
     logCityStatus();
     randomSituations();
+    situations[0].chosen = false;
+    situations[1].chosen = false;
+    situations[2].chosen = false;
 
     if($summerDays <= 0){
         document.getElementById("endGame").style.display = "block";

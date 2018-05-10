@@ -43,7 +43,7 @@ INSERT INTO gameOption (situation_ID, title, description, difficulty, water_save
 15, 30, 8, "success", "failure", 4, 1);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "Regulate lawn watering", "Residents may lament this change, but this is a common approach to control water usage. Lawns only require one inch of watering a day!",
 5, 15, 70, "success", "failure", 3, 1);
-INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "All houses must be painted yellow!", "Maybe if everybody\’\s houses match the color of an unwatered lawn, they’ll be less inclined to keep it green…?", 7, 3, 5, "success", "failure",
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (1, "All houses must be painted yellow!", "Maybe if everybody\'\s houses match the color of an unwatered lawn, they\'\ll be less inclined to keep it green...?", 7, 3, 5, "success", "failure",
 7, 0);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Promote Water-wise garden design", "A thoughtful design can reduce waste. Indigenous flora require less water to upkeep, and planting trees will break dry winds and conserve moisture in the shade.",
 10, 10, 10, "success", "failure", 5, 1);
@@ -61,3 +61,5 @@ INSERT INTO gameOption (situation_ID, title, description, difficulty, water_save
 ", 13, 16, 11, "success", "failure", 8, 1);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (4, "Tear down builings that aren't built water-wisely", "If buildings are wasting our water, then we can simply tear down the buildings that are outdated!",
 6, 13, 1, "success", "failure", 9, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (2, "Replace plants with plastic props", "The movie industry has an excess of plastic props used for foliage. Supply your residents with these to cut down on watering!",
+4, 11, 5, "success", "failure", 2, 0);

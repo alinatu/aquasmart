@@ -130,6 +130,7 @@ function getOptions1() {
     });
 }
 //Sets the 3 situations with the situation and option data from the database.
+/*
 function setSituations() {
     for (var i = 0; i < 3; i++) {
         var currentSituation = $situationList1[i];
@@ -175,6 +176,7 @@ function setOption3() {
     situations[0].option3.time = currentOption['completionTime'];
     situations[0].option3.outcome = currentOption['isSuccessful'];
 }
+*/
 function setOptions() {
     for (var i = 0; i < 3; i++) {
         var opt1 = $optionList[0];
@@ -187,6 +189,7 @@ function setOptions() {
         situations[i].option1.failure = opt1['failure_description'];
         situations[i].option1.time = opt1['completionTime'];
         situations[i].option1.outcome = opt1['isSuccessful'];
+        $optionList.shift();
 
         var opt2 = $optionList[1];
         situations[i].option2.title = opt2['title'];
@@ -198,6 +201,7 @@ function setOptions() {
         situations[i].option2.failure = opt2['failure_description'];
         situations[i].option2.time = opt2['completionTime'];
         situations[i].option2.outcome = opt2['isSuccessful'];
+        $optionList.shift();
 
         var opt3 = $optionList[2];
         situations[i].option3.title = opt3['title'];
@@ -209,5 +213,6 @@ function setOptions() {
         situations[i].option3.failure = opt3['failure_description'];
         situations[i].option3.time = opt3['completionTime'];
         situations[i].option3.outcome = opt3['isSuccessful'];
+        $optionList.shift();
     }
 }

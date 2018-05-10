@@ -6,6 +6,7 @@ var $optionlist;
 var $optionCount;
 var onLogin = true;
 
+
 //function for the Play arrow button
 function myFunction() {
     onLogin = false;
@@ -25,6 +26,7 @@ function myFunction() {
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {
         alert ("Invalid City Name");
     }else {
+        $("#gamediv").css("bottom", "50%");
         $("#startGame").css("display", "block");
         $("#startGame").fadeIn(7000).fadeOut(5000);
         document.getElementById("userName").innerHTML = "Mayor " + $name;
@@ -48,8 +50,6 @@ $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
     getSituationNumber();
-    getSituations1();
-    getOptions1();
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
@@ -57,6 +57,11 @@ $(document).ready(function(){
     document.getElementById("gamediv").style.display = "none";
     document.getElementById("scores").style.display = "none";
   });
+
+  //x button for end of week message
+$("#noDays img").click(function(){
+    $("#noDays").css("display", "none");
+});
 
 //Function for the new game button
   $("#newGame").click(function(){
@@ -96,7 +101,7 @@ $(document).ready(function(){
   $("#optionExit").click(function(){
     $("#option").css("display", "none");
     $("#option").css("height", "330px");
-    $("#decision").html("<p id='decisionDescription'></p><button id='option1'></button><button id='more1'>...</button><p id='description1'></p><br><button id='option2'></button><button id='more2'>...</button><p id='description2'></p><br><button id='option3'></button><button id='more3'>...</button><p id='description3'></p><br><p id='success'></p>");
+    $("#decision").html("<p id='decisionDescription'></p><button id='option1' class='optionButton'></button><button id='more1' class='moreButton'>...</button><br><p id='description1'></p><button id='option2' class='optionButton'></button><button id='more2' class='moreButton'>...</button><br><p id='description2'></p><button id='option3' class='optionButton'></button><button id='more3' class='moreButton'>...</button><br><p id='description3'></p><p id='success'></p>");
     updateScore();
   });
 
@@ -106,14 +111,14 @@ $(document).ready(function(){
         $("#scores").css("display", "none");
         $("#gamediv").css("display", "block");
         $("#startGame").css("display", "none");
+        $("noDays").css("display", "none");
         if (onLogin) {
           $("#login").css("display", "block");
         } 
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
-
-    
-
+    getSituations1();
+    getOptions1();
 });
 //series of functions for checking the names entered are valid
 function isString(s) {
