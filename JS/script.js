@@ -66,6 +66,8 @@ $("#noDays img").click(function(){
 
 //Function for the new game button
   $("#newGame").click(function(){
+      location.reload();
+       /* startGame();
         onLogin = true;
         $("#startGame").css("display", "none");
         $("#option").css("display", "none");
@@ -79,24 +81,26 @@ $("#noDays img").click(function(){
         document.getElementById("daysLeft").innerHTML = "";
         document.getElementById("scores").style.display = "none";
         document.getElementById("setNames").reset();
-        resetProgBar();
+        $("#endGame").css("display", "none");
+       
         updateScore();
          // Global variables
-        var $repeatSituations = [];
-        var $summerDays = 60;
-        var $weekDays = 7;
-        var $barLevel = ($currentWater / $totalWater) * 100;
-        var $totalWater = 1248000;
-        var $currentWater = $totalWater;
-        var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
-        var $cityReception = 50;
+         $repeatSituations = [];
+         $summerDays = 63;
+        $weekDays = 7;
+        $barLevel = ($currentWater / $totalWater) * 100;
+       $totalWater = 1248000;
+         $currentWater = $totalWater;
+         $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
+        $cityReception = 50;
         // Tracking variables
-        var $waterSaved = 0;
-        var $decisionLength = 2;
-        
-        var $success = false;
+         $waterSaved = 0;
+        $decisionLength = 2;
+        $success = false;
+        updateScore();
         logCityStatus();
         $("#option").css("display", "none");
+        resetProgBar();*/
   });
   //function for the back arrow from the option card
   $("#optionExit").click(function(){
@@ -106,12 +110,15 @@ $("#noDays img").click(function(){
     updateScore();
   });
 
+
+
     //function for the back arrow in about me and scores pages
     $(".toggle").click(function() {
         $("#about").css("display", "none");
         $("#scores").css("display", "none");
         $("#gamediv").css("display", "block");
         $("#startGame").css("display", "none");
+        $("#endGame").css("display", "none");
         $("noDays").css("display", "none");
         if (onLogin) {
           $("#login").css("display", "block");
