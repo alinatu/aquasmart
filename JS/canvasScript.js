@@ -23,6 +23,8 @@
 
         calendar = new component(4, 50, 70, "images/calendarTracking/Calendar.png", 5, -5, "image", false);
         daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "image");
+
+        endTurn = new hoverComponent(4, 30, 30, "images/calendarTracking/NextTurn.png", 350, 375, true);
       }
       
       var myGameArea = {
@@ -80,7 +82,7 @@
         console.log(mousePos.x + ", " + mousePos.y);
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
-            && !situations[0].chosen) {
+            && !situations[0].chosen && !noDecisionsLeft()) {
             setDecision(0);
             setDropDowns(0);
             updateScore();
@@ -89,7 +91,7 @@
         } 
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
-            && !situations[1].chosen) {
+            && !situations[1].chosen && !noDecisionsLeft()) {
               setDecision(1);
               setDropDowns(1);
               document.getElementById("option").style.display = "block";
@@ -97,7 +99,7 @@
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
-            && !situations[2].chosen) {
+            && !situations[2].chosen && !noDecisionsLeft()) {
               setDecision(2);
               setDropDowns(2);
               document.getElementById("option").style.display = "block";
@@ -228,8 +230,10 @@
 
           var imageName = "images/calendarTracking/" + $weekDays + ".png";
           // console.log(imageName);
-          this.image = new Image();
-          this.image.src = imageName;
+          if (imageName != this.image.src) {
+            this.image = new Image();
+            this.image.src = imageName;
+          } 
           myGameArea.context;
           if (type == "image") {
               ctx.drawImage(this.image, 
