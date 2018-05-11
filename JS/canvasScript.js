@@ -7,13 +7,13 @@
         myGameArea.start();
         gameMap = new component(0, 375, 400, "images/MapTest2.png", 0, 0, "image");
         district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", true);
-        paint1 = new toggleComponent(1, 100, 80, "images/paintstroke.png", 48, 92, false);
+        paint1 = new hoverComponent(1, 100, 80, "images/paintstroke.png", 48, 92, false);
         
         district2 = new component(2, 100, 100, "images/District2Redone.png", 85, 190, "image", true);
-        paint2 = new toggleComponent(2, 100, 90, "images/paintstroke.png", 85, 190, false);
+        paint2 = new hoverComponent(2, 100, 90, "images/paintstroke.png", 85, 190, false);
         
         district3 = new component(3, 100, 90, "images/District3Redone.png", 250, 140, "image", true);
-        paint3 = new toggleComponent(3, 100, 90, "images/paintstroke.png", 250, 140, false);
+        paint3 = new hoverComponent(3, 100, 90, "images/paintstroke.png", 250, 140, false);
         
         drops = {
           0 : drop1 = new toggleComponent(1, 25, 25, "images/waterdrop.png", 48, 92, true),
@@ -144,8 +144,6 @@
         } 
       }
 
-      
-
       function toggleComponent(id, width, height, image, x, y, show) {
         this.image = new Image();
         this.image.src = image;
@@ -162,8 +160,43 @@
         
         this.update = function() {
           ctx = myGameArea.context;
+
           var index = this.id - 1;
-          if (this.show == true || situations[index].show == true) {
+          if (situations[index].chosen == false) {
+              ctx.drawImage(this.image, 
+                ogx, 
+                ogy, 
+                this.width, this.height);
+          } else {
+              this.x = -500;
+              this.y = -500;
+              ctx.drawImage(this.image,
+                this.x,
+                this.y,
+                this.width, this.height);
+          }
+        } 
+      }
+
+      function hoverComponent(id, width, height, image, x, y, show) {
+        this.image = new Image();
+        this.image.src = image;
+        
+        this.id = id;
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        var ogx = x;
+        var ogy = y;
+        
+        this.show = show;
+        
+        this.update = function() {
+          ctx = myGameArea.context;
+
+          var index = this.id - 1;
+          if (this.show == true && situations[index].chosen == false) {
               ctx.drawImage(this.image, 
                 ogx, 
                 ogy, 
