@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
-      
+
+@media screen and (max-width: 500px){
+    #logosize {
+        content: url("images/AquasmartSmall.png");
+    }
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -13,45 +19,39 @@ body {
 }
       
 #menu {
-    
-    margin-top: -10px;
-    margin-bottom: -100px;
+    text-align: center;
+    margin-top: -2px;
+    margin-bottom: -80px;
     width: 100%;
-    height: 70px;
+    height: 60px;
     background: #ebf0f9;
 }
       
 #navbar {
-
-    margin-left: 5px;
-    font-size: 50%;
-    margin-top: 18px;
-    float: left;
-    width: 30%;
     position: relative;
+    top: 5px;
+    margin: 0 auto;
+    font-size: 60%;
+    width: 200px;
 }
 
 #userName{
     margin-top: -10px;
-    text-align: center;
     font-size: 13px;
 }
       
 #userCity {
-    margin-top: 2px;
+    margin-top: 1px;
     font-size: 30px;
-    text-align: center;
     font-weight: bold;
 }
 
 #days {
-    text-align: center;
     float: right;
-    width: 30%;
-    margin-top: 18px;
+    width: 50px;
+    margin-top: 6px;
+    margin-right: 7px;
     font-weight: bold;
-    margin-right: -20px;
-    padding: 0;
 }
 
 #userDays {
@@ -65,7 +65,6 @@ body {
       
 #navbar > p {
     font-family: "IBM Plex Sans";
-    width: 200px;
 }
       
 #cityname {        
@@ -90,21 +89,24 @@ li > a:hover{
       
     
 #logo {
-    margin-left: 2%;
+    margin-top: 5px;
+    float: left;
+    width: 20%;
+    height: 70px;
+    /*margin-left: 2%;
     line-height: 110px;
     width: 25%;
-    margin-top: -8px;
-    float: left; 
+    margin-top: -8px;*/
+    
 }
       
-#logosize {   
-    position: relative;     
+#logosize {       
     width: 100%;
-    margin-top: -10px;
+    /*margin-top: -10px;*/
 }
 
 #score {
-    margin-top: -20px;
+    margin-top: -18px;
     float: left;
     text-align: center;
     width: 100%;
@@ -420,7 +422,7 @@ a {
 
 #dropBar {
     margin: 0 auto;
-    margin-top: 115px;
+    margin-top: 110px;
     width: 90%;
     height: 50px;
 }
