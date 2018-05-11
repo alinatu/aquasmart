@@ -16,8 +16,11 @@
         paint3 = new toggleComponent(100, 90, "images/paintstroke.png", 250, 140, false);
         
         drop1 = new toggleComponent(25, 25, "images/waterdrop.png", 48, 92, false);
+        drop1.update();
         drop2 = new toggleComponent(25, 25, "images/waterdrop.png", 85, 190, false);
+        drop2.update();
         drop3 = new toggleComponent(25, 25, "images/waterdrop.png", 250, 140, false);
+        drop3.update();
       }
       
       var myGameArea = {
@@ -203,7 +206,8 @@
         
         //this.show = show;
         
-        this.update = function() {
+        this.update = new function update() {
+          return function(){
           ctx = myGameArea.context;
 
           if (this.show == true) {
@@ -218,6 +222,7 @@
                 this.x,
                 this.y,
                 this.width, this.height);
+          }
           }
         } 
       }

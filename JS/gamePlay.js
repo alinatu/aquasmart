@@ -27,7 +27,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 4,
+        time : 1,
         outcome : 1,
         
     },
@@ -39,7 +39,7 @@ var situations = { 0: {
         reception : 20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
-        time : 5,
+        time : 1,
         outcome : 0,
     },
     option3 : {
@@ -50,7 +50,7 @@ var situations = { 0: {
         reception : 20,
         success : "You decided to offer refunds to all citizens who upgrade their faucets. This was a great water saving move, and also increased receptiveness! ",
         failure : "",
-        time : 5,
+        time : 1,
         outcome : 1,
     },
     chosen : false
@@ -67,7 +67,7 @@ var situations = { 0: {
         reception : 20,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 2,
+        time : 1,
         outcome : 1,
         
     },
@@ -79,7 +79,7 @@ var situations = { 0: {
         reception : 20,
         success : "good job",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 5,
+        time : 1,
         outcome : 0,
     },
     option3 : {
@@ -90,7 +90,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 3,
+        time : 1,
         outcome : 0,
     },
     chosen : false
@@ -107,7 +107,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 3,
+        time : 1,
         outcome : 1,
         
     },
@@ -119,7 +119,7 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 4,
+        time : 1,
         outcome : 1,
     },
     option3 : {
@@ -130,7 +130,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 5,
+        time : 1,
         outcome : 0,
     },
     chosen : false
