@@ -281,23 +281,26 @@ canvas {
 
 
 .optionButton {
-    background-color: #0baef4;
-    border-radius: 20px;
     width: 80%;
+    max-height: 50px;
+    height: auto;
 }
 
 .moreButton {
-    background-color: #0baef4;
-    border-radius: 20px;
     float: right;
     width: 20%;
+    height: 32px;
+    line-height: 8px;
 }
 
 #option button {
-    font-size: 10.7pt;
-    height: 32px;
+    background-color: #0baef4;
+    border-radius: 20px;
+    font-size: 12pt;
     margin-bottom: 7px;
+    padding: 4px;
 }
+
 #opimg {
     margin-left: -43px;
 
