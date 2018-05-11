@@ -12,7 +12,7 @@
 }
       
 body {
-    background-color: #bff2f0;
+    background-color: #000c47;
     color: #000c47;
     font-family: "IBM Plex Sans";
     font-size: 13pt;
@@ -106,7 +106,8 @@ li > a:hover{
 }
 
 #score {
-    margin-top: -18px;
+    margin-top: -15px;
+    color: #d4d9e9;
     float: left;
     text-align: center;
     width: 100%;
