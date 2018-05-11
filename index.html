@@ -14,34 +14,42 @@
     <script src="./JS/decisions.js" type="text/javascript"></script>
     <link type="text/css" rel=stylesheet href="AquaSmart.css">
     </head>
+
   <body onload="startGame()">
+
     <div id="menu">
+
       <div id="logo">
         <img id="logosize" src="images/Aquasmart.png" alt="Aqua Smart"/>
       </div>
+
+      <div id="days">
+          <p id="userDays"></p>
+          <p id="daysLeft"></p>
+        </div>
+
       <div id="navbar">
         <p id="userCity"></p> 
         <p id="userName"></p>
       </div>
-      <div id="days">
-        <p id="userDays"></p>
-        <p id="daysLeft"></p>
+
+      
+
+      <div id="waterLevel">
       </div>
 
-      <div id="waterLevel"></div>
-      </div>
       <div id="score">
           <p id="yourScore"></p>
       </div> 
-      <div id="dropBar">
-          <img id="drop" src="images/waterdrop.png" alt="water">
-          <div class="progress">
-            <div id="inner" class="progress-bar" role="progressbar" style="width: 100%"></div>
-          </div>
-       </div>
-     <!--<div class="progress">
-        <div id="inner" class="progress-bar" role="progressbar" style="width: 100%"></div>
-     </div> -->
+    </div>
+
+    <div id="dropBar">
+      <img id="drop" src="images/waterdrop.png" alt="water">
+      <div class="progress">
+        <div id="inner" class="progress-bar" role="progressbar" style="width: 100%">
+        </div>
+      </div>
+    </div>
 
     <div id="option">
       <img id="optionExit" src="images/back-arrow.png" alt="back"/><img id="opimg" alt="option" width="200px"> 
