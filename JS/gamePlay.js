@@ -165,10 +165,12 @@ function optionChosen(x, y) {
             y.chosen = true;
             var decisionCheck = noDecisionsLeft();
             $numOfEvents--;
-          
+            
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn();
-            }
+            } /* else if (decisionCheck && !$("#option").css('display') == 'block') {
+
+            }*/
         }
     };
 }
