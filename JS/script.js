@@ -117,8 +117,7 @@ $("#noDays img").click(function(){
         } 
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
-    getSituations1();
-    getOptions1();
+    getSituations();
 });
 //series of functions for checking the names entered are valid
 function isString(s) {

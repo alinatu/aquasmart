@@ -299,12 +299,7 @@ function endTurn() {
         document.getElementById("option").style.display = "none";
     }
     $currentWeek++;
-    if ($currentWeek == 2) {
-        getSituations2();
-        getOptions2();
-    } else if ($currentWeek == 3) {
-        getSituations3();
-    }
+    getSituations();
     console.log("Current Week: " + $currentWeek);
     setDecision();
 }
