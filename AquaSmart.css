@@ -13,6 +13,7 @@ body {
 }
       
 #menu {
+    
     margin-top: -10px;
     margin-bottom: -100px;
     width: 100%;
@@ -286,14 +287,14 @@ canvas {
 .moreButton {
     float: right;
     width: 20%;
-    height: 32px;
+    height: 30px;
     line-height: 8px;
 }
 
 #option button {
     background-color: #0baef4;
     border-radius: 20px;
-    font-size: 12pt;
+    font-size: 10.5pt;
     margin-bottom: 7px;
     padding: 4px;
 }
