@@ -50,7 +50,7 @@ var situations = { 0: {
         reception : 20,
         success : "You decided to offer refunds to all citizens who upgrade their faucets. This was a great water saving move, and also increased receptiveness! ",
         failure : "",
-        time : 5,
+        time : 1,
         outcome : 1,
     },
     chosen : false
@@ -67,7 +67,7 @@ var situations = { 0: {
         reception : 20,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 2,
+        time : 1,
         outcome : 1,
         
     },
@@ -90,7 +90,7 @@ var situations = { 0: {
         reception : 20,
         success : "",
         failure : "",
-        time : 3,
+        time : 1,
         outcome : 0,
     },
     chosen : false
@@ -166,7 +166,9 @@ function optionChosen(x, y) {
             $numOfEvents--;
             
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
+                
                 endTurn();
+              
             } /* else if (decisionCheck && !$("#option").css('display') == 'block') {
 
             }*/
@@ -226,6 +228,11 @@ function setDecision(x){
 
 
 }
+function resetDecision(){
+    $("#option").css("display", "none");
+    $("#option").css("height", "330px");
+    $("#decision").html("<p id='decisionDescription'></p><button id='option1' class='optionButton'></button><button id='more1' class='moreButton'>...</button><br><p id='description1'></p><button id='option2' class='optionButton'></button><button id='more2' class='moreButton'>...</button><br><p id='description2'></p><button id='option3' class='optionButton'></button><button id='more3' class='moreButton'>...</button><br><p id='description3'></p><p id='success'></p>");
+}
 
  //dropowns for options
  function setDropDowns(){
@@ -275,7 +282,6 @@ function updateScore() {
 }
 
 function endTurn() {
-
     $numOfEvents = 3;
     $weekDays = 7;
     $summerDays -= $weekDays;
@@ -288,8 +294,22 @@ function endTurn() {
     situations[0].chosen = false;
     situations[1].chosen = false;
     situations[2].chosen = false;
+    endGame();
+    //setDecision();
 
-    if($summerDays <= 0){
+}
+function endGame(){
+    var decisionCheck = noDecisionsLeft();
+    if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
+        $("#youWin").css("display", "none");
+        document.getElementById("endGame").style.display = "block";
+        document.getElementById("about").style.display = "none";
+        document.getElementById("login").style.display = "none";
+        document.getElementById("map").style.filter = "blur(3px)";
+        document.getElementById("scores").style.display = "none";
+        document.getElementById("option").style.display = "none";
+    } else if($summerDays <= 0 || $summerDays <= 7 && decisionCheck){
+        $("#youLose").css("display", "none");
         document.getElementById("endGame").style.display = "block";
         document.getElementById("about").style.display = "none";
         document.getElementById("login").style.display = "none";
@@ -297,9 +317,7 @@ function endTurn() {
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
     }
-    setDecision();
 }
-
 function randomSituations() {
 
     var numFound = false;
