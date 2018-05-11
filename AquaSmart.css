@@ -24,20 +24,21 @@ body {
 
     margin-left: 5px;
     font-size: 50%;
-    margin-top: 15px;
+    margin-top: 18px;
     float: left;
-    line-height: 20px;
     width: 30%;
     position: relative;
 }
 
 #userName{
+    margin-top: -10px;
     text-align: center;
-    font-size: 15px;
-    margin-top: 0;
+    font-size: 13px;
 }
       
 #userCity {
+    margin-top: 2px;
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
 }
@@ -46,15 +47,19 @@ body {
     text-align: center;
     float: right;
     width: 30%;
-    font-size: 20px;
-    margin-top: 15px;
+    margin-top: 18px;
     font-weight: bold;
     margin-right: -20px;
     padding: 0;
 }
 
+#userDays {
+    font-size: 20px;
+}
+
 #daysLeft {
     margin-top: -10px;
+    font-size: 12px;
 }
       
 #navbar > p {
@@ -273,23 +278,26 @@ canvas {
 
 
 .optionButton {
-    background-color: #0baef4;
-    border-radius: 20px;
     width: 80%;
+    max-height: 50px;
+    height: auto;
 }
 
 .moreButton {
-    background-color: #0baef4;
-    border-radius: 20px;
     float: right;
     width: 20%;
+    height: 32px;
+    line-height: 8px;
 }
 
 #option button {
-    font-size: 10.7pt;
-    height: 32px;
+    background-color: #0baef4;
+    border-radius: 20px;
+    font-size: 12pt;
     margin-bottom: 7px;
+    padding: 4px;
 }
+
 #opimg {
     margin-left: -43px;
 
