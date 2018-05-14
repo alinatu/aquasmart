@@ -24,7 +24,7 @@
         calendar = new component(4, 50, 70, "images/calendarTracking/Calendar.png", 5, -5, "image", false);
         daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "image");
 
-        endTurn = new hoverComponent(4, 30, 30, "images/calendarTracking/NextTurn.png", 350, 375, true);
+        // endTurn = new toggleComponent(1, 60, 80, "images/calendarTracking/NextTurn.png", 300, 325, true);
       }
       
       var myGameArea = {
@@ -82,7 +82,7 @@
         console.log(mousePos.x + ", " + mousePos.y);
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
-            && !situations[0].chosen && !noDecisionsLeft()) {
+            && !situations[0].chosen) {
             setDecision(0);
             setDropDowns(0);
             updateScore();
@@ -91,7 +91,7 @@
         } 
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
-            && !situations[1].chosen && !noDecisionsLeft()) {
+            && !situations[1].chosen) {
               setDecision(1);
               setDropDowns(1);
               document.getElementById("option").style.display = "block";
@@ -99,12 +99,13 @@
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
-            && !situations[2].chosen && !noDecisionsLeft()) {
+            && !situations[2].chosen) {
               setDecision(2);
               setDropDowns(2);
               document.getElementById("option").style.display = "block";
               var district3Clicked = false;
-        } 
+        }
+        if (mousePos.x);
     }
 
       function component(id, width, height, color, x, y, type, hasEvent) {
@@ -262,4 +263,5 @@
         drops[0].update();
         drops[1].update();
         drops[2].update();
+        endTurn.update();
       }

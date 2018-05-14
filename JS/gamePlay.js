@@ -153,7 +153,7 @@ function optionChosen(x, y) {
                     + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week)!");
             } else if (x.outcome == 0) {
                 $("#decision").html(x.failure + " Despite this, water waste has still been reduced by " 
-                    + x.rate + "% (" + Math.round(($waterUsage * (x.rate / 100))) + ". Keep trying!");
+                    + x.rate + "% (" + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week), but at what cost?");
             }
             console.log("This decision took " + x.time + " days to complete.");
             $weekDays -= x.time;
@@ -167,9 +167,8 @@ function optionChosen(x, y) {
             
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn();
-            }
-            /*if ($summerDays <= 0 || $currentWater <= 0) {
-                endGame();
+            } /* else if (decisionCheck && !$("#option").css('display') == 'block') {
+
             }*/
         }
     };
@@ -289,21 +288,16 @@ function endTurn() {
     situations[0].chosen = false;
     situations[1].chosen = false;
     situations[2].chosen = false;
+
+    if($summerDays <= 0){
+        document.getElementById("endGame").style.display = "block";
+        document.getElementById("about").style.display = "none";
+        document.getElementById("login").style.display = "none";
+        document.getElementById("map").style.filter = "blur(3px)";
+        document.getElementById("scores").style.display = "none";
+        document.getElementById("option").style.display = "none";
+    }
     setDecision();
-}
-
-function endGame() {
-    console.log("The game is over");
-    situations[0].chosen = true;
-    situations[1].chosen = true;
-    situations[2].chosen = true;
-
-    document.getElementById("endGame").style.display = "block";
-    document.getElementById("about").style.display = "none";
-    document.getElementById("login").style.display = "none";
-    document.getElementById("map").style.filter = "blur(3px)";
-    document.getElementById("scores").style.display = "none";
-    document.getElementById("option").style.display = "none";
 }
 
 function randomSituations() {
