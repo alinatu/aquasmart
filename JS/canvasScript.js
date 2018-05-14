@@ -83,6 +83,7 @@
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
             && !situations[0].chosen) {
+            resetDecision();
             setDecision(0);
             setDropDowns(0);
             updateScore();
@@ -92,6 +93,7 @@
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
             && !situations[1].chosen) {
+              resetDecision();
               setDecision(1);
               setDropDowns(1);
               document.getElementById("option").style.display = "block";
@@ -100,6 +102,7 @@
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
             && !situations[2].chosen) {
+              resetDecision();
               setDecision(2);
               setDropDowns(2);
               document.getElementById("option").style.display = "block";
@@ -195,7 +198,8 @@
         
         this.show = show;
         
-        this.update = function() {
+        this.update = new function update() {
+          return function(){
           ctx = myGameArea.context;
 
           var index = this.id - 1;
@@ -211,6 +215,7 @@
                 this.x,
                 this.y,
                 this.width, this.height);
+          }
           }
         } 
       }

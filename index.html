@@ -14,34 +14,42 @@
     <script src="./JS/decisions.js" type="text/javascript"></script>
     <link type="text/css" rel=stylesheet href="AquaSmart.css">
     </head>
+
   <body onload="startGame()">
+
     <div id="menu">
+
       <div id="logo">
         <img id="logosize" src="images/Aquasmart.png" alt="Aqua Smart"/>
       </div>
+
+      <div id="days">
+          <p id="userDays"></p>
+          <p id="daysLeft"></p>
+        </div>
+
       <div id="navbar">
         <p id="userCity"></p> 
         <p id="userName"></p>
       </div>
-      <div id="days">
-        <p id="userDays"></p>
-        <p id="daysLeft"></p>
+
+      
+
+      <div id="waterLevel">
       </div>
 
-      <div id="waterLevel"></div>
-      </div>
       <div id="score">
           <p id="yourScore"></p>
       </div> 
-      <div id="dropBar">
-          <img id="drop" src="images/waterdrop.png" alt="water">
-          <div class="progress">
-            <div id="inner" class="progress-bar" role="progressbar" style="width: 100%"></div>
-          </div>
-       </div>
-     <!--<div class="progress">
-        <div id="inner" class="progress-bar" role="progressbar" style="width: 100%"></div>
-     </div> -->
+    </div>
+
+    <div id="dropBar">
+      <img id="drop" src="images/waterdrop.png" alt="water">
+      <div class="progress">
+        <div id="inner" class="progress-bar" role="progressbar" style="width: 100%">
+        </div>
+      </div>
+    </div>
 
     <div id="option">
       <img id="optionExit" src="images/back-arrow.png" alt="back"/><img id="opimg" alt="option" width="200px"> 
@@ -89,6 +97,14 @@
       <p id="scoreList"></p>
       <img class="toggle" src="images/back-arrow.png" alt="back"/>
     </div>
+
+    <div id="endGame" class="popup">
+      <p id="youWin">Y O U&nbsp;&nbsp;W I N ! :)</p>
+      <p id="youLose">Y O U&nbsp;&nbsp;L O S T ! :(</p>
+      <p id="ending">Thank you for playing!</p>
+      <p>Click "New Game" to play again!</p>
+      <img id="endLogo" src="images/Aquasmart.png" alt="Aqua Smart"/>
+    </div>
     
     <div id="login" class="popup">
       <img src="images/Aquasmart.png" width="70%">
@@ -106,6 +122,8 @@
      
     <div id="startGame" class="toggle"><img src="images/letter-x.png" width=20px alt="x">You have 63 days to save as much water as possible!<br>
       Click on a city with a water drop</div>
+
+    
 
     <div id="noDays" class="toggle"><img src="images/letter-x.png" width=20px alt="x">The week is over, you don't have enough days left to make anymore of these decisions.</div>
 
