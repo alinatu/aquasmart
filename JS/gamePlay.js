@@ -18,7 +18,7 @@ var situations = { 0: {
     id : 0,
     title : "Tooth brushes",
     description : "Your citizens are brushing their teeth. What a bunch of jerks.",
-    imageBanner : "./images/situationBanners/toothbrush.png",
+    imageBanner : "./images/situationBanners/situationImage22.png",
     option1 : {
         title : "Create an ad campaign to educate. ",
         description : "Leaving the faucet running wastes 6 litres of treated water per minute. Simply communicating this fact may be enough to make people change their habits! ",
@@ -36,7 +36,7 @@ var situations = { 0: {
         description : "If citizens are wasting water brushing their teeth, then outlawing the use of toothbrushes will solve the issue... Right? ",
         difficulty : 20,
         rate : 1,
-        reception : 20,
+        reception : -20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
         time : 2,
@@ -127,7 +127,7 @@ var situations = { 0: {
         description : "",
         difficulty : 20,
         rate : 4,
-        reception : 20,
+        reception : -60,
         success : "",
         failure : "Your citizens are apalled at your actions. Large plastic plants now fill the town, giving it a very fake feel.",
         time : 5,
@@ -148,18 +148,21 @@ function optionChosen(x, y) {
             $("#decision").html("You don't have enough days in the week to make this change... You'll have to choose another.");
         } else {
             var waterRate = (x.rate / 100);
-            if (x.outcome == 1) {
+            var success = rollForSuccess(x.difficulty);
+            if (success) {
                 $("#decision").html(x.success + "Water waste reduced by " + x.rate + "% (" 
                     + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week)!");
             } else if (x.outcome == 0) {
                 $("#decision").html(x.failure + " Despite this, water waste has still been reduced by " 
-                    + x.rate + "% (" + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week), but at what cost?");
+                    + x.rate + "% (" + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week). Keep trying!");
             }
             console.log("This decision took " + x.time + " days to complete.");
             $weekDays -= x.time;
             $waterUsage -= ($waterUsage * (x.rate / 100));
             $waterSaved += ($waterUsage * (x.rate / 100));
             console.log("You have " + $weekDays + " days left to make decisions");
+            addReception(x.reception);
+            console.log("Current city receptiveness is " + $cityReception + "!");
             updateScore();
             y.chosen = true;
             var decisionCheck = noDecisionsLeft();
@@ -351,5 +354,29 @@ function logCityStatus() {
     console.log("You have " + $currentWater + " gallons left in your reservoir.");
     console.log("Your city uses " + $waterUsage + " gallons gallons per week.");
     console.log("You've saved " + $waterSaved + " gallons so far!");
+}
+
+// Adds the given amount to city's reception, ensuring it stays between 0 and 100
+function addReception(amount) {
+    if ($cityReception + amount >= 100) {
+        $cityReception = 100;
+    } else if ($cityReception + amount <= 0) {
+        $cityReception = 0;
+    } else {
+        $cityReception += amount;
+    }
+}
+
+function rollForSuccess(difficulty) {
+    // Roll for a random number between 5 and 10 + Reception rounded up
+    roll = Math.floor(Math.random() * (5) + 5) + Math.round($cityReception / 10);
+    console.log("The player rolled a " + roll + " against a difficulty of " + difficulty);
+    if (roll >= difficulty) {
+        console.log("Success!");
+        return true;
+    } else {
+        console.log("Failure!");
+        return false;
+    }
 }
 
