@@ -165,15 +165,13 @@ function optionChosen(x, y) {
             console.log("Current city receptiveness is " + $cityReception + "!");
             updateScore();
             y.chosen = true;
-            var decisionCheck = noDecisionsLeft();
             $numOfEvents--;
-            
+
+            /*var decisionCheck = noDecisionsLeft();
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
-                
+    
                 endTurn();
               
-            } /* else if (decisionCheck && !$("#option").css('display') == 'block') {
-
             }*/
         }
     };
@@ -195,9 +193,9 @@ function noDecisionsLeft() {
             }
         }
         // If all three situations does not have options to select...
-        if (counter == 3) {
-            $("#noDays").css("display", "block");
+        if (counter == 3 && $weekDays > 0) {
             noDecisions = true;
+           // alert("nup");
         }
         return noDecisions;
 }
@@ -284,6 +282,9 @@ function updateScore() {
 }
 
 function endTurn() {
+    if (noDecisionsLeft()){
+        $("#noDays").css("display", "block");
+       }
     $numOfEvents = 3;
     $weekDays = 7;
     $summerDays -= $weekDays;
@@ -298,15 +299,17 @@ function endTurn() {
     situations[2].chosen = false;
     
     endGame();
+   
     //setDecision();
 
 }
 function endGame(){
     var decisionCheck = noDecisionsLeft();
-    $("#noDays").css("display", "none");
+    //$("#noDays").css("display", "none");
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
+        $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
         document.getElementById("about").style.display = "none";
@@ -315,6 +318,7 @@ function endGame(){
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
     } else if($summerDays <= 0 || $summerDays <= 7 && decisionCheck){
+        $("#noDays").css("display", "none");
         $("#youLose").css("display", "none");
         document.getElementById("endGame").style.display = "block";
         document.getElementById("about").style.display = "none";
