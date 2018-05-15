@@ -22,6 +22,13 @@ INSERT INTO situation (title, description) VALUES ("Drinking water", "Your citiz
 INSERT INTO situation (title, description) VALUES ("Showers", "Your average citizen is having 30 minute showers sometimes twice a day. This uses over 300 litres of water per shower!");
 INSERT INTO situation (title, description) VALUES ("Baths", "The typical bath uses up to seven times more water than a five minute shower. Yet your citizens are still using baths regularly, especially for children.");
 
+INSERT INTO situation (title, description) VALUES ("Using tap water", "Even our tap water is treated and used for drinking, but it’s always good to find ways to conserve it. What do you think is a good way to save our most precious resource?");
+INSERT INTO situation (title, description) VALUES ("Saving kitchen water", "Drinking water is used all the time in households for the sake of delicious meals. However, after boiling it, it’s often dumped down the drain. There’s surely a way to prevent kitchen water from being wasted");
+INSERT INTO situation (title, description) VALUES ("Waiting for water to warm up", "Each time Your citizens want to have a shower they run the water until it’s warm enough. This is an unnecessary waste");
+INSERT INTO situation (title, description) VALUES ("Over mowing lawns", "The shorter a lawn is cut the more watering it requires since the water evaporates quicker. How can you get your citizens to let their lawns grow longer?");
+INSERT INTO situation (title, description) VALUES ("School visit", "You've been invited to visit one of the college campuses in your city for a water conservation event");
+INSERT INTO situation (title, description) VALUES ("Public parks", "There are lots of public parks in your city, all of which need to be watered. How can you reduce the water used in public parks?");
+
 
 CREATE TABLE gameOption (
     option_ID INT NOT NULL AUTO_INCREMENT,
@@ -136,3 +143,52 @@ INSERT INTO gameOption (situation_ID, title, description, difficulty, water_save
 11, 8, 8, "success", "failure", 2, 0);
 INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (14, "Promote waterwise shower heads", "Let your citizens know about the options of water saving shower heads",
 3, 3, 3, "success", "failure", 5, 1);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_Description, completionTime, isSuccessful) VALUES (15, "Ban baths", "Only allow the installation of new showers, baths will no longer be allowed in new buildings and will no longer be sold",
+1, 2, 3, "success", "failure", 4, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (15, "Promote shower use", "Tell your citizens how much water baths waste. Create a baths are bad campaign",
+4, 3, 6, "success", "failure", 2, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (15, "Teach parents about baths with an ad campaign", "Many of your citizens think their children need a bath every night, but dermatologists recommend children should only bathe once or twice a week to keep their skin healthy",
+7, 4, 1, "success", "failure", 4, 1);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (16, "Use of pasta water for plants", "After boiling water to cook pasta, it can be reused to water plants. Just make sure to cool it first! Promoting this is a creative way to save water",
+4, 3, 1, "success", "failure", 4, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (16, "Outlaw pasta", The amount of water waste from cooking pasta is staggering. Do we really need it? Surely we can just outlaw it from your city",
+5, 3, 2, "success", "failure", 4, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (16, "Promote good kitchen habits", "Simple changes when cooking can go a long way. From not defrosting food using running water, to installing aerators on faucets for cleaning",
+3, 5, 1, "success", "failure", 3, 1);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (17, "Ration all our water", "Households will only be supplied a set amount of drinking water per week. Surely this will reduce water usage!",
+20, 8, -50, "success", "failure", 4, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (17, "Supply water jugs for fridges", "Keeping a water jug in the fridge lets households only use as much as they need, and reduce waste caused by running the tap cold. A simple but effective change",
+5, 5, 20, "success", "failure", 4, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (17, "Install water filters on sink", "Water filters can drastically reduce the amount of drinking water that it dispenses from a sink, as well as preventing waste from running the tap cold",
+5, 5, 10, "success", "failure", 3, 1);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (18, "Educate them to reuse wasted water", "Your citizens can collect the water they use when waiting for the tap to warm with a bucket and use it to cook or in their garden etc",
+3, 4, 5, "success", "failure", 2, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (18, "Ban hot water", "Your citizens won't wait for showers to warm up anymore, because they'll always be cold",
+5, 5, 5, "success", "failure", 4, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (18, "Tell them cold showers are good for you", "Maybe if your population believes cold showers are good for them they won't waste as much water",
+1, 2, 3, "success", "failure", 3, 0);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (19, "Ban lawn mowing for the summer", "Some of your citizens might not like this, but you'll know for sure they won't be over watering their lawns",
+3, 3, 3, "success", "failure", 2, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (19, "Teach them about the benefits of a longer lawn", "Longer lawns don't only save water, they also stay much greener",
+4, 3, 7, "success", "failure", 4, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (19, "Replace lawns with concrete", his might use a lot of water at first to mix the cement but afterwards your citizens won't be mowing anything!",
+7, 7, 7, "success", "failure", 7, 0);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (20, "Go but don't speak", "You're an important, busy person, you don't have time to write a speech. Your presence should be enough",
+4, 5, 2, "success", "failure", 3, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (20, "Go and give a speech", "Let the students know how critical water conservation is. Give them helpful tips and motivate them to spread the word",
+3, 7, 1, "success", "failure", 4, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (20, " Set up events at all post secondary institutes", "Events like this are a great way to help motivate your citizens to make a change",
+4, 5, 9, "success", "failure", 3, 1);
+
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (21, "Pave over parks", "It may use a lot of water to mix cement but maybe it'll be worth it",
+3, 2, 1, "success", "failure", 3, 0);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (21, "AstroTurf", "Replace all the grass in your parks with AstroTurf",
+7, 6, 10, "success", "failure", 3, 1);
+INSERT INTO gameOption (situation_ID, title, description, difficulty, water_saved, reception_change, success_description, failure_description, completionTime, isSuccessful) VALUES (21, "Waterwise plants", "Replace all the plants in your parks with drought resistant plants so that they don't need to be watered as much",
+3, 11, 12, "success", "failure", 5, 1);

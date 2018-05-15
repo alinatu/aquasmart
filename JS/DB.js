@@ -1,6 +1,6 @@
 var $situationsUsed = [];
 var $pullSituationsX;
-var $totalWeeks = 5;
+var $totalWeeks = 7;
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
@@ -77,6 +77,7 @@ function getSituationNumber() {
             console.log(situationNum['ID']);
             $situationCount = situationNum['ID'];
             console.log($situationCount);
+            getSituations();
             return situationNum['ID'];
         },
         error: function(jqXHR,textStatus, errorThrown) {
@@ -90,7 +91,7 @@ function getSituationNumber() {
 function pullSituations() {
     var numFound = false;
     while (!numFound) {
-        if ($situationsUsed.length < 15) {
+        if ($situationsUsed.length < $situationCount) {
             $pullSituationsX = Math.floor(Math.random() * ($totalWeeks) + 1);
         }
         if (!$situationsUsed.includes($pullSituationsX)) {
@@ -219,6 +220,96 @@ function getSituations() {
                 $situationList = data['returnSituations'];
                 console.log($situationList);
                 setSituations();
+            }
+        });
+        $.ajax({
+            url: "./DB/getOptions5.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json', },
+            success: function(data) {
+                console.log(data);
+                $optionList = data['returnOptions'];
+                console.log($optionList);
+                setOptions();
+            }
+        });
+    } else if ($pullSituationsX == 6) {
+        console.log ("Pulling 6th set of situations from DB");
+        $.ajax({
+            url: "./DB/getSituations6.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json', },
+            success: function(data) {
+                console.log(data);
+                $situationList = data['returnSituations'];
+                console.log($situationList);
+                setSituations();
+            }
+        });
+        $.ajax({
+            url: "./DB/getOptions6.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json', },
+            success: function(data) {
+                console.log(data);
+                $optionList = data['returnOptions'];
+                console.log($optionList);
+                setOptions();
+            }
+        });
+    } else if ($pullSituationsX == 7) {
+        console.log("Pulling 7th set of situations from DB");
+        $.ajax({
+            url: "./DB/getSituations7.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json'},
+            success: function(data) {
+                console.log(data);
+                $situationList = data['returnSituations'];
+                console.log($situationList);
+                setSituations();
+            }
+        });
+        $.ajax({
+            url: "./DB/getOptions7.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json', },
+            success: function(data) {
+                console.log(data);
+                $optionList = data['returnOptions'];
+                console.log($optionList);
+                setOptions();
+            }
+        });
+    } else if ($pullSituationsX == 8) {
+        console.log("Pulling 8th set of situations from DB");
+        $.ajax({
+            url: "./DB/getSituations8.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json'},
+            success: function(data) {
+                console.log(data);
+                $situationList = data['returnSituations'];
+                console.log($situationList);
+                setSituations();
+            }
+        });
+        $.ajax({
+            url: "./DB/getOptions8.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json',},
+            success: function(data) {
+                console.log(data);
+                $optionList = data['returnOptions'];
+                console.log($optionList);
+                setOptions();
             }
         });
     }

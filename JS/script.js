@@ -49,7 +49,6 @@ function resetProgBar() {
 $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
-    getSituationNumber();
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
@@ -124,7 +123,7 @@ $("#noDays img").click(function(){
         } 
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
-    getSituations();
+    getSituationNumber();
 });
 //series of functions for checking the names entered are valid
 function isString(s) {

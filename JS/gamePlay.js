@@ -296,6 +296,7 @@ function endTurn() {
     situations[1].chosen = false;
     situations[2].chosen = false;
     endGame();
+    getSituations();
     //setDecision();
 
 }
