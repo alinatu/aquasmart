@@ -23,6 +23,10 @@
 
         calendar = new component(4, 50, 70, "images/calendarTracking/Calendar.png", 5, -5, "image", false);
         daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "image");
+
+        cityReception = new counterComponent(5, 50, 70, "green", 360, 10, "number");
+
+        // endTurn = new toggleComponent(1, 60, 80, "images/calendarTracking/NextTurn.png", 300, 325, true);
       }
       
       var myGameArea = {
@@ -105,7 +109,8 @@
               setDropDowns(2);
               document.getElementById("option").style.display = "block";
               var district3Clicked = false;
-        } 
+        }
+        if (mousePos.x);
     }
 
       function component(id, width, height, color, x, y, type, hasEvent) {
@@ -223,7 +228,9 @@
         if (type == "image") {
           this.image = new Image();
           this.image.src = color;
-        } 
+        } else {
+
+        }
         this.width = width;
         this.height = height;
         this.x = x;
@@ -233,8 +240,10 @@
 
           var imageName = "images/calendarTracking/" + $weekDays + ".png";
           // console.log(imageName);
-          this.image = new Image();
-          this.image.src = imageName;
+          if (imageName != this.image.src) {
+            this.image = new Image();
+            this.image.src = imageName;
+          } 
           myGameArea.context;
           if (type == "image") {
               ctx.drawImage(this.image, 
@@ -263,4 +272,5 @@
         drops[0].update();
         drops[1].update();
         drops[2].update();
+        // endTurn.update();
       }
