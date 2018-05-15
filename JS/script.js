@@ -25,7 +25,7 @@ function myFunction() {
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {
         alert ("Invalid City Name");
     }else {
-        $("#gamediv").css("bottom", "50%");
+        
         $("#startGame").css("display", "block");
         $("#startGame").fadeIn(7000).fadeOut(5000);
         document.getElementById("userName").innerHTML = "Mayor " + $name;
