@@ -13,10 +13,14 @@
     <script src="./JS/gamePlay.js" type="text/javascript"></script>
     <script src="./JS/decisions.js" type="text/javascript"></script>
     <link type="text/css" rel=stylesheet href="AquaSmart.css">
-    </head>
 
+    <meta property="og:url"           content="http://playaquasmart.ca/index.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Aqua Smart" />
+    <meta property="og:image"         content="http://playaquasmart.ca/images/AquasmartSmall.png" />
+  </head>
   <body onload="startGame()">
-
+    
     <div id="menu">
 
       <div id="logo">
@@ -40,6 +44,7 @@
 
       <div id="score">
           <p id="yourScore"></p>
+          
       </div> 
     </div>
 
@@ -75,6 +80,7 @@
     
 
     <div id="about" id="about" class="popup">
+      
       <h2>About</h2>
       <p id="disc">Our application is an interactive simulation game where the user is the mayor of their own city. They must make decisions about how the population can conserve water in order to make their water reserves last through the summer. We hope this game can help raise awareness of the importance of water conservation in the Vancouver area.</p>
       <div id="picsOfUs">
@@ -99,18 +105,23 @@
     </div>
 
     <div id="endGame" class="popup">
+      
       <p id="youWin">Y O U&nbsp;&nbsp;W I N ! :)</p>
       <p id="youLose">Y O U&nbsp;&nbsp;L O S T ! :(</p>
       <p id="ending">Thank you for playing!</p>
+      <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fplayaquasmart.ca%2Findex.html&layout=button&size=large&mobile_iframe=true&appId=224394724282939&width=73&height=28&hashtag=ImAquaSmart" width="73" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
       <p>Click "New Game" to play again!</p>
       <img id="endLogo" src="images/Aquasmart.png" alt="Aqua Smart"/>
+      
     </div>
     
     <div id="login" class="popup">
+        
       <img src="images/Aquasmart.png" width="70%">
       <br>
       Welcome to AquaSmart! <br>Enter a city name and your name to start saving water during this hot summer!
       <br>
+      
     <form id="setNames">
       <input id="cityName" type="text" placeholder="City Name"><br>
       <input id="name" type="text" placeholder="Name"> 
@@ -120,10 +131,10 @@
     </div>
     <div id="gamediv"></div>
      
-    <div id="startGame" class="toggle"><img src="images/letter-x.png" width=20px alt="x">You have 63 days to save as much water as possible!<br>
+    <div id="startGame" class="toggle">
+        
+      <img src="images/letter-x.png" width=20px alt="x">You have 63 days to save as much water as possible!<br>
       Click on a city with a water drop</div>
-
-    
 
     <div id="noDays" class="toggle"><img src="images/letter-x.png" width=20px alt="x">The week is over, you don't have enough days left to make anymore of these decisions.</div>
 
