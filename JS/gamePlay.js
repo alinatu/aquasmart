@@ -207,7 +207,6 @@ function setDecision(x){
     $("#opimg").attr("src", situations[x].imageBanner);
     $("#option h4").html(situations[x].title);
     $("#option").css("dispay", "block");
-    $("#option").css("margin-top", "-100px");
     $("#decisionDescription").html(situations[x].description);
     $("#startGame").css("display", "none");
 
