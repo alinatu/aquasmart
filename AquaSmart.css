@@ -71,7 +71,7 @@ body {
     margin-top: -2px;
     margin-bottom: -80px;
     width: 100%;
-    height: 60px;
+    height: 65px;
     background: #ebf0f9;
 }
       
@@ -96,10 +96,11 @@ body {
 
 #days {
     float: right;
-    width: 50px;
+    width: 100px;
     margin-top: 6px;
     margin-right: 7px;
     font-weight: bold;
+    padding-right: 0px;
 }
 
 #userDays {
