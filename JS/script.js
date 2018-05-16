@@ -60,7 +60,7 @@ $(document).ready(function(){
   });
 
   //x button for end of week message
-$("#noDays img").click(function(){
+$("#noDays").click(function(){
     $("#noDays").css("display", "none");
 });
 
@@ -108,6 +108,14 @@ $("#noDays img").click(function(){
     $("#option").css("height", "330px");
     $("#decision").html("<p id='decisionDescription'></p><button id='option1' class='optionButton'></button><button id='more1' class='moreButton'>...</button><br><p id='description1'></p><button id='option2' class='optionButton'></button><button id='more2' class='moreButton'>...</button><br><p id='description2'></p><button id='option3' class='optionButton'></button><button id='more3' class='moreButton'>...</button><br><p id='description3'></p><p id='success'></p>");
     updateScore();
+    var decisionCheck = noDecisionsLeft();
+
+    if(decisionCheck) {
+        $("#noDays").css("display", "block");
+        endTurn();
+    } else if ($weekDays <= 0 || $numOfEvents <= 0) {
+        endTurn();
+    } 
   });
 
 
