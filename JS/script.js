@@ -1,8 +1,9 @@
 var $name;
 var $cityName;
-var $totalSituations;
+var $situationCount;
 var $situationList;
 var $optionlist;
+var $optionCount;
 var onLogin = true;
 
 
