@@ -12,6 +12,7 @@ var $numOfEvents = 3;
 var $currentWater = $totalWater;
 var $barLevel = ($currentWater / $totalWater) * 100;
 var $success = false;
+var $currentWeek = 1;
 
 //option variables
 var situations = { 0: {
@@ -307,9 +308,7 @@ function endTurn() {
     situations[0].chosen = false;
     situations[1].chosen = false;
     situations[2].chosen = false;
-    
     endGame();
-   
     //setDecision();
 
 }
@@ -319,6 +318,7 @@ function endGame(){
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
+        getSituations();
         $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
@@ -391,6 +391,7 @@ function addReception(amount) {
 }
 
 function rollForSuccess(difficulty) {
+    var roll = 0;
     // Roll for a random number between 5 and 10 + Reception rounded up
     roll = Math.floor(Math.random() * (5) + 5) + Math.round($cityReception / 10);
     console.log("The player rolled a " + roll + " against a difficulty of " + difficulty);
