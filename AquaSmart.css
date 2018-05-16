@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 401px){
     #logosize {
         content: url("images/AquasmartSmall.png");
     }
