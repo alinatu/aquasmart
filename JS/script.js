@@ -1,8 +1,9 @@
 var $name;
 var $cityName;
-var $totalSituations;
+var $situationCount;
 var $situationList;
 var $optionlist;
+var $optionCount;
 var onLogin = true;
 
 
@@ -48,15 +49,12 @@ function resetProgBar() {
 $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
-    getSituationNumber();
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
     document.getElementById("scores").style.display = "none";
-    getSituations();
-    getOptions();
   });
 
   //x button for end of week message
@@ -114,6 +112,14 @@ $("#noDays").click(function(){
               
             }
     updateScore();
+    var decisionCheck = noDecisionsLeft();
+
+    if(decisionCheck) {
+        $("#noDays").css("display", "block");
+        endTurn();
+    } else if ($weekDays <= 0 || $numOfEvents <= 0) {
+        endTurn();
+    } 
   });
 
 
@@ -131,9 +137,7 @@ $("#noDays").click(function(){
         } 
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
-
-    
-
+    getSituationNumber();
 });
 //series of functions for checking the names entered are valid
 function isString(s) {

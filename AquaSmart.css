@@ -112,10 +112,11 @@ body {
 
 #days {
     float: right;
-    width: 50px;
+    width: 100px;
     margin-top: 6px;
     margin-right: 7px;
     font-weight: bold;
+    padding-right: 0px;
 }
 
 #userDays {
