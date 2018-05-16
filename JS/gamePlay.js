@@ -156,13 +156,13 @@ function optionChosen(x, y) {
             if (success) {
                 wholeRate = x.rate;
                 waterRate = (x.rate / 100);
-                $("#decision").html(x.success + "Water waste reduced by " + x.rate + "% (" 
+                $("#decision").html(x.success + ". Water waste reduced by " + x.rate + "% (" 
                     + Math.round(($waterUsage * waterRate)) + " gallons per week)!");
             } else {
                 // Rate of water usage is reduced to 1/4 it's value.
                 wholeRate = Math.round(x.rate / 4);
                 waterRate = (wholeRate / 100);
-                $("#decision").html(x.failure + " Despite this, water waste has still been reduced by " 
+                $("#decision").html(x.failure + ". Despite this, water waste has still been reduced by " 
                     + wholeRate + "% (" + Math.round(($waterUsage * waterRate)) + " gallons per week). Keep trying!");
             }
 
