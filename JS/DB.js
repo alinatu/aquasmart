@@ -1,6 +1,6 @@
 var $situationsUsed = [];
 var $pullSituationsX;
-var $totalWeeks = 7;
+var $totalWeeks = 9;
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
