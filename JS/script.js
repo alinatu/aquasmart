@@ -49,19 +49,29 @@ $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
     getSituationNumber();
+    //function for help link
+    $("#helpLink").click(function(){
+       document.getElementById("help").style.display = "block";
+       document.getElementById("about").style.display = "none";
+       document.getElementById("scores").style.display = "none";
+      });
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
+    document.getElementById("help").style.display = "none";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
     document.getElementById("scores").style.display = "none";
-    getSituations();
-    getOptions();
   });
+ 
 
   //x button for end of week message
 $("#noDays").click(function(){
     $("#noDays").css("display", "none");
+});
+//x button for closing help
+$("#closeHelp").click(function(){
+    $("#help").css("display", "none");
 });
 
 //Function for the new game button
