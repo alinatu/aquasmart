@@ -321,6 +321,27 @@ canvas {
     z-index: 1;
     clear: left;
     padding: 0% 3%;
+    min-height: 300px;
+}
+#help h2 {
+    float: left;
+    clear: none;
+}
+#helpimg {
+    float: left;
+    clear: left;
+}
+#closeHelp {
+    float: left;
+}
+#help p {
+    clear: both;
+}
+#forward{
+    float: right;
+}
+#helpBack {
+    float: left;
 }
 
 
