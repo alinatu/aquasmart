@@ -114,6 +114,14 @@ $("#noDays").click(function(){
               
             }
     updateScore();
+    var decisionCheck = noDecisionsLeft();
+
+    if(decisionCheck) {
+        $("#noDays").css("display", "block");
+        endTurn();
+    } else if ($weekDays <= 0 || $numOfEvents <= 0) {
+        endTurn();
+    } 
   });
 
 
