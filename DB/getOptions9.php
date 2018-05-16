@@ -17,22 +17,22 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM situation WHERE ID IN (22, 23, 24) ORDER BY ID ASC";
+                $sql = "SELECT * FROM gameOption WHERE situation_ID IN (25, 26, 27) ORDER BY option_ID ASC";
 
                 $statement = $conn->prepare($sql);
                 $statement->execute();
 
-                $data = array("status" => "success", "returnSituations" => $statement->fetchAll(PDO::FETCH_ASSOC));
-            } catch (PDOException $e) {
+                $data = array("status" => "success", "returnOptions" => $statement->fetchAll(PDO::FETCH_ASSOC));
+            } catch (PDOException $e){
                 $data = array("error", $e->getMessage());
             }
                 switch ($output) {
                     case "json":
                         $data['status'] = 'success';
-                        $data['msg'] = 'Retrieving 8th set of situations from database';
+                        $data['msg'] = 'Retrieving 8th set of options from database';
 
                     $json = json_encode($data);
-
+                    
                     echo $json;
                     break;
                 }

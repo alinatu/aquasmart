@@ -1,6 +1,6 @@
 var $situationsUsed = [];
 var $pullSituationsX;
-var $totalWeeks = 7;
+var $totalWeeks = 9;
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
@@ -312,117 +312,35 @@ function getSituations() {
                 setOptions();
             }
         });
+    } else if ($pullSituationsX == 9) {
+        console.log("Pulling 9th set of situations from DB");
+        $.ajax({
+            url: "./DB/getSituations9.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json', },
+            success: function(data) {
+                console.log(data);
+                $situationList = data['returnSituations'];
+                console.log($situationList);
+                setSituations();
+            }
+        });
+        $.ajax({
+            url: "./DB/getOptions9.php",
+            dataType: "json",
+            type: "GET",
+            data: {output: 'json'},
+            success: function(data) {
+                console.log(data);
+                $optionList = data['returnOptions'];
+                console.log($optionList);
+                setOptions();
+            }
+        });
     }
 }
-/*
-function getSituations2() {
-    console.log("Pulling 2nd set of situations from DB");
-    $.ajax({
-        url: "./DB/getSituations2.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json', },
-        success: function(data) {
-            console.log(data);
-            $situationList = data['returnSituations'];
-            console.log($situationList);
-            setSituations();
-        }
-    });
-}
-function getSituations3() {
-    console.log("Pulling 3rd set of situations from DB");
-    $.ajax({
-        url: "./DB/getSituations3.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json', },
-        success: function(data) {
-            console.log(data);
-            $situationList = data['returnSituations'];
-            console.log($situationList);
-            setSituations();
-        }
-    });
-}
-function getSituations4() {
-    console.log("Pulling 4th set of situations from DB");
-    $.ajax({
-        url: "./DB/getSituations4.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json', },
-        success: function(data) {
-            console.log(data);
-            $situationList = data['returnSituations'];
-            console.log($situationList);
-            setSituations();
-        }
-    });
-}
-*/
-/*
-function getOptions1() {
-    console.log("Pulling options from DB");
-    $.ajax({
-        url: "./DB/getOptions1.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json'},
-        success: function(data) {
-            console.log(data);
-            $optionList = data['returnOptions'];
-            console.log($optionList);
-            setOptions();
-        }
-    });
-}
-function getOptions2() {
-    console.log("Pulling 2nd set of options from DB");
-    $.ajax({
-        url: "./DB/getOptions2.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json', },
-        success: function(data) {
-            console.log(data);
-            $optionList = data['returnOptions'];
-            console.log($optionList);
-            setOptions();
-        }
-    });
-}
-function getOptions3() {
-    console.log("Pulling 3rd set of options from DB");
-    $.ajax({
-        url: "./DB/getOptions3.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json', },
-        success: function(data) {
-            console.log(data);
-            $optionList = data['returnOptions'];
-            console.log($optionList);
-            setOptions();
-        }
-    })
-}
-function getOptions4() {
-    console.log("Pulling 4th set of options from DB");
-    $.ajax({
-        url: "./DB/getOptions4.php",
-        dataType: "json",
-        type: "GET",
-        data: {output: 'json', },
-        success: function(data) {
-            console.log(data);
-            $optionList = data['returnOptions'];
-            console.log($optionList);
-            setOptions();
-        }
-    });
-}
-*/
+
 //Sets the 3 situations with the situation and option data from the database.
 function setSituations() {
     console.log("Setting situations for week: " + $currentWeek);

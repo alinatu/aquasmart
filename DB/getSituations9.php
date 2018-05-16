@@ -17,7 +17,7 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM situation WHERE ID IN (22, 23, 24) ORDER BY ID ASC";
+                $sql = "SELECT * FROM situation WHERE ID IN (25, 26, 27) ORDER BY ID ASC";
 
                 $statement = $conn->prepare($sql);
                 $statement->execute();
