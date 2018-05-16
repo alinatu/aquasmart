@@ -22,9 +22,11 @@
         }
 
         calendar = new component(4, 50, 70, "images/calendarTracking/Calendar.png", 5, -5, "image", false);
-        daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "image");
+        daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "calendar");
 
-        cityReception = new counterComponent(5, 50, 70, "green", 360, 10, "number");
+        receptionFace = new face(60, 60, "images/receptionTracking/MidReception.png", 310, 0);
+        cityReception = new counterComponent(5, 50, 70, "blue", 325, 73, "number");
+        
 
         // endTurn = new toggleComponent(1, 60, 80, "images/calendarTracking/NextTurn.png", 300, 325, true);
       }
@@ -225,7 +227,7 @@
       function counterComponent(id, width, height, color, x, y, type) {
         this.id = id;
         this.type = type;
-        if (type == "image") {
+        if (type == "calendar") {
           this.image = new Image();
           this.image.src = color;
         } else {
@@ -236,33 +238,63 @@
         this.x = x;
         this.y = y;
 
-        this.update = function() {
+        this.update = function(variable) {
 
-          var imageName = "images/calendarTracking/" + $weekDays + ".png";
-          // console.log(imageName);
-          if (imageName != this.image.src) {
-            this.image = new Image();
-            this.image.src = imageName;
-          } 
-          myGameArea.context;
-          if (type == "image") {
-              ctx.drawImage(this.image, 
-                this.x, 
-                this.y, 
-                this.width, this.height);
+          if (this.type == "calendar") {
+            var imageName = "images/calendarTracking/" + $weekDays + ".png";
+            // console.log(imageName);
+            if (imageName != this.image.src) {
+              this.image = new Image();
+              this.image.src = imageName;
+            } 
+            myGameArea.context;
+            if (type == "calendar") {
+                ctx.drawImage(this.image, 
+                  this.x, 
+                  this.y, 
+                  this.width, this.height);
+            } 
           } else {
-            ctx.fillStyle = color;
-            ctx.fillRect(this.x, this.y, this.width, this.height);
+              var number = variable.toString();
+              ctx.font = "20px Arial";
+              ctx.fillStyle = "white";
+              ctx.fillText(number, this.x, this.y);
           }
         }
       }
       
+      function face(width, height, image, x, y) {
+        this.image = new Image();
+        this.image.src = image;
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        
+        this.update = function() {
+          if ($cityReception > 74) {
+            this.image.src = "images/receptionTracking/HighReception.png";
+          } else if ($cityReception < 50) {
+            this.image.src = "images/receptionTracking/LowReception.png";
+          } else {
+            this.image.src = "images/receptionTracking/MidReception.png";
+          }
+          ctx = myGameArea.context;
+          ctx.drawImage(this.image, 
+            this.x, 
+            this.y, 
+            this.width, this.height);
+          }
+          
+      } 
 
       function updateGameArea() {
         myGameArea.clear();
         gameMap.update();
         calendar.update();
         daysLeft.update();
+        receptionFace.update();
+        cityReception.update($cityReception);
         paint1.update();
         district1.update();
         paint2.update();
