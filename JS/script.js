@@ -49,6 +49,7 @@ function resetProgBar() {
 $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
+    $("#help").css("display", "none");
     getSituationNumber();
     //function for help link
     $("#helpLink").click(function(){
@@ -58,6 +59,7 @@ $(document).ready(function(){
       });
     //Function for the About button
   $("#aboutlink").click(function(){
+    $("#help").css("dispaly", "none");
     document.getElementById("about").style.display = "block";
     document.getElementById("help").style.display = "none";
     document.getElementById("login").style.display = "none";
@@ -82,40 +84,6 @@ $("#closeHelp").click(function(){
 //Function for the new game button
   $("#newGame").click(function(){
       location.reload();
-       /* startGame();
-        onLogin = true;
-        $("#startGame").css("display", "none");
-        $("#option").css("display", "none");
-        document.getElementById("about").style.display = "none";
-        document.getElementById("gamediv").style.display = "block";
-        document.getElementById("map").style.filter = "blur(3px)";
-        document.getElementById("login").style.display = "block";
-        document.getElementById("userCity").innerHTML = "";
-        document.getElementById("userName").innerHTML = "";
-        document.getElementById("userDays").innerHTML = "";
-        document.getElementById("daysLeft").innerHTML = "";
-        document.getElementById("scores").style.display = "none";
-        document.getElementById("setNames").reset();
-        $("#endGame").css("display", "none");
-       
-        updateScore();
-         // Global variables
-         $repeatSituations = [];
-         $summerDays = 63;
-        $weekDays = 7;
-        $barLevel = ($currentWater / $totalWater) * 100;
-       $totalWater = 1248000;
-         $currentWater = $totalWater;
-         $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
-        $cityReception = 50;
-        // Tracking variables
-         $waterSaved = 0;
-        $decisionLength = 2;
-        $success = false;
-        updateScore();
-        logCityStatus();
-        $("#option").css("display", "none");
-        resetProgBar();*/
   });
   //function for the back arrow from the option card
   $("#optionExit").click(function(){

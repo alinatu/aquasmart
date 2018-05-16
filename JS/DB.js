@@ -4,6 +4,7 @@ var $totalWeeks = 9;
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
+        $("#help").css("display", "none");
         document.getElementById("about").style.display = "none";
         document.getElementById("login").style.display = "none";
         document.getElementById("scores").style.display = "block";

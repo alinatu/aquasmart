@@ -46,6 +46,7 @@
         bottom: 200px;
     }
 
+
 }
 
 @media screen and (min-height: 701px) {
@@ -323,11 +324,13 @@ canvas {
     border-radius: 20px;
     position: relative;
     width: 98%;
+    max-width: 700px;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
     padding: 0% 3%;
     min-height: 300px;
+    overflow: auto;
 }
 #help h2 {
     float: left;
@@ -341,6 +344,7 @@ canvas {
     float: left;
 }
 #help p {
+    margin-left: 10px;
     clear: both;
 }
 #forward{
@@ -439,7 +443,6 @@ text-align: center;
     clear: left;
     height: 450px;
 }
-
 
 #guy {
     margin-top: -25px;
