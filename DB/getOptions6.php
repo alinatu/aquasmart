@@ -17,7 +17,7 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM gameOption WHERE situation_ID IN (16, 17, 18) ORDER BY option_ID, ASC";
+                $sql = "SELECT * FROM gameOption WHERE situation_ID IN (16, 17, 18) ORDER BY option_ID ASC";
 
                 $statement = $conn->prepare($sql);
                 $statement->execute();

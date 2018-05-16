@@ -1,6 +1,6 @@
 var $situationsUsed = [];
 var $pullSituationsX;
-var $totalWeeks = 9;
+var $totalWeeks = 7;
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
@@ -361,7 +361,7 @@ function setOptions() {
         situations[i].option1.description = opt1['description'];
         situations[i].option1.difficulty = opt1['difficulty'];
         situations[i].option1.rate = opt1['water_saved'];
-        situations[i].option1.reception = opt1['reception_change'];
+        situations[i].option1.reception = Number(opt1['reception_change']);
         situations[i].option1.success = opt1['success_description'];
         situations[i].option1.failure = opt1['failure_description'];
         situations[i].option1.time = opt1['completionTime'];
@@ -373,7 +373,7 @@ function setOptions() {
         situations[i].option2.description = opt2['description'];
         situations[i].option2.difficulty = opt2['difficulty'];
         situations[i].option2.rate = opt2['water_saved'];
-        situations[i].option2.reception = opt2['reception_change'];
+        situations[i].option2.reception = Number(opt2['reception_change']);
         situations[i].option2.success = opt2['success_description'];
         situations[i].option2.failure = opt2['failure_description'];
         situations[i].option2.time = opt2['completionTime'];
@@ -385,7 +385,7 @@ function setOptions() {
         situations[i].option3.description = opt3['description'];
         situations[i].option3.difficulty = opt3['difficulty'];
         situations[i].option3.rate = opt3['water_saved'];
-        situations[i].option3.reception = opt3['reception_change'];
+        situations[i].option3.reception = Number(opt3['reception_change']);
         situations[i].option3.success = opt3['success_description'];
         situations[i].option3.failure = opt3['failure_description'];
         situations[i].option3.time = opt3['completionTime'];

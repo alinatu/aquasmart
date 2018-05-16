@@ -374,6 +374,7 @@ function addReception(amount) {
 }
 
 function rollForSuccess(difficulty) {
+    var roll = 0;
     // Roll for a random number between 5 and 10 + Reception rounded up
     roll = Math.floor(Math.random() * (5) + 5) + Math.round($cityReception / 10);
     console.log("The player rolled a " + roll + " against a difficulty of " + difficulty);
