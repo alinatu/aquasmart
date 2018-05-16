@@ -46,9 +46,6 @@
         bottom: 200px;
     }
 
-    #help {
-        bottom: 193px;
-    } 
 
 }
 
@@ -69,10 +66,6 @@
     }
 
     #login {
-        bottom: 50%;
-    }
-
-    #help {
         bottom: 50%;
     }
 
@@ -450,22 +443,6 @@ text-align: center;
     clear: left;
     height: 450px;
 }
-
-/*#help {
-    text-align: center;
-    display: block;
-    border: 10px solid #d4d9e9;
-    border-radius: 20px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,50%);
-    width: 350px;
-    height: 330px;
-    background-color: #ebf0f9;
-    z-index: 1;
-    font-size: 10pt;
-    overflow: auto;
-}*/
 
 #guy {
     margin-top: -25px;
