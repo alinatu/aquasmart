@@ -27,7 +27,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 6,
+        time : 3,
         outcome : 1,
         
     },
@@ -35,11 +35,11 @@ var situations = { 0: {
         title : "Ban toothbrushes! ",
         description : "If citizens are wasting water brushing their teeth, then outlawing the use of toothbrushes will solve the issue... Right? ",
         difficulty : 20,
-        rate : 1,
+        rate : 7,
         reception : -20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
-        time : 6,
+        time : 3,
         outcome : 0,
     },
     option3 : {
@@ -50,7 +50,7 @@ var situations = { 0: {
         reception : 20,
         success : "You decided to offer refunds to all citizens who upgrade their faucets. This was a great water saving move, and also increased receptiveness! ",
         failure : "",
-        time : 6,
+        time : 4,
         outcome : 1,
     },
     chosen : false
@@ -67,7 +67,7 @@ var situations = { 0: {
         reception : 20,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 6,
+        time : 5,
         outcome : 1,
         
     },
@@ -87,10 +87,10 @@ var situations = { 0: {
         description : "blah blah",
         difficulty : 20,
         rate : 1,
-        reception : 20,
+        reception : -20,
         success : "",
-        failure : "",
-        time : 6,
+        failure : "ono",
+        time : 2,
         outcome : 0,
     },
     chosen : false
@@ -107,7 +107,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 6,
+        time : 3,
         outcome : 1,
         
     },
@@ -115,11 +115,11 @@ var situations = { 0: {
         title : "Advertise water-wise garden equipment",
         description : "blah blah",
         difficulty : 10,
-        rate : 5,
+        rate : 6,
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 6,
+        time : 5,
         outcome : 1,
     },
     option3 : {
@@ -147,19 +147,29 @@ function optionChosen(x, y) {
         if (x.time > $weekDays) {
             $("#decision").html("You don't have enough days in the week to make this change... You'll have to choose another.");
         } else {
-            var waterRate = (x.rate / 100);
+            // Variables to store the rate used in calculation
+            var waterRate;
+            var wholeRate;
+
             var success = rollForSuccess(x.difficulty);
+
             if (success) {
+                wholeRate = x.rate;
+                waterRate = (x.rate / 100);
                 $("#decision").html(x.success + "Water waste reduced by " + x.rate + "% (" 
-                    + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week)!");
+                    + Math.round(($waterUsage * waterRate)) + " gallons per week)!");
             } else {
+                // Rate of water usage is reduced to 1/4 it's value.
+                wholeRate = Math.round(x.rate / 4);
+                waterRate = (wholeRate / 100);
                 $("#decision").html(x.failure + " Despite this, water waste has still been reduced by " 
-                    + x.rate + "% (" + Math.round(($waterUsage * (x.rate / 100))) + " gallons per week). Keep trying!");
+                    + wholeRate + "% (" + Math.round(($waterUsage * waterRate)) + " gallons per week). Keep trying!");
             }
+
             console.log("This decision took " + x.time + " days to complete.");
             $weekDays -= x.time;
-            $waterUsage -= ($waterUsage * (x.rate / 100));
-            $waterSaved += ($waterUsage * (x.rate / 100));
+            $waterUsage -= ($waterUsage * waterRate);
+            $waterSaved += ($waterUsage * waterRate);
             console.log("You have " + $weekDays + " days left to make decisions");
             addReception(x.reception);
             console.log("Current city receptiveness is " + $cityReception + "!");
@@ -169,10 +179,10 @@ function optionChosen(x, y) {
 
             /* var decisionCheck = noDecisionsLeft();
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
-                
+    
                 endTurn();
               
-            }*/ 
+            }*/
         }
     };
 }
@@ -193,9 +203,9 @@ function noDecisionsLeft() {
             }
         }
         // If all three situations does not have options to select...
-        if (counter == 3) {
-            console.log("No decisions left!");
+        if (counter == 3 && $weekDays > 0) {
             noDecisions = true;
+           // alert("nup");
         }
         return noDecisions;
 }
@@ -205,7 +215,6 @@ function setDecision(x){
     $("#opimg").attr("src", situations[x].imageBanner);
     $("#option h4").html(situations[x].title);
     $("#option").css("dispay", "block");
-    $("#option").css("margin-top", "-100px");
     $("#decisionDescription").html(situations[x].description);
     $("#startGame").css("display", "none");
 
@@ -283,6 +292,9 @@ function updateScore() {
 }
 
 function endTurn() {
+    if (noDecisionsLeft()){
+        $("#noDays").css("display", "block");
+       }
     $numOfEvents = 3;
     $weekDays = 7;
     $summerDays -= $weekDays;
@@ -297,15 +309,17 @@ function endTurn() {
     situations[2].chosen = false;
     
     endGame();
+   
     //setDecision();
 
 }
 function endGame(){
-    // var decisionCheck = noDecisionsLeft();
-    // $("#noDays").css("display", "none");
+    var decisionCheck = noDecisionsLeft();
+    //$("#noDays").css("display", "none");
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
+        $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
         document.getElementById("about").style.display = "none";
@@ -313,7 +327,8 @@ function endGame(){
         document.getElementById("map").style.filter = "blur(3px)";
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
-    } else if($summerDays <= 0 || $summerDays <= 7 /* && decisionCheck*/){
+    } else if($summerDays <= 0 || $summerDays <= 7 && decisionCheck){
+        $("#noDays").css("display", "none");
         $("#youLose").css("display", "none");
         document.getElementById("endGame").style.display = "block";
         document.getElementById("about").style.display = "none";

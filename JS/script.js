@@ -25,7 +25,7 @@ function myFunction() {
     } else if (isString($cityName) == false || hasNum($cityName) == true || validCityLength($cityName) == false ) {//|| hasSpecial($cityName) == true) {
         alert ("Invalid City Name");
     }else {
-        $("#gamediv").css("bottom", "50%");
+        
         $("#startGame").css("display", "block");
         $("#startGame").fadeIn(7000).fadeOut(5000);
         document.getElementById("userName").innerHTML = "Mayor " + $name;
@@ -107,6 +107,12 @@ $("#noDays").click(function(){
     $("#option").css("display", "none");
     $("#option").css("height", "330px");
     $("#decision").html("<p id='decisionDescription'></p><button id='option1' class='optionButton'></button><button id='more1' class='moreButton'>...</button><br><p id='description1'></p><button id='option2' class='optionButton'></button><button id='more2' class='moreButton'>...</button><br><p id='description2'></p><button id='option3' class='optionButton'></button><button id='more3' class='moreButton'>...</button><br><p id='description3'></p><p id='success'></p>");
+    var decisionCheck = noDecisionsLeft();
+            if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
+    
+                endTurn();
+              
+            }
     updateScore();
     var decisionCheck = noDecisionsLeft();
 
