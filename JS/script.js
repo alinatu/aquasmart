@@ -49,17 +49,34 @@ function resetProgBar() {
 $(document).ready(function(){
     $("#startGame").css("display", "none");
     $("#option").css("display", "none");
+    getSituationNumber();
+    //function for help link
+    $("#helpLink").click(function(){
+       document.getElementById("help").style.display = "block";
+       document.getElementById("about").style.display = "none";
+       document.getElementById("scores").style.display = "none";
+      });
     //Function for the About button
   $("#aboutlink").click(function(){
     document.getElementById("about").style.display = "block";
+    document.getElementById("help").style.display = "none";
     document.getElementById("login").style.display = "none";
     document.getElementById("gamediv").style.display = "none";
     document.getElementById("scores").style.display = "none";
   });
+ 
 
   //x button for end of week message
 $("#noDays").click(function(){
     $("#noDays").css("display", "none");
+});
+//x button for closing help
+$("#closeHelp").click(function(){
+    $("#help").css("display", "none");
+    $("#help h2").html("Congratulations!");
+    $("#help p").html("You’ve just been elected Mayor! Problem is water use doubles over the summer, and the dry season lasts for 63 days! Can you make the city’s water last?");
+    $("#helpimg").attr("src", "images/elections.png");
+    $helpClick = 0;
 });
 
 //Function for the new game button
@@ -107,13 +124,10 @@ $("#noDays").click(function(){
     $("#decision").html("<p id='decisionDescription'></p><button id='option1' class='optionButton'></button><button id='more1' class='moreButton'>...</button><br><p id='description1'></p><button id='option2' class='optionButton'></button><button id='more2' class='moreButton'>...</button><br><p id='description2'></p><button id='option3' class='optionButton'></button><button id='more3' class='moreButton'>...</button><br><p id='description3'></p><p id='success'></p>");
     var decisionCheck = noDecisionsLeft();
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
-    
-                endTurn();
-              
+                endTurn(); 
             }
     updateScore();
     var decisionCheck = noDecisionsLeft();
-
     if(decisionCheck) {
         $("#noDays").css("display", "block");
         endTurn();
@@ -137,7 +151,86 @@ $("#noDays").click(function(){
         } 
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });
-    getSituationNumber();
+
+    $helpClick = 0;
+
+    function help(){
+        if ($helpClick == 0){
+            $("#help h2").html("Reception:");
+            $("#help p").html("Keep your citizens happy! Generous"
+            + "decisions will keep your populace motivated to make BIG changes is your city!"
+            +"<ul><li>When your citizens like your decision their reception increases</li>"
+            +"<li>When your citizens don’t like your decisions their reception decreases</li>"
+            +"<li>High reception increases the chances that extreme decisions you make will succeed</li></ul>");
+            $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
+            $helpClick ++;
+        } else  if ($helpClick == 1){
+            $("#help h2").html("Reservoir:");
+            $("#help p").html("The water in your reservoir decreases each week at a fixed rate, which represents your citizen’s water consumption."
+            +"<ul><li>Make smart decisions to lower the rate of your citizen’s water consumption</li></ul>");
+            $("#helpimg").attr("src", "images/waterDrop.png");
+            $helpClick ++;
+        } else if ($helpClick == 2){
+            $("#help h2").html("Decisions:");
+            $("#help p").html("Your decisions can affect your citizen’s reception and the rate of your citizen’s water consumption."
+            +"<ul><li>Each decision takes a set amount of days to make</li>"
+            +"<li>Each decision can lower or raise your citizen’s reception</li>"
+            +"<li>Each decision saves a certain amount of water when it succeeds</li></ul>");
+            $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
+            $helpClick ++;
+        } else if ($helpClick == 3){
+            $("#help h2").html("Weeks:");
+            $("#help p").html("Each week you’ll have 3 decisions you can make. Each choice takes some time to complete. You’ll have to manage your time well to save the most water!");
+            $("#helpimg").attr("src", "images/calendarTracking/Calendar.png");
+            $helpClick ++;
+        } else if ($helpClick == 4){
+            $("#help h2").html("Districts:");
+            $("#help p").html("When a water droplet appears over a district this means there is a decision to be made!");
+            $("#helpimg").attr("src", "images/district.png");
+            $helpClick = 0;
+        }
+    }
+    $("#forward").click(function(){
+        help();
+    });
+    
+    $("#helpBack").click(function(){
+        if ($helpClick == 1){
+            $("#help h2").html("Reception:");
+            $("#help p").html("Keep your citizens happy! Generous"
+            + "decisions will keep your populace motivated to make BIG changes is your city!"
+            +"<ul><li>When your citizens like your decision their reception increases</li>"
+            +"<li>When your citizens don’t like your decisions their reception decreases</li>"
+            +"<li>High reception increases the chances that extreme decisions you make will succeed</li></ul>");
+            $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
+            $helpClick = 0;
+        } else  if ($helpClick == 2){
+            $("#help h2").html("Reservoir:");
+            $("#help p").html("The water in your reservoir decreases each week at a fixed rate, which represents your citizen’s water consumption."
+            +"<ul><li>Make smart decisions to lower the rate of your citizen’s water consumption</li></ul>");
+            $("#helpimg").attr("src", "images/waterDrop.png");
+            $helpClick = 1;
+        } else if ($helpClick == 3){
+            $("#help h2").html("Decisions:");
+            $("#help p").html("Your decisions can affect your citizen’s reception and the rate of your citizen’s water consumption."
+            +"<ul><li>Each decision takes a set amount of days to make</li>"
+            +"<li>Each decision can lower or raise your citizen’s reception</li>"
+            +"<li>Each decision saves a certain amount of water when it succeeds</li></ul>");
+            $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
+            $helpClick = 2;
+        } else if ($helpClick == 4){
+            $("#help h2").html("Weeks:");
+            $("#help p").html("Each week you’ll have 3 decisions you can make. Each choice takes some time to complete. You’ll have to manage your time well to save the most water!");
+            $("#helpimg").attr("src", "images/calendarTracking/Calendar.png");
+            $helpClick = 3;
+        } else if ($helpClick == 0){
+            $("#help h2").html("Districts:");
+            $("#help p").html("When a water droplet appears over a district this means there is a decision to be made!");
+            $("#helpimg").attr("src", "images/district.png");
+            $helpClick = 4;
+        }
+    });
+
 });
 //series of functions for checking the names entered are valid
 function isString(s) {
