@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 
-<<<<<<< HEAD
-@media screen and (max-width: 401px){
-=======
 @media screen and (max-width: 1000px){
->>>>>>> ea2d00824f2cd008e81d8786218229ef4ec50c91
     #logosize {
         content: url("images/AquasmartSmall.png");
         height: 60px;
@@ -165,7 +161,7 @@ li > a:hover{
       
 
 #score {
-    margin-top: -15px;
+    margin-top: -2px;
     color: #d4d9e9;
     float: left;
     text-align: center;
