@@ -227,30 +227,26 @@ canvas {
 }
       
 #bottomdiv {
-    text-align: center;
-    bottom: 0;
-    height: 5%;
     position: fixed;
+    bottom: 0;
+    height: 35px;
     width: 100%;
     background-color: #ebf0f9;
-    text-align: center;
+    overflow: hidden;
+    margin: 0 auto;
 } 
-
-
-#newGame{
-    float:left;
-  
-}
-
-#aboutlink {
-    float: right;
+#bottomdiv ul {
+  list-style: none;
+  margin: 0 2px;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 #startGame {
     border: 10px solid #d4d9e9;
     position: absolute;
     margin: 0 auto;
-    /*bottom:50%;*/
     left: 50%;
     transform: translate(-50%,50%);
     border-radius: 20px;
@@ -354,6 +350,7 @@ canvas {
     clear: left;
     padding: 0% 3%;
     min-height: 300px;
+    height: 430px;
     overflow: auto;
 }
 #help h2 {
@@ -365,17 +362,23 @@ canvas {
     clear: left;
 }
 #closeHelp {
-    float: left;
+    position:absolute;
+    top: 0px;
+    left: 0px;
 }
 #help p {
     margin-left: 10px;
     clear: both;
 }
 #forward{
-    float: right;
+    position:absolute;
+    bottom:0px;
+    right: 0px;
 }
 #helpBack {
-    float: left;
+    position:absolute;
+    bottom:0px;
+    left: 0px;
 }
 
 
