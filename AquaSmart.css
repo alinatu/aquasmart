@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 1000px){
     #logosize {
         content: url("images/AquasmartSmall.png");
+        height: 60px;
     }
+
+    #logo {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
 }
 
+@media screen and (min-width: 1001px){
+    #logo {
+        height: 70px;
+        width: 20%;
+    }
 
+    #logosize {
+        width: 100%;
+    }
+}
 
 @media screen and (max-height: 700px) and (min-height: 10px) {
     #gamediv {
@@ -29,6 +45,7 @@
     #login {
         bottom: 200px;
     }
+
 
 }
 
@@ -140,29 +157,18 @@ li > a:hover{
 #logo {
     margin-top: 5px;
     float: left;
-    width: 20%;
-    height: 70px;
-    /*margin-left: 2%;
-    line-height: 110px;
-    width: 25%;
-    margin-top: -8px;*/
-    
+    /*width: 20%;*/
 }
       
-#logosize {       
-    width: 100%;
-    /*margin-top: -10px;*/
-}
 
 #score {
-    margin-top: -15px;
+    margin-top: -2px;
     color: #d4d9e9;
     float: left;
     text-align: center;
     width: 100%;
     font-family: "IBM Plex Sans";
     font-size: 100%;
-    /*overflow: hidden;*/
 }
 
 #score p {
@@ -311,6 +317,44 @@ canvas {
 #about h2 {
   text-align: center;
 }
+#help {
+    display: none;
+    margin: 0 auto;
+    border: 10px solid #d4d9e9;
+    border-radius: 20px;
+    position: relative;
+    width: 98%;
+    max-width: 700px;
+    background-color: #ebf0f9;
+    z-index: 1;
+    clear: left;
+    padding: 0% 3%;
+    min-height: 300px;
+    overflow: auto;
+}
+#help h2 {
+    float: left;
+    clear: none;
+}
+#helpimg {
+    float: left;
+    clear: left;
+}
+#closeHelp {
+    float: left;
+}
+#help p {
+    margin-left: 10px;
+    clear: both;
+}
+#forward{
+    float: right;
+}
+#helpBack {
+    float: left;
+}
+
+
 #option {
     text-align: center;
     display: block;
@@ -399,7 +443,6 @@ text-align: center;
     clear: left;
     height: 450px;
 }
-
 
 #guy {
     margin-top: -25px;
