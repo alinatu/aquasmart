@@ -1,5 +1,6 @@
 // Global variables
 var $chosen = false;
+var $playerScore = 0;
 var $repeatSituations = [];
 var $summerDays = 63;
 var $weekDays = 7;

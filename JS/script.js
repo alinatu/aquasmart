@@ -125,7 +125,7 @@ $("#closeHelp").click(function(){
     function help(){
         if ($helpClick == 0){
             $("#help h2").html("Reception:");
-            $("#help p").html("Keep your citizens happy! Generous"
+            $("#help p").html("Keep your citizens happy! Generous "
             + "decisions will keep your populace motivated to make BIG changes is your city!"
             +"<ul><li>When your citizens like your decision their reception increases</li>"
             +"<li>When your citizens don’t like your decisions their reception decreases</li>"
