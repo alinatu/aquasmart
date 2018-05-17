@@ -173,14 +173,15 @@ function optionChosen(x, y) {
             console.log("This decision took " +
                 x.time + " days to complete.");
             $weekDays -= x.time;
-            $waterUsage -= ($waterUsage * waterRate);
-            $waterSaved += ($waterUsage * waterRate);
+            var currentWater = ($waterUsage * waterRate);
+            $waterUsage -= currentWater;
+            $waterSaved += currentWater;
             console.log("You have " + $weekDays
                 + " days left to make decisions");
             addReception(x.reception);
             console.log("Current city receptiveness is "
                 + $cityReception + "!");
-            updateScore();
+            updateScore(currentWater);
             y.chosen = true;
             $numOfEvents--;
         }
@@ -296,10 +297,9 @@ function setDropDowns(){
    });
 }
 
-function updateScore() {
-    var receptionModifier = ($cityReception / 100) + 1;
-
-    $playerScore = ($waterSaved * receptionModifier);
+function updateScore(amount) {
+    var receptionModifier = ($cityReception / 100);
+    $playerScore += (amount * receptionModifier);
     if ($currentWater <= 0) {
         $playerScore /= 2;
     }

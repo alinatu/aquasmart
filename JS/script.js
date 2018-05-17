@@ -108,7 +108,6 @@ $("#closeHelp").click(function(){
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn();
             }
-    updateScore();
     var decisionCheck = noDecisionsLeft();
     if(decisionCheck) {
         $("#noDays").css("display", "block");
