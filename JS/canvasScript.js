@@ -103,7 +103,6 @@
               resetDecision();
               setDecision(0);
               setDropDowns(0);
-              updateScore();
               document.getElementById("option").style.display = "block";
               district1Clicked = false;
         }

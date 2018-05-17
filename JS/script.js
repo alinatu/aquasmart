@@ -33,7 +33,7 @@ function myFunction() {
         document.getElementById("userCity").innerHTML = $cityName;
         document.getElementById("userDays").innerHTML="63";
         document.getElementById("daysLeft").innerHTML="Days Left"
-        updateScore();
+        updateScore(0);
        
         document.getElementById("map").style.filter = "blur(0px)";
         document.getElementById("login").style.display = "none";
@@ -94,7 +94,6 @@ $("#closeHelp").click(function(){
             if ($weekDays <= 0 || $numOfEvents <= 0 || decisionCheck) {
                 endTurn(); 
             }
-    updateScore();
     var decisionCheck = noDecisionsLeft();
     if(decisionCheck) {
         $("#noDays").css("display", "block");
