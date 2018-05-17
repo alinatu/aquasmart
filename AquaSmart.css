@@ -227,9 +227,8 @@ canvas {
       
 #bottomdiv {
     text-align: center;
-    bottom: 0;
-    height: 5%;
     position: fixed;
+    bottom: 0;
     width: 100%;
     background-color: #ebf0f9;
     text-align: center;
@@ -365,7 +364,9 @@ canvas {
     clear: left;
 }
 #closeHelp {
-    float: left;
+    position:absolute;
+    top: 0px;
+    left: 0px;
 }
 #help p {
     margin-left: 10px;
