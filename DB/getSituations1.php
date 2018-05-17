@@ -17,13 +17,16 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM situation WHERE ID IN (1, 2, 3) ORDER BY ID ASC";
+                $sqlSituation = "SELECT * FROM situation WHERE ID = 1";
+                $sqlOption = "SELECT * FROM gameOption WHERE situation_ID = 1 ORDER BY option_ID ASC";
 
-                $statement = $conn->prepare($sql);
-                $statement->execute();
-                $count = $statement->rowCount();
+                $statementSituation = $conn->prepare($sqlSituation);
+                $statementSituation->execute();
 
-                $data = array("status" => "success", "returnSituations" => $statement->fetchAll(PDO::FETCH_ASSOC));
+                $statementOption = $conn->prepare($sqlOption);
+                $statementOption->execute();
+
+                $data = array("status" => "success", "returnSituations" => $statementSituation->fetchAll(PDO::FETCH_ASSOC), "returnOptions" => $statementOption->fetchAll(PDO::FETCH_ASSOC));
             } catch (PDOException $e) {
                 $data = array("error", $e->getMessage());
             }
