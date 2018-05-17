@@ -62,19 +62,22 @@
           var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
           //console.log(mousePos.x + ", " + mousePos.y);
           if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
-              && mousePos.y > district1.y && mousePos.y < district1.y + district1.height) {
+              && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
+              && !situations[0].chosen && !noDecision(0)) {
             paint1.show = true;
           } else {
             paint1.show = false;
           }
           if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
-              && mousePos.y > district2.y && mousePos.y < district2.y + district2.height) {
+              && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
+              && !situations[1].chosen && !noDecision(1)) {
             paint2.show = true;
           } else {
             paint2.show = false;
           }
           if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
-              && mousePos.y > district3.y && mousePos.y < district3.y + district3.height) {
+              && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
+              && !situations[2].chosen && !noDecision(2)) {
             paint3.show = true;
           } else {
             paint3.show = false;
@@ -86,7 +89,7 @@
         console.log(mousePos.x + ", " + mousePos.y);
         if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
-            && !situations[0].chosen) {
+            && !situations[0].chosen && !noDecision(0)) {
             resetDecision();
             setDecision(0);
             setDropDowns(0);
@@ -96,7 +99,7 @@
         } 
         if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
             && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
-            && !situations[1].chosen) {
+            && !situations[1].chosen && !noDecision(1)) {
               resetDecision();
               setDecision(1);
               setDropDowns(1);
@@ -105,7 +108,7 @@
         } 
         if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
             && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
-            && !situations[2].chosen) {
+            && !situations[2].chosen && !noDecision(2)) {
               resetDecision();
               setDecision(2);
               setDropDowns(2);
@@ -142,9 +145,9 @@
 
           var idCount = 1;
           for (var i = 0; i < 3; i++) {
-            if (this.id == idCount || situations[i].chosen == false) {
+            if (this.id == idCount && !situations[i].chosen) {
               drops[i].show = true;
-            } else if (this.id == idCount || situations[i].chosen == true) {
+            } else if (this.id == idCount && situations[i].chosen) {
               drops[i].show = false;
             }
             // console.log("Drop" + idCount + ": " + drops[i].show);
@@ -258,7 +261,7 @@
               var number = variable.toString();
               ctx.font = "20px Arial";
               ctx.fillStyle = "white";
-              ctx.fillText(number, this.x, this.y);
+              ctx.fillText((number + "%"), this.x, this.y);
           }
         }
       }
