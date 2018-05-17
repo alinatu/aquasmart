@@ -329,14 +329,22 @@ canvas {
     z-index: 1;
     clear: left;
     padding: 0% 3%;
-    min-height: 300px;
+    height: 430px;
     overflow: auto;
 }
 #help h2 {
     float: left;
     clear: none;
 }
+
+#help p ul {
+    padding-left: 3em;
+}
+
 #helpimg {
+    width: 80px;
+    padding: 1em;
+    padding-bottom: 0em;
     float: left;
     clear: left;
 }
@@ -532,5 +540,6 @@ a {
     margin-top: -20px;
     padding-right: 0%;
 }
+
 
 

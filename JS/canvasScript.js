@@ -93,7 +93,6 @@
             resetDecision();
             setDecision(0);
             setDropDowns(0);
-            updateScore();
             document.getElementById("option").style.display = "block";
             var district1Clicked = false;
         } 
