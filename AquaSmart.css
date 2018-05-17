@@ -353,6 +353,7 @@ canvas {
     clear: left;
     padding: 0% 3%;
     min-height: 300px;
+    height: 430px;
     overflow: auto;
 }
 #help h2 {
@@ -371,10 +372,14 @@ canvas {
     clear: both;
 }
 #forward{
-    float: right;
+    position:absolute;
+    bottom:0px;
+    right: 0px;
 }
 #helpBack {
-    float: left;
+    position:absolute;
+    bottom:0px;
+    left: 0px;
 }
 
 
