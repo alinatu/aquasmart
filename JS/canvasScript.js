@@ -5,32 +5,35 @@
       var myGamePiece;
       function startGame() {
         myGameArea.start();
-        gameMap = new component(0, 375, 400, "images/MapTest2.png", 0, 0, "image");
-        district1 = new component(1, 100, 80, "images/District1Redone.png", 48, 92, "image", true);
+        gameMap = new component
+        (0, 375, 400, "images/MapTest2.png", 0, 0, "image");
+        district1 = new component
+          (1, 100, 80, "images/District1Redone.png", 48, 92, "image", true);
         paint1 = new hoverComponent(1, 100, 80, "images/paintstroke.png", 48, 92, false);
-        
-        district2 = new component(2, 100, 100, "images/District2Redone.png", 85, 190, "image", true);
+        district2 = new component
+          (2, 100, 100, "images/District2Redone.png", 85, 190, "image", true);
         paint2 = new hoverComponent(2, 100, 90, "images/paintstroke.png", 85, 190, false);
-        
-        district3 = new component(3, 100, 90, "images/District3Redone.png", 250, 140, "image", true);
+        district3 = new component
+          (3, 100, 90, "images/District3Redone.png", 250, 140, "image", true);
         paint3 = new hoverComponent(3, 100, 90, "images/paintstroke.png", 250, 140, false);
-        
         drops = {
-          0 : drop1 = new toggleComponent(1, 25, 25, "images/waterdrop.png", 48, 92, true),
-          1 : drop2 = new toggleComponent(2, 25, 25, "images/waterdrop.png", 85, 190, true),
-          2 : drop3 = new toggleComponent(3, 25, 25, "images/waterdrop.png", 250, 140, true)
+          0 : drop1 = new toggleComponent
+            (1, 25, 25, "images/waterdrop.png", 48, 92, true),
+          1 : drop2 = new toggleComponent
+            (2, 25, 25, "images/waterdrop.png", 85, 190, true),
+          2 : drop3 = new toggleComponent
+            (3, 25, 25, "images/waterdrop.png", 250, 140, true)
         }
-
-        calendar = new component(4, 50, 70, "images/calendarTracking/Calendar.png", 5, -5, "image", false);
-        daysLeft = new counterComponent(4, 50, 70, "images/calendarTracking/7.png", 5, -5, "calendar");
-
-        receptionFace = new face(60, 60, "images/receptionTracking/MidReception.png", 310, 0);
-        cityReception = new counterComponent(5, 50, 70, "blue", 325, 73, "number");
-        
-
-        // endTurn = new toggleComponent(1, 60, 80, "images/calendarTracking/NextTurn.png", 300, 325, true);
-      }
-      
+        calendar = new component
+          (4, 50, 70, "images/calendarTracking"
+          + "/Calendar.png", 5, -5, "image", false);
+        daysLeft = new counterComponent
+          (4, 50, 70, "images/calendarTracking/7.png", 5, -5, "calendar");
+        receptionFace = new face
+          (60, 60, "images/receptionTracking/MidReception.png", 310, 0);
+        cityReception = new counterComponent
+          (5, 50, 70, "blue", 325, 73, "number");
+        }
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
@@ -38,17 +41,15 @@
           this.canvas.height = 400;
           this.context = this.canvas.getContext("2d");
           this.canvas.setAttribute("id", "map");
-          this.canvas.addEventListener('mousemove', mouseHover, false);
-          this.canvas.addEventListener('click', mouseClick, false);
+          this.canvas.addEventListener("mousemove", mouseHover, false);
+          this.canvas.addEventListener("click", mouseClick, false);
           document.getElementById("gamediv").appendChild(this.canvas);
           this.interval = setInterval(updateGameArea, 20);
-          
         },
         clear : function() {
           this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
       }
-      
       function getMousePos(canvas, event) {
         var bounds = canvas.getBoundingClientRect();
         return {
@@ -56,7 +57,6 @@
           y : event.clientY - bounds.top
         };
       }
-      
       function mouseHover() {
           var mousePos = getMousePos(myGameArea.canvas, event);
           var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
