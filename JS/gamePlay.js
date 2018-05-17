@@ -28,7 +28,7 @@ var situations = { 0: {
         reception : 20,
         success : "After seeing the facts, your citizens understood the change, and are making adjustments to their habits. ",
         failure : "Despite the good intentions, your citizens were unreceptive to the changes. If only they understood how much little changes go a long way... ",
-        time : 3,
+        time : 1,
         outcome : 1,
         
     },
@@ -40,7 +40,7 @@ var situations = { 0: {
         reception : -20,
         success : "Wait, that worked? I guess your citizens trust you quite a bit. We're seeing a decrease in overall water usage. ",
         failure : "Why did we let you go through with this? Nobody is happy with this change, and receptiveness has plummeted! ",
-        time : 3,
+        time : 1,
         outcome : 0,
     },
     option3 : {
@@ -51,7 +51,7 @@ var situations = { 0: {
         reception : 20,
         success : "You decided to offer refunds to all citizens who upgrade their faucets. This was a great water saving move, and also increased receptiveness! ",
         failure : "",
-        time : 4,
+        time : 1,
         outcome : 1,
     },
     chosen : false
@@ -68,7 +68,7 @@ var situations = { 0: {
         reception : 20,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 5,
+        time : 4,
         outcome : 1,
         
     },
@@ -80,7 +80,7 @@ var situations = { 0: {
         reception : 20,
         success : "good job",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 6,
+        time : 4,
         outcome : 0,
     },
     option3 : {
@@ -91,7 +91,7 @@ var situations = { 0: {
         reception : -20,
         success : "",
         failure : "ono",
-        time : 2,
+        time : 4,
         outcome : 0,
     },
     chosen : false
@@ -108,7 +108,7 @@ var situations = { 0: {
         reception : 40,
         success : " Way to go!",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 3,
+        time : 6,
         outcome : 1,
         
     },
@@ -120,7 +120,7 @@ var situations = { 0: {
         reception : 10,
         success : "They like that lots woo",
         failure : "Your citizens weren't a fan of your changes.",
-        time : 5,
+        time : 6,
         outcome : 1,
     },
     option3 : {
@@ -131,7 +131,7 @@ var situations = { 0: {
         reception : -60,
         success : "",
         failure : "Your citizens are apalled at your actions. Large plastic plants now fill the town, giving it a very fake feel.",
-        time : 5,
+        time : 6,
         outcome : 0,
     },
     chosen : false
@@ -193,14 +193,8 @@ function noDecisionsLeft() {
         var noDecisions = false;
         for (let i = 0; i < 3; i++) {
             // True if all options cannot be selected
-            if (situations[i].chosen == true){
+            if (noDecision(i)) {
                 counter++;
-            } else if (situations[i].chosen == false){
-                if (situations[i].option1.time > $weekDays
-                && situations[i].option2.time > $weekDays
-                && situations[i].option3.time > $weekDays) {
-                    counter++;
-                }
             }
         }
         // If all three situations does not have options to select...
@@ -209,6 +203,20 @@ function noDecisionsLeft() {
            // alert("nup");
         }
         return noDecisions;
+}
+
+function noDecision(index) {
+    var noDecision = false;
+    if (situations[index].chosen == true){
+        noDecision = true;
+    } else if (situations[index].chosen == false){
+        if (situations[index].option1.time > $weekDays
+        && situations[index].option2.time > $weekDays
+        && situations[index].option3.time > $weekDays) {
+            noDecision = true;
+        }
+    }
+    return noDecision;
 }
 
 function setDecision(x){

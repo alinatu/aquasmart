@@ -62,19 +62,22 @@
           var message = 'Current pos: ' + mousePos.x + ', ' + mousePos.y;
           //console.log(mousePos.x + ", " + mousePos.y);
           if (mousePos.x > district1.x && mousePos.x < (district1.x + district1.width)
-              && mousePos.y > district1.y && mousePos.y < district1.y + district1.height) {
+              && mousePos.y > district1.y && mousePos.y < district1.y + district1.height
+              && !situations[0].chosen) {
             paint1.show = true;
           } else {
             paint1.show = false;
           }
           if (mousePos.x > district2.x && mousePos.x < (district2.x + district2.width)
-              && mousePos.y > district2.y && mousePos.y < district2.y + district2.height) {
+              && mousePos.y > district2.y && mousePos.y < district2.y + district2.height
+              && !situations[1].chosen) {
             paint2.show = true;
           } else {
             paint2.show = false;
           }
           if (mousePos.x > district3.x && mousePos.x < (district3.x + district3.width)
-              && mousePos.y > district3.y && mousePos.y < district3.y + district3.height) {
+              && mousePos.y > district3.y && mousePos.y < district3.y + district3.height
+              && !situations[2].chosen) {
             paint3.show = true;
           } else {
             paint3.show = false;
@@ -258,7 +261,7 @@
               var number = variable.toString();
               ctx.font = "20px Arial";
               ctx.fillStyle = "white";
-              ctx.fillText(number, this.x, this.y);
+              ctx.fillText((number + "%"), this.x, this.y);
           }
         }
       }
