@@ -76,7 +76,7 @@ $("#noDays").click(function(){
 $("#closeHelp").click(function(){
     $("#help").css("display", "none");
     $("#help h2").html("Congratulations!");
-    $("#help p").html("You’ve just been elected Mayor! Problem is water use doubles over the summer, and the dry season lasts for 63 days! Can you make the city’s water last?");
+    $("#help p").html("You’ve just been elected Mayor! But water use doubles over the summer, and the dry season lasts for 63 days!</br> Can you make the city’s water last?");
     $("#helpimg").attr("src", "images/elections.png");
     $helpClick = 0;
 });
@@ -125,10 +125,9 @@ $("#closeHelp").click(function(){
     function help(){
         if ($helpClick == 0){
             $("#help h2").html("Reception:");
-            $("#help p").html("Keep your citizens happy! Generous"
-            + "decisions will keep your populace motivated to make BIG changes is your city!"
-            +"<ul><li>When your citizens like your decision their reception increases</li>"
-            +"<li>When your citizens don’t like your decisions their reception decreases</li>"
+            $("#help p").html("Keep your citizens happy! Generous "
+            + "decisions will keep your populace motivated!"
+            +"<ul><li>When your citizens like your decision, their reception increases</li>"
             +"<li>High reception increases the chances that extreme decisions you make will succeed</li></ul>");
             $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
             $helpClick ++;
@@ -141,19 +140,21 @@ $("#closeHelp").click(function(){
         } else if ($helpClick == 2){
             $("#help h2").html("Decisions:");
             $("#help p").html("Your decisions can affect your citizen’s reception and the rate of your citizen’s water consumption."
-            +"<ul><li>Each decision takes a set amount of days to make</li>"
-            +"<li>Each decision can lower or raise your citizen’s reception</li>"
+            +"<ul><li>Each decision can lower or raise your citizen’s reception</li>"
             +"<li>Each decision saves a certain amount of water when it succeeds</li></ul>");
             $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
             $helpClick ++;
         } else if ($helpClick == 3){
             $("#help h2").html("Weeks:");
-            $("#help p").html("Each week you’ll have 3 decisions you can make. Each choice takes some time to complete. You’ll have to manage your time well to save the most water!");
+            $("#help p").html("Each week you’ll have 3 decisions you can make. Each choice takes some time to complete."
+            + "<ul><li>Each choice you make will take a certain number of days!</li>"
+            + "<li>If no decisions are available, the week will end. </li></ul>");
             $("#helpimg").attr("src", "images/calendarTracking/Calendar.png");
             $helpClick ++;
         } else if ($helpClick == 4){
             $("#help h2").html("Districts:");
-            $("#help p").html("When a water droplet appears over a district this means there is a decision to be made!");
+            $("#help p").html("When a water droplet appears over a district this means there is a decision to be made!"
+            +"<ul><li>Droplets will disappear if all decisions in the district take too much time. </li></ul>");
             $("#helpimg").attr("src", "images/district.png");
             $helpClick = 0;
         }
@@ -165,10 +166,9 @@ $("#closeHelp").click(function(){
     $("#helpBack").click(function(){
         if ($helpClick == 1){
             $("#help h2").html("Reception:");
-            $("#help p").html("Keep your citizens happy! Generous"
-            + "decisions will keep your populace motivated to make BIG changes is your city!"
-            +"<ul><li>When your citizens like your decision their reception increases</li>"
-            +"<li>When your citizens don’t like your decisions their reception decreases</li>"
+            $("#help p").html("Keep your citizens happy! Generous "
+            + "decisions will keep your populace motivated!"
+            +"<ul><li>When your citizens like your decision, their reception increases</li>"
             +"<li>High reception increases the chances that extreme decisions you make will succeed</li></ul>");
             $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
             $helpClick = 0;
@@ -181,19 +181,21 @@ $("#closeHelp").click(function(){
         } else if ($helpClick == 3){
             $("#help h2").html("Decisions:");
             $("#help p").html("Your decisions can affect your citizen’s reception and the rate of your citizen’s water consumption."
-            +"<ul><li>Each decision takes a set amount of days to make</li>"
-            +"<li>Each decision can lower or raise your citizen’s reception</li>"
+            +"<ul><li>Each decision can lower or raise your citizen’s reception</li>"
             +"<li>Each decision saves a certain amount of water when it succeeds</li></ul>");
             $("#helpimg").attr("src", "images/receptionTracking/highReception.png");
             $helpClick = 2;
         } else if ($helpClick == 4){
             $("#help h2").html("Weeks:");
-            $("#help p").html("Each week you’ll have 3 decisions you can make. Each choice takes some time to complete. You’ll have to manage your time well to save the most water!");
+            $("#help p").html("Each week you’ll have 3 decisions you can make. Each choice takes some time to complete."
+            + "<ul><li>Each choice you make will take a certain number of days!</li>"
+            + "<li>If no decisions are available, the week will end. </li></ul>");
             $("#helpimg").attr("src", "images/calendarTracking/Calendar.png");
             $helpClick = 3;
         } else if ($helpClick == 0){
             $("#help h2").html("Districts:");
-            $("#help p").html("When a water droplet appears over a district this means there is a decision to be made!");
+            $("#help p").html("When a water droplet appears over a district this means there is a decision to be made!"
+            +"<ul><li>Droplets will disappear if all decisions in the district take too much time. </li></ul>");
             $("#helpimg").attr("src", "images/district.png");
             $helpClick = 4;
         }

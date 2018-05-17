@@ -1,5 +1,6 @@
 // Global variables
 var $chosen = false;
+var $playerScore = 0;
 var $repeatSituations = [];
 var $summerDays = 63;
 var $weekDays = 7;
@@ -304,7 +305,7 @@ function updateScore() {
     }
     $playerScore = Math.round($playerScore);
     console.log("Your score is " + $playerScore);
-    $("#yourScore").html("Your score:");
+    $("#yourScore").html("Your score: ");
     $("#yourScore").append($playerScore);
 }
 
