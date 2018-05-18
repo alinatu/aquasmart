@@ -8,7 +8,9 @@ var $pullSituationsX;
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
+        if (gameOver) {
         $("#endGame").css("display", "none");
+        }
         $("#help").css("display", "none");
         document.getElementById("about").style.display = "none";
         document.getElementById("login").style.display = "none";

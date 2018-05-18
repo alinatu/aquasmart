@@ -14,6 +14,7 @@ var $currentWater = $totalWater;
 var $barLevel = ($currentWater / $totalWater) * 100;
 var $success = false;
 var $currentWeek = 1;
+var gameOver = false;
 
 //option variables
 var situations = { "0" : {
@@ -332,6 +333,7 @@ function endTurn() {
 
 function endGame(){
     var decisionCheck = noDecisionsLeft();
+    gameOver = true;
     //$("#noDays").css("display", "none");
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
