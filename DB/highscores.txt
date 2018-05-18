@@ -1,20 +1,21 @@
 CREATE TABLE player (
     user_ID INT NOT NULL AUTO_INCREMENT,
     user_name VARCHAR(30),
+    user_city VARCHAR(30),
     user_score INT,
     PRIMARY KEY (user_ID)
 );
 
-INSERT INTO player (user_name, user_score) VALUES ("Player 1", 300);
-INSERT INTO player (user_name, user_score) VALUES ("Player 2", 500);
-INSERT INTO player (user_name, user_score) VALUES ("Player 3", 550);
-INSERT INTO player (user_name, user_score) VALUES ("Player 4", 110);
-INSERT INTO player (user_name, user_score) VALUES ("Player 5", 1120);
-INSERT INTO player (user_name, user_score) VALUES ("Player 6", 475);
-INSERT INTO player (user_name, user_score) VALUES ("Player 7", 700);
-INSERT INTO player (user_name, user_score) VALUES ("Player 8", 950);
-INSERT INTO player (user_name, user_score) VALUES ("Player 9", 1120);
-INSERT INTO player (user_name, user_score) VALUES ("Player 10", 750);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 1", "City 1", 300);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 2", "City 2", 500);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 3", "City 3", 550);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 4", "City 4", 110);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 5", "City 5", 1120);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Alina", "Alina", 2000);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Communications", "Mancoon City", 2000);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Tanika", "Tanika", 2000);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Ryan", "Ryan", 2000);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Ta", "Va", 2000);
 
 /*CREATE TABLE scores (
     ID INT NOT NULL AUTO_INCREMENT,

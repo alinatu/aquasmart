@@ -17,8 +17,8 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sqlSituation = "SELECT * FROM situation WHERE ID = 9";
-                $sqlOption = "SELECT * FROM gameOption WHERE situation_ID = 9 ORDER BY option_ID ASC";
+                $sqlSituation = "SELECT * FROM situation WHERE ID = 23";
+                $sqlOption = "SELECT * FROM gameOption WHERE situation_ID = 23 ORDER BY option_ID ASC";
 
                 $statementSituation = $conn->prepare($sqlSituation);
                 $statementSituation->execute();

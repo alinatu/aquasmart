@@ -1,9 +1,5 @@
 var $name;
 var $cityName;
-var $situationCount;
-var $situationList;
-var $optionlist;
-var $optionCount;
 var onLogin = true;
 var document;
 var $;
