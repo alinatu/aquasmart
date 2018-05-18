@@ -2,7 +2,7 @@
 var $chosen = false;
 var $playerScore = 0;
 var $repeatSituations = [];
-var $summerDays = 7;
+var $summerDays = 63;
 var $weekDays = 7;
 var $totalWater = 1248000;
 var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
@@ -344,6 +344,7 @@ function endGame(){
         document.getElementById("map").style.filter = "blur(3px)";
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
+        addPlayer($name, $cityName, $playerScore);
     } else if($summerDays <= 0 || $summerDays <= 7 && decisionCheck){
         $("#noDays").css("display", "none");
         $("#youLose").css("display", "none");
@@ -353,6 +354,7 @@ function endGame(){
         document.getElementById("map").style.filter = "blur(3px)";
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
+        addPlayer($name, $cityName, $playerScore);
     }
 }
 

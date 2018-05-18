@@ -20,6 +20,7 @@ if ($methodType === 'POST') {
         if (isset($_POST["user_name"]) && isset($_POST["user_score"])) {
 
             $userName = $_POST["user_name"];
+            $userCity = $_POST["user_city"];
             $userScore = $_POST["user_score"];
             
             try {
@@ -27,10 +28,10 @@ if ($methodType === 'POST') {
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sqlInsert = "INSERT INTO player (user_name, user_score) VALUES (:playerName, :playerScore)";
+                $sqlInsert = "INSERT INTO player (user_name, user_city, user_score) VALUES (:playerName, :playerCity, :playerScore)";
 
                 $statementInsert = $conn->prepare($sqlInsert);
-                $statementInsert->execute(array("playerName" => $userName, ":playerScore" => $userScore));
+                $statementInsert->execute(array("playerName" => $userName, "playerCity" =>  $userCity, ":playerScore" => $userScore));
 
                 $data = array("status" => "success", "msg" => "Player added to scores list with name $userName and score $userScore");
             } catch (PDOException $e) {
