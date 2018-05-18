@@ -567,5 +567,6 @@ a {
     padding-right: 0%;
 }
 
-
-
+th {
+    text-align: center;
+}

@@ -1,6 +1,10 @@
+var $situationCount;
+var $situationList;
+var $optionList;
+var $optionCount;
 var $situationsUsed = [];
 var $pullSituationsX;
-var $totalWeeks = 9;
+
 //function for the highscores button
 $(document).ready(function(){
     $("#highscores").click(function(e){
@@ -13,22 +17,25 @@ $(document).ready(function(){
         document.getElementById("scoreList").innerHTML = "";
         e.preventDefault();
         console.log("Clicked for JSON");
-    
+
         $.ajax({
             url: "./DB/getGlobalScores.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                var listPlayers = data['players'];
+                var listPlayers = data.players;
                 //var listScores = data['scores'];
-    
-                var listData = "<table><th>Player Name</th><th>Score</th></tr>";
+
+                var listData = "<table><th>Player</th><th>Score</th></tr>";
                 for (var i in listPlayers) {
                     var highscore_player = listPlayers[i];
                     //var highscore_score = listScores[i];
-                    listData += "<tr><td>" + highscore_player['user_name'] + "</td><td>" + highscore_player['user_score'] + "</td></tr>";
+                    listData += "<tr><td>Mayor " + highscore_player["user_name"]
+                    +" of " + highscore_player["user_city"]
+                    + "</td><td>" + highscore_player["user_score"]
+                    + "</td></tr>";
                 }
                 listData += "</table>";
                 $("#scoreList").append(listData);
@@ -39,14 +46,15 @@ $(document).ready(function(){
                 console.log(textStatus);
                 console.log(errorThrown);
                 console.log(jqXHR);
-                $("#scoreList").text(textStatus + " " + errorThrown + jqXHR.responseText);
+                $("#scoreList").text(textStatus + " "
+                + errorThrown + jqXHR.responseText);
             }
         });
     });
 });
 
-function addPlayer($playerName) {
-    var postPlayer = {"user_name" : $playerName, "user_score" : 0};
+function addPlayer($playerName, $playerScore) {
+    var postPlayer = {"user_name" : $playerName, "user_score" : $playerScore};
     console.log("Adding record to DB with Player Name: " + $playerName);
     $.ajax({
         url: "./DB/postGlobalScores.php",
@@ -70,16 +78,14 @@ function getSituationNumber() {
         url: "./DB/getSituationCount.php",
         dataType: "json",
         type: "GET",
-        data: {output: 'json', },
+        data: {output: "json" },
         success: function(data) {
             console.log(data);
-            var listSituations = data['situationCount'];
+            var listSituations = data["situationCount"];
             var situationNum = listSituations[0];
-            console.log(situationNum['ID']);
-            $situationCount = situationNum['ID'];
+            $situationCount = situationNum["ID"];
             console.log($situationCount);
             getSituations();
-            return situationNum['ID'];
         },
         error: function(jqXHR,textStatus, errorThrown) {
             console.log("Failed");
@@ -93,7 +99,8 @@ function pullSituations() {
     var numFound = false;
     while (!numFound) {
         if ($situationsUsed.length < $situationCount) {
-            $pullSituationsX = Math.floor(Math.random() * ($totalWeeks) + 1);
+            $pullSituationsX = Math.floor(Math.random()
+            * ($situationCount) + 1);
         }
         if (!$situationsUsed.includes($pullSituationsX)) {
             $situationsUsed.push($pullSituationsX);
@@ -101,20 +108,44 @@ function pullSituations() {
         }
     }
 }
+
+function getCurrentSituations(sitNum) {
+        pullSituations();
+        console.log("Pulling situation: " + $pullSituationsX);
+        $.ajax({
+            url: "./DB/getSituations" + $pullSituationsX + ".php",
+            dataType: "json",
+            type: "GET",
+            data: {output: "json" },
+            success: function(data) {
+                console.log(data);
+                $situationList = data["returnSituations"];
+                console.log($situationList);
+                $optionList = data["returnOptions"];
+                console.log($optionList);
+                setSituations(sitNum);
+                setOptions(sitNum);
+            }
+        });
+}
 //pulls the list of situations from the DB.
 function getSituations() {
-    pullSituations();
-    console.log("Pulling situations: " + $pullSituationsX);
+    for (let i = 0; i < 3; i++) {
+        if ($situationsUsed.length < $situationCount) {
+            getCurrentSituations(i);
+        }
+    }
+    /*
     if ($pullSituationsX == 1) {
         console.log("Pulling 1st set of situations from DB");
         $.ajax({
             url: "./DB/getSituations1.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -123,10 +154,10 @@ function getSituations() {
             url: "./DB/getOptions1.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -137,10 +168,10 @@ function getSituations() {
             url: "./DB/getSituations2.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -149,10 +180,10 @@ function getSituations() {
             url: "./DB/getOptions2.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -163,10 +194,10 @@ function getSituations() {
             url: "./DB/getSituations3.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -175,10 +206,10 @@ function getSituations() {
             url: "./DB/getOptions3.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -189,10 +220,10 @@ function getSituations() {
             url: "./DB/getSituations4.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -201,10 +232,10 @@ function getSituations() {
             url: "./DB/getOptions4.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -215,10 +246,10 @@ function getSituations() {
             url: "./DB/getSituations5.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -227,10 +258,10 @@ function getSituations() {
             url: "./DB/getOptions5.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -241,10 +272,10 @@ function getSituations() {
             url: "./DB/getSituations6.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -253,10 +284,10 @@ function getSituations() {
             url: "./DB/getOptions6.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -267,10 +298,10 @@ function getSituations() {
             url: "./DB/getSituations7.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json'},
+            data: {output: "json"},
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -279,10 +310,10 @@ function getSituations() {
             url: "./DB/getOptions7.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -293,10 +324,10 @@ function getSituations() {
             url: "./DB/getSituations8.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json'},
+            data: {output: "json"},
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -305,10 +336,10 @@ function getSituations() {
             url: "./DB/getOptions8.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json',},
+            data: {output: "json",},
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
@@ -319,10 +350,10 @@ function getSituations() {
             url: "./DB/getSituations9.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json', },
+            data: {output: "json" },
             success: function(data) {
                 console.log(data);
-                $situationList = data['returnSituations'];
+                $situationList = data["returnSituations"];
                 console.log($situationList);
                 setSituations();
             }
@@ -331,69 +362,63 @@ function getSituations() {
             url: "./DB/getOptions9.php",
             dataType: "json",
             type: "GET",
-            data: {output: 'json'},
+            data: {output: "json"},
             success: function(data) {
                 console.log(data);
-                $optionList = data['returnOptions'];
+                $optionList = data["returnSituations"];
                 console.log($optionList);
                 setOptions();
             }
         });
     }
+    */
 }
 
 //Sets the 3 situations with the situation and option data from the database.
-function setSituations() {
+function setSituations(districtID) {
     console.log("Setting situations for week: " + $currentWeek);
-    for (var i = 0; i < 3; i++) {
-        var currentSituation = $situationList[i];
-        situations[i].id = currentSituation['ID'];
-        situations[i].title = currentSituation['title'];
-        situations[i].description = currentSituation['description'];
-        situations[i].imageBanner = "./images/situationBanners/" + currentSituation['imageLink'];
-    }
+        var currentSituation = $situationList[0];
+        situations[districtID].id = currentSituation["ID"];
+        situations[districtID].title = currentSituation["title"];
+        situations[districtID].description = currentSituation["description"];
+        situations[districtID].imageBanner = "./images/situationBanners/"
+        + currentSituation["imageLink"];
 }
 
-function setOptions() {
-    for (var i = 0; i < 3; i++) {
-        var opt1 = $optionList[0];
-        console.log($optionList);
-        situations[i].option1.title = opt1['title'];
-        situations[i].option1.description = opt1['description'];
-        situations[i].option1.difficulty = opt1['difficulty'];
-        situations[i].option1.rate = opt1['water_saved'];
-        situations[i].option1.reception = Number(opt1['reception_change']);
-        situations[i].option1.success = opt1['success_description'];
-        situations[i].option1.failure = opt1['failure_description'];
-        situations[i].option1.time = opt1['completionTime'];
-        situations[i].option1.outcome = opt1['isSuccessful'];
-        console.log($optionList);
+function setOptions(districtID) {
+    var opt1 = $optionList[0];
+    situations[districtID].option1.title = opt1["title"];
+    situations[districtID].option1.description = opt1["description"];
+    situations[districtID].option1.difficulty = opt1["difficulty"];
+    situations[districtID].option1.rate = opt1["water_saved"];
+    situations[districtID].option1.reception = Number(opt1["reception_change"]);
+    situations[districtID].option1.success = opt1["success_description"];
+    situations[districtID].option1.failure = opt1["failure_description"];
+    situations[districtID].option1.time = opt1["completionTime"];
+    situations[districtID].option1.outcome = opt1["isSuccessful"];
+    console.log($optionList);
 
-        var opt2 = $optionList[1];
-        situations[i].option2.title = opt2['title'];
-        situations[i].option2.description = opt2['description'];
-        situations[i].option2.difficulty = opt2['difficulty'];
-        situations[i].option2.rate = opt2['water_saved'];
-        situations[i].option2.reception = Number(opt2['reception_change']);
-        situations[i].option2.success = opt2['success_description'];
-        situations[i].option2.failure = opt2['failure_description'];
-        situations[i].option2.time = opt2['completionTime'];
-        situations[i].option2.outcome = opt2['isSuccessful'];
-        console.log($optionList);
+    var opt2 = $optionList[1];
+    situations[districtID].option2.title = opt2["title"];
+    situations[districtID].option2.description = opt2["description"];
+    situations[districtID].option2.difficulty = opt2["difficulty"];
+    situations[districtID].option2.rate = opt2["water_saved"];
+    situations[districtID].option2.reception = Number(opt2["reception_change"]);
+    situations[districtID].option2.success = opt2["success_description"];
+    situations[districtID].option2.failure = opt2["failure_description"];
+    situations[districtID].option2.time = opt2["completionTime"];
+    situations[districtID].option2.outcome = opt2["isSuccessful"];
+    console.log($optionList);
 
-        var opt3 = $optionList[2];
-        situations[i].option3.title = opt3['title'];
-        situations[i].option3.description = opt3['description'];
-        situations[i].option3.difficulty = opt3['difficulty'];
-        situations[i].option3.rate = opt3['water_saved'];
-        situations[i].option3.reception = Number(opt3['reception_change']);
-        situations[i].option3.success = opt3['success_description'];
-        situations[i].option3.failure = opt3['failure_description'];
-        situations[i].option3.time = opt3['completionTime'];
-        situations[i].option3.outcome = opt3['isSuccessful'];
-        console.log($optionList);
-        for (var j = 0; j < 3; j++) {
-            $optionList.shift();
-        }
-    }
+    var opt3 = $optionList[2];
+    situations[districtID].option3.title = opt3["title"];
+    situations[districtID].option3.description = opt3["description"];
+    situations[districtID].option3.difficulty = opt3["difficulty"];
+    situations[districtID].option3.rate = opt3["water_saved"];
+    situations[districtID].option3.reception = Number(opt3["reception_change"]);
+    situations[districtID].option3.success = opt3["success_description"];
+    situations[districtID].option3.failure = opt3["failure_description"];
+    situations[districtID].option3.time = opt3["completionTime"];
+    situations[districtID].option3.outcome = opt3["isSuccessful"];
+    console.log($optionList);
 }

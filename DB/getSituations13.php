@@ -1,6 +1,6 @@
 <?php
     $methodType = $_SERVER['REQUEST_METHOD'];
-    
+
     $servername = "localhost";
     $dblogin = "playaqua_aqsmrt";
     $password = "!@Aquors!@";
@@ -17,20 +17,25 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM gameOption WHERE situation_ID IN (4, 5, 6) ORDER BY option_ID ASC";
+                $sqlSituation = "SELECT * FROM situation WHERE ID = 13";
+                $sqlOption = "SELECT * FROM gameOption WHERE situation_ID = 13 ORDER BY option_ID ASC";
 
-                $statement = $conn->prepare($sql);
-                $statement->execute();
+                $statementSituation = $conn->prepare($sqlSituation);
+                $statementSituation->execute();
 
-                $data = array("status" => "success", "returnOptions" => $statement->fetchAll(PDO::FETCH_ASSOC));
+                $statementOption = $conn->prepare($sqlOption);
+                $statementOption->execute();
+
+                $data = array("status" => "success", "returnSituations" => $statementSituation->fetchAll(PDO::FETCH_ASSOC), "returnOptions" => $statementOption->fetchAll(PDO::FETCH_ASSOC));
             } catch (PDOException $e) {
                 $data = array("error", $e->getMessage());
             }
+
                 switch ($output) {
                     case "json":
                         $data['status'] = 'success';
-                        $data['msg'] = 'Retrieving 2nd set of options from database';
-
+                        $data['msg'] = 'Retrieving situations from database';
+                    
                     $json = json_encode($data);
 
                     echo $json;

@@ -17,21 +17,25 @@
 
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $sql = "SELECT * FROM situation WHERE ID IN (4, 5, 6) ORDER BY ID ASC";
+                $sqlSituation = "SELECT * FROM situation WHERE ID = 2";
+                $sqlOption = "SELECT * FROM gameOption WHERE situation_ID = 2 ORDER BY option_ID ASC";
 
-                $statement = $conn->prepare($sql);
-                $statement->execute();
-                
-                $data = array("status" => "success", "returnSituations" => $statement->fetchAll(PDO::FETCH_ASSOC));
+                $statementSituation = $conn->prepare($sqlSituation);
+                $statementSituation->execute();
+
+                $statementOption = $conn->prepare($sqlOption);
+                $statementOption->execute();
+
+                $data = array("status" => "success", "returnSituations" => $statementSituation->fetchAll(PDO::FETCH_ASSOC), "returnOptions" => $statementOption->fetchAll(PDO::FETCH_ASSOC));
             } catch (PDOException $e) {
-                $data = array("error", $e->getMesage());
+                $data = array("error", $e->getMessage());
             }
 
                 switch ($output) {
                     case "json":
                         $data['status'] = 'success';
                         $data['msg'] = 'Retrieving situations from database';
-
+                    
                     $json = json_encode($data);
 
                     echo $json;

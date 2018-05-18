@@ -326,6 +326,7 @@ function endTurn() {
     situations[1].chosen = false;
     situations[2].chosen = false;
     endGame();
+    getSituations();
     //setDecision();
 }
 
@@ -335,7 +336,6 @@ function endGame(){
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
-        getSituations();
         $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
