@@ -362,6 +362,7 @@ canvas {
 #help h2 {
     float: left;
     clear: none;
+    margin-bottom: 1em;
 }
 
 #help p ul {
