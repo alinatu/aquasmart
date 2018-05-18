@@ -12,7 +12,7 @@ function myFunction() {
     $name = document.getElementById("name").value;
     $cityName = document.getElementById("cityName").value;
     if($name === "dog" || $name === "Dog"){
-        $("#about a").html("<img src='images/dog.jpeg' alt='dog'/>");
+        $("#about a").html("<img src='images/dog.png' alt='dog'/>");
         $("#about p").html("bark bark bork bark bark bork bark bark"
         + "bork bark bark bork bark bark bork bark bark bork bark bark"
         + "bork bark bark bork bark bark bork bark bark bork bark bark"
@@ -20,7 +20,7 @@ function myFunction() {
         + "bork bark bark bork bark bark bork.");
     }
     if($name === "cat" || $name === "Cat"){
-        $("#about a").html("<img src='images/cat.jpg' alt='cat'/>");
+        $("#about a").html("<img src='images/cat.png' alt='cat'/>");
         $("#about p").html("meow meow mew meow meow mew meow meow mew"
         + "meow meow mew meow meow mew meow meow mew meow meow mew meow"
         + "meow mew meow meow mew meow meow mew meow meow mew meow meow"
