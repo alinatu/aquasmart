@@ -145,7 +145,7 @@ $("#closeHelp").click(function(){
             + " citizen’s water consumption."
             + "<ul><li>Make smart decisions to lower the rate of your "
             + "citizen’s water consumption</li></ul>");
-            $("#helpimg").attr("src", "images/waterDrop.png");
+            $("#helpimg").attr("src", "images/waterdrop.png");
             $helpClick ++;
         } else if ($helpClick === 2){
             $("#help h2").html("Decisions:");
@@ -202,7 +202,7 @@ $("#closeHelp").click(function(){
             + "your citizen’s water consumption."
             +"<ul><li>Make smart decisions to lower the rate of your "
             + "citizen’s water consumption</li></ul>");
-            $("#helpimg").attr("src", "images/waterDrop.png");
+            $("#helpimg").attr("src", "images/waterdrop.png");
             $helpClick = 1;
         } else if ($helpClick === 3){
             $("#help h2").html("Decisions:");
