@@ -64,7 +64,7 @@ $(document).ready(function(){
     //Function for the About button
   $("#aboutlink").click(function(){
     $("#help").css("dispaly", "none");
-    $("#endGame").css("dispaly", "none");
+    $("#endGame").css("display", "none");
     document.getElementById("about").style.display = "block";
     document.getElementById("help").style.display = "none";
     document.getElementById("login").style.display = "none";
@@ -122,6 +122,9 @@ $("#closeHelp").click(function(){
         $("noDays").css("display", "none");
         if (onLogin) {
           $("#login").css("display", "block");
+        }
+        if (gameOver) {
+            $("#endGame").css("display", "block");
         }
         $("#gamediv").fadeOut(10).load("{index.html} #gamediv").fadeIn(10);
     });

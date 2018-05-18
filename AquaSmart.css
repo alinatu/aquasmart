@@ -68,10 +68,6 @@
     #login {
         bottom: 200px;
     }
-
-    #endGame {
-        bottom: 200px;
-    }
     
 
 
@@ -349,6 +345,7 @@ canvas {
     border: 10px solid #d4d9e9;
     border-radius: 20px;
     position: relative;
+    top: 10px;
     width: 98%;
     max-width: 700px;
     background-color: #ebf0f9;
@@ -359,6 +356,8 @@ canvas {
     height: 390px;
     overflow: auto;
 }
+
+
 #help h2 {
     float: left;
     clear: none;
@@ -516,14 +515,16 @@ a {
 
 #endGame {
     text-align: center;
-    top: 90px;
+    top: 100px;
     display: none;
-    margin: 0 auto;
     font-family:  "IBM Plex Sans";
     border: 10px solid #d4d9e9;
     border-radius: 20px;
-    position: relative;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,50%);
     width: 400px;
+    height: 230px;
     background-color: #ebf0f9;
     z-index: 1;
     clear: left;
