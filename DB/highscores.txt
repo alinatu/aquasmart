@@ -12,7 +12,7 @@ INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 3", "City 
 INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 4", "City 4", 110);
 INSERT INTO player (user_name, user_city, user_score) VALUES ("Player 5", "City 5", 1120);
 INSERT INTO player (user_name, user_city, user_score) VALUES ("Alina", "Alina", 2000);
-INSERT INTO player (user_name, user_city, user_score) VALUES ("Communications", "Mancoon City" 2000);
+INSERT INTO player (user_name, user_city, user_score) VALUES ("Communications", "Mancoon City", 2000);
 INSERT INTO player (user_name, user_city, user_score) VALUES ("Tanika", "Tanika", 2000);
 INSERT INTO player (user_name, user_city, user_score) VALUES ("Ryan", "Ryan", 2000);
 INSERT INTO player (user_name, user_city, user_score) VALUES ("Ta", "Va", 2000);

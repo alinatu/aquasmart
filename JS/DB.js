@@ -32,8 +32,8 @@ $(document).ready(function(){
                 for (var i in listPlayers) {
                     var highscore_player = listPlayers[i];
                     //var highscore_score = listScores[i];
-                    listData += "<tr><td>" + highscore_player["user_name"]
-                    +"<br>City Name: " + highscore_player["user_city"] 
+                    listData += "<tr><td>Mayor " + highscore_player["user_name"]
+                    +" of " + highscore_player["user_city"]
                     + "</td><td>" + highscore_player["user_score"]
                     + "</td></tr>";
                 }
@@ -131,7 +131,9 @@ function getCurrentSituations(sitNum) {
 //pulls the list of situations from the DB.
 function getSituations() {
     for (let i = 0; i < 3; i++) {
-        getCurrentSituations(i);
+        if ($situationsUsed.length < $situationCount) {
+            getCurrentSituations(i);
+        }
     }
     /*
     if ($pullSituationsX == 1) {
