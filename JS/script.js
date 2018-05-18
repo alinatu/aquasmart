@@ -140,7 +140,7 @@ $("#closeHelp").click(function(){
             + "<li>High reception increases the chances that "
             + "extreme decisions you make will succeed</li></ul>");
             $("#helpimg").attr("src",
-            "images/receptionTracking/highReception.png");
+            "images/receptionTracking/HighReception.png");
             $helpClick ++;
         } else  if ($helpClick === 1){
             $("#help h2").html("Reservoir:");
@@ -161,7 +161,7 @@ $("#closeHelp").click(function(){
             +"<li>Each decision saves a certain amount "
             + "of water when it succeeds</li></ul>");
             $("#helpimg").attr("src",
-            "images/receptionTracking/highReception.png");
+            "images/decision.png");
             $helpClick ++;
         } else if ($helpClick === 3){
             $("#help h2").html("Weeks:");
@@ -197,7 +197,7 @@ $("#closeHelp").click(function(){
             +"<li>High reception increases the chances that "
             + "extreme decisions you make will succeed</li></ul>");
             $("#helpimg").attr("src",
-            "images/receptionTracking/highReception.png");
+            "images/receptionTracking/HighReception.png");
             $helpClick = 0;
         } else  if ($helpClick === 2){
             $("#help h2").html("Reservoir:");
@@ -217,8 +217,7 @@ $("#closeHelp").click(function(){
             + "citizen’s reception</li>"
             +"<li>Each decision saves a certain amount of water "
             + "when it succeeds</li></ul>");
-            $("#helpimg").attr("src",
-            "images/receptionTracking/highReception.png");
+            $("#helpimg").attr("src", "images/decision.png");
             $helpClick = 2;
         } else if ($helpClick === 4){
             $("#help h2").html("Weeks:");
@@ -228,8 +227,7 @@ $("#closeHelp").click(function(){
             + "number of days!</li>"
             + "<li>If no decisions are available, the week "
             + "will end. </li></ul>");
-            $("#helpimg").attr("src",
-            "images/calendarTracking/Calendar.png");
+            $("#helpimg").attr("src", "images/calendarTracking/Calendar.png");
             $helpClick = 3;
         } else if ($helpClick === 0){
             $("#help h2").html("Districts:");
