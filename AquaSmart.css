@@ -69,6 +69,9 @@
         bottom: 200px;
     }
 
+    #endGame {
+        bottom: 200px;
+    }
     
 
 
@@ -91,6 +94,10 @@
     }
 
     #login {
+        bottom: 50%;
+    }
+
+    #endGame {
         bottom: 50%;
     }
 
