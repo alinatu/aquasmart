@@ -2,7 +2,7 @@
 var $chosen = false;
 var $playerScore = 0;
 var $repeatSituations = [];
-var $summerDays = 7;
+var $summerDays = 63;
 var $weekDays = 7;
 var $totalWater = 1248000;
 var $waterUsage = ($totalWater * 1.5) / Math.ceil($summerDays / $weekDays);
@@ -312,7 +312,7 @@ function updateScore(amount) {
 function endTurn() {
     if (noDecisionsLeft()){
         $("#noDays").css("display", "block");
-       }
+    }
     $numOfEvents = 3;
     $weekDays = 7;
     $summerDays -= $weekDays;
@@ -326,7 +326,6 @@ function endTurn() {
     situations[1].chosen = false;
     situations[2].chosen = false;
     endGame();
-    getSituations();
     //setDecision();
 }
 
@@ -336,6 +335,7 @@ function endGame(){
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
+        getSituations();
         $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
