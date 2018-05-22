@@ -14,6 +14,7 @@ var $currentWater = $totalWater;
 var $barLevel = ($currentWater / $totalWater) * 100;
 var $success = false;
 var $currentWeek = 1;
+var gameOver = false;
 
 //option variables
 var situations = { "0" : {
@@ -335,7 +336,11 @@ function endGame(){
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
+<<<<<<< HEAD
         getSituations();
+=======
+        gameOver = true;
+>>>>>>> d53209f1f0eadb7817d7b3c121c5015567c495b0
         $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
@@ -344,7 +349,9 @@ function endGame(){
         document.getElementById("map").style.filter = "blur(3px)";
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
+        addPlayer($name, $cityName, $playerScore);
     } else if($summerDays <= 0 || $summerDays <= 7 && decisionCheck){
+        gameOver = true;
         $("#noDays").css("display", "none");
         $("#youLose").css("display", "none");
         document.getElementById("endGame").style.display = "block";
@@ -353,6 +360,7 @@ function endGame(){
         document.getElementById("map").style.filter = "blur(3px)";
         document.getElementById("scores").style.display = "none";
         document.getElementById("option").style.display = "none";
+        addPlayer($name, $cityName, $playerScore);
     }
 }
 
