@@ -19,7 +19,7 @@ $(document).ready(function(){
         document.getElementById("option").style.display = "none";
         document.getElementById("scoreList").innerHTML = "";
         e.preventDefault();
-        console.log("Clicked for JSON");
+        //console.log("Clicked for JSON");
 
         $.ajax({
             url: "./DB/getGlobalScores.php",
@@ -27,7 +27,7 @@ $(document).ready(function(){
             type: "GET",
             data: {output: "json" },
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 var listPlayers = data.players;
                 //var listScores = data['scores'];
 
@@ -45,59 +45,62 @@ $(document).ready(function(){
                 listData = "";
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log("Failed");
-                console.log(textStatus);
-                console.log(errorThrown);
-                console.log(jqXHR);
+                //console.log("Failed");
+                //console.log(textStatus);
+                //console.log(errorThrown);
+                //console.log(jqXHR);
                 $("#scoreList").text(textStatus + " "
                 + errorThrown + jqXHR.responseText);
             }
         });
     });
 });
-
+//Function for adding players to the database.
 function addPlayer($playerName, $playerCity, $playerScore) {
-    var postPlayer = {"user_name" : $playerName,"user_city": $cityName, "user_score" : $playerScore};
-    console.log("Adding record to DB with Player Name: " + $playerName);
+    var postPlayer = {"user_name" : $playerName,"user_city": $cityName,
+    "user_score" : $playerScore};
+    //console.log("Adding record to DB with Player Name: " + $playerName);
     $.ajax({
         url: "./DB/postGlobalScores.php",
         dataType: "json",
         type: "POST",
         data: postPlayer,
         success: function(data) {
-            console.log("Data returned from server: ", data);
+            //console.log("Data returned from server: ", data);
             var listData = "";
             for (var key in data) {
                 listData += key + ":" + data[key] + " ";
             }
-            console.log(listData);
+            //console.log(listData);
         }
     });
 }
-
+//Function that returns the total number of situations from DB.
 function getSituationNumber() {
-    console.log("Should show # of situations");
+    //console.log("Should show # of situations");
     $.ajax({
         url: "./DB/getSituationCount.php",
         dataType: "json",
         type: "GET",
         data: {output: "json" },
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             var listSituations = data["situationCount"];
             var situationNum = listSituations[0];
             $situationCount = situationNum["ID"];
-            console.log($situationCount);
+            //console.log($situationCount);
             getSituations();
         },
         error: function(jqXHR,textStatus, errorThrown) {
-            console.log("Failed");
-            console.log(textStatus);
-            console.log(errorThrown);
-            console.log(jqXHR);
+            //console.log("Failed");
+            //console.log(textStatus);
+            //console.log(errorThrown);
+            //console.log(jqXHR);
         }
     });
 }
+//Function that generates a random number
+//To determine which situations to pull from the DB
 function pullSituations() {
     var numFound = false;
     while (!numFound) {
@@ -111,21 +114,21 @@ function pullSituations() {
         }
     }
 }
-
+//Function that uses the random numbers to pull specific informationew
 function getCurrentSituations(sitNum) {
         pullSituations();
-        console.log("Pulling situation: " + $pullSituationsX);
+        //console.log("Pulling situation: " + $pullSituationsX);
         $.ajax({
             url: "./DB/getSituations" + $pullSituationsX + ".php",
             dataType: "json",
             type: "GET",
             data: {output: "json" },
             success: function(data) {
-                console.log(data);
+                //console.log(data);
                 $situationList = data["returnSituations"];
-                console.log($situationList);
+                //console.log($situationList);
                 $optionList = data["returnOptions"];
-                console.log($optionList);
+                //console.log($optionList);
                 setSituations(sitNum);
                 setOptions(sitNum);
             }
@@ -139,10 +142,9 @@ function getSituations() {
         }
     }
 }
-
 //Sets the 3 situations with the situation and option data from the database.
 function setSituations(districtID) {
-    console.log("Setting situations for week: " + $currentWeek);
+    //console.log("Setting situations for week: " + $currentWeek);
         var currentSituation = $situationList[0];
         situations[districtID].id = currentSituation["ID"];
         situations[districtID].title = currentSituation["title"];
@@ -150,7 +152,8 @@ function setSituations(districtID) {
         situations[districtID].imageBanner = "./images/situationBanners/"
         + currentSituation["imageLink"];
 }
-
+//Assigns the respective option values from the DB
+//Into the corresponding div
 function setOptions(districtID) {
     var opt1 = $optionList[0];
     situations[districtID].option1.title = opt1["title"];
@@ -162,7 +165,7 @@ function setOptions(districtID) {
     situations[districtID].option1.failure = opt1["failure_description"];
     situations[districtID].option1.time = opt1["completionTime"];
     situations[districtID].option1.outcome = opt1["isSuccessful"];
-    console.log($optionList);
+    //console.log($optionList);
 
     var opt2 = $optionList[1];
     situations[districtID].option2.title = opt2["title"];
@@ -174,7 +177,7 @@ function setOptions(districtID) {
     situations[districtID].option2.failure = opt2["failure_description"];
     situations[districtID].option2.time = opt2["completionTime"];
     situations[districtID].option2.outcome = opt2["isSuccessful"];
-    console.log($optionList);
+    //console.log($optionList);
 
     var opt3 = $optionList[2];
     situations[districtID].option3.title = opt3["title"];
@@ -186,5 +189,5 @@ function setOptions(districtID) {
     situations[districtID].option3.failure = opt3["failure_description"];
     situations[districtID].option3.time = opt3["completionTime"];
     situations[districtID].option3.outcome = opt3["isSuccessful"];
-    console.log($optionList);
+    //console.log($optionList);
 }
