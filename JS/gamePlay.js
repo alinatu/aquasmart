@@ -16,7 +16,9 @@ var $success = false;
 var $currentWeek = 1;
 var gameOver = false;
 
-//option variables
+/* Situation Array
+    Handles storing the situation, their options,
+    and all related data therein. */
 var situations = { "0" : {
     id : 0,
     title : "Tooth brushes",
@@ -137,10 +139,16 @@ var situations = { "0" : {
 }
 };
 
+/* Called when document is ready.
+    Logs current city status for debug purposes. */
 $(document).ready(function(){
-    logCityStatus();
+    // logCityStatus();
 });
 
+/* Updates all tracking variables when an option is chosen.
+    Checks whether the option succeeded, and increments reception and score.
+    parameter x: The option being handled
+    parameter y: The situation object being handled */ 
 function optionChosen(x, y) {
     return function(){
         $("#option").css("height", "230px");
@@ -171,17 +179,17 @@ function optionChosen(x, y) {
                     + " gallons per week). Keep trying!");
             }
 
-            console.log("This decision took " +
-                x.time + " days to complete.");
+            //console.log("This decision took " +
+            //    x.time + " days to complete.");
             $weekDays -= x.time;
             var currentWater = ($waterUsage * waterRate);
             $waterUsage -= currentWater;
             $waterSaved += currentWater;
-            console.log("You have " + $weekDays
-                + " days left to make decisions");
+            //console.log("You have " + $weekDays
+            //    + " days left to make decisions");
             addReception(x.reception);
-            console.log("Current city receptiveness is "
-                + $cityReception + "!");
+            //console.log("Current city receptiveness is "
+            //    + $cityReception + "!");
             updateScore(currentWater);
             y.chosen = true;
             $numOfEvents--;
@@ -189,6 +197,8 @@ function optionChosen(x, y) {
     };
 }
 
+/* Checks all options to see if any can be chosen
+    Used to end the turn when no decisions are left */
 function noDecisionsLeft() {
         var counter = 0;
         var noDecisions = false;
@@ -207,6 +217,9 @@ function noDecisionsLeft() {
         return noDecisions;
 }
 
+/* Checks a single situation to see if any options can be chosen
+    Used to enable/disable interactivity with a district
+    parameter index: Situation index */
 function noDecision(index) {
     var noDecision = false;
     if (situations[index].chosen == true){
@@ -221,6 +234,8 @@ function noDecision(index) {
     return noDecision;
 }
 
+/* Fills the div with necessary data from the situation index
+    parameter x: situation index */
 function setDecision(x){
     // Setup div contents
     $("#opimg").attr("src", situations[x].imageBanner);
@@ -249,6 +264,7 @@ function setDecision(x){
 
 }
 
+// Clears data stored within the decision div.
 function resetDecision(){
     $("#option").css("display", "none");
     $("#option").css("height", "330px");
@@ -264,7 +280,7 @@ function resetDecision(){
                        + "<br><p id='description3'></p><p id='success'></p>");
 }
 
-//dropowns for options
+// Logic used to show/hide dropdown descriptions
 function setDropDowns(){
    var $more1 = false;
    $("#more1").click(function(){
@@ -298,6 +314,9 @@ function setDropDowns(){
    });
 }
 
+/* Updates the score when a decision is made
+    Score is calculated based on current water saved
+    multiplied by decimal of current reception */
 function updateScore(amount) {
     var receptionModifier = ($cityReception / 100);
     $playerScore += (amount * receptionModifier);
@@ -305,11 +324,13 @@ function updateScore(amount) {
         $playerScore /= 2;
     }
     $playerScore = Math.round($playerScore);
-    console.log("Your score is " + $playerScore);
+    // console.log("Your score is " + $playerScore);
     $("#yourScore").html("Your score: ");
     $("#yourScore").append($playerScore);
 }
 
+/* Called at end of each turn
+    Updates all necessary variables and resets turn data*/
 function endTurn() {
     if (noDecisionsLeft()){
         $("#noDays").css("display", "block");
@@ -330,17 +351,15 @@ function endTurn() {
     //setDecision();
 }
 
+/* Checks if the game is over
+    Displays game over div and adds score to database */
 function endGame(){
     var decisionCheck = noDecisionsLeft();
     //$("#noDays").css("display", "none");
     var desc = "I scored " + $playerScore + "playing Aqua Smart!";
     $("meta[property='og:title']").attr("content", desc);
     if ($currentWater <= 0 || $summerDays <= 0 && $currentWater <= 0){
-<<<<<<< HEAD
-        getSituations();
-=======
         gameOver = true;
->>>>>>> d53209f1f0eadb7817d7b3c121c5015567c495b0
         $("#noDays").css("display", "none");
         $("#youWin").css("display", "none");
         document.getElementById("endGame").style.display = "block";
@@ -364,34 +383,7 @@ function endGame(){
     }
 }
 
-function randomSituations() {
-
-    var numFound = false;
-    var roll;
-    var threeValues = [];
-    for (let i = 0; i < 3; i++) {
-        numFound = false;
-        while (!numFound) {
-
-        // Checks if unique ID's have been found.
-        if ($repeatSituations.length < 24) {
-            // Random number between 1 and number of situations
-            roll = Math.floor(Math.random() * (24) + 1);
-        } else {
-            console.log("No more unique ID's");
-            break;
-        }
-        if (!$repeatSituations.includes(roll)) {
-            $repeatSituations.push(roll);
-            threeValues.push(roll);
-            console.log(roll);
-            numFound = true;
-        }
-        }
-    }
-    return threeValues;
-}
-
+/* Logs current city status
 function logCityStatus() {
     console.log("There are " + $summerDays
         + " left in the summer!");
@@ -401,10 +393,10 @@ function logCityStatus() {
         + " gallons gallons per week.");
     console.log("You've saved " + $waterSaved
         + " gallons so far!");
-}
+} */
 
-// Adds the given amount to city's reception,
-// ensuring it stays between 0 and 100
+/* Adds the given amount to city's reception,
+    ensuring it stays between 0 and 100 */
 function addReception(amount) {
     if (amount < 0) {
         var value = amount + (Math.floor((Math.random() * (5) + 1)) * -1);
@@ -420,18 +412,19 @@ function addReception(amount) {
     }
 }
 
+// Rolls for option success based on current reception.
 function rollForSuccess(difficulty) {
     var roll = 0;
     // Roll for a random number between 5 and 10 + Reception rounded up
     roll = Math.floor(Math.random() * (5) + 5)
         + Math.round($cityReception / 10);
-    console.log("The player rolled a " + roll
-        + " against a difficulty of " + difficulty);
+    // console.log("The player rolled a " + roll
+    //     + " against a difficulty of " + difficulty);
     if (roll >= difficulty) {
-        console.log("Success!");
+        // console.log("Success!");
         return true;
     } else {
-        console.log("Failure!");
+        // console.log("Failure!");
         return false;
     }
 }

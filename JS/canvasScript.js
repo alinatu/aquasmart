@@ -1,10 +1,14 @@
-/* Canvas Setup */
+/* Canvas Setup
+  Canvas is used for all interaction and event handling
+  Built from a variety of components that update each frame.
+ */
       var district1Clicked = false;
       var district2Clicked = false;
       var district3Clicked = false;
       var myGamePiece;
       function startGame() {
         myGameArea.start();
+        // Component setups and instantiation
         gameMap = new component
         (0, 375, 400, "images/MapTest2.png", 0, 0, "image");
         district1 = new component
@@ -36,7 +40,8 @@
           (60, 60, "images/receptionTracking/MidReception.png", 310, 0);
         cityReception = new counterComponent
           (5, 50, 70, "blue", 325, 73, "number");
-        }
+      }
+      // Sets up the canvas and it's event listeners
       var myGameArea = {
         canvas : document.createElement("canvas"),
         start : function() {
@@ -53,6 +58,8 @@
           this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
       };
+
+      // Returns current mouse position
       function getMousePos(canvas, event) {
         var bounds = canvas.getBoundingClientRect();
         return {
@@ -60,6 +67,7 @@
           y : event.clientY - bounds.top
         };
       }
+      // Detects mouse hover and displays paint stroke when over district
       function mouseHover() {
           var mousePos = getMousePos(myGameArea.canvas, event);
           var message = "Current pos: " + mousePos.x + ", " + mousePos.y;
@@ -91,10 +99,11 @@
             paint3.show = false;
           }
       }
+      // Detects position of mouse click and checks if district was clicked
       function mouseClick() {
         var mousePos = getMousePos(myGameArea.canvas, event);
         var message = "Current pos: " + mousePos.x + ", " + mousePos.y;
-        console.log(mousePos.x + ", " + mousePos.y);
+        // console.log(mousePos.x + ", " + mousePos.y);
         if (mousePos.x > district1.x
           && mousePos.x < (district1.x + district1.width)
             && mousePos.y > district1.y
@@ -129,6 +138,7 @@
               district3Clicked = false;
         }
     }
+      // Component used to draw static objects on the map
       function component(id, width, height, color, x, y, type, hasEvent) {
         this.id = id;
         this.type = type;
@@ -163,6 +173,7 @@
           }
         }
       }
+      // Component used to toggle on or off based on show value.
       function toggleComponent(id, width, height, image, x, y, show) {
         this.image = new Image();
         this.image.src = image;
@@ -174,6 +185,7 @@
         var ogx = x;
         var ogy = y;
         this.show = show;
+        // Shows when situation at given index is still available
         this.update = function() {
           ctx = myGameArea.context;
           var index = this.id - 1;
@@ -192,6 +204,8 @@
           }
         }
       }
+
+      // Component used to track where the mouse is hovering
       function hoverComponent(id, width, height, image, x, y, show) {
         this.image = new Image();
         this.image.src = image;
@@ -203,6 +217,7 @@
         var ogx = x;
         var ogy = y;
         this.show = show;
+        // Draws image based on show value and situation
         this.update = new function update() {
           return function(){
           ctx = myGameArea.context;
@@ -223,6 +238,8 @@
           }
         }
       }
+
+      // Component used to display variables as updating numbers.
       function counterComponent(id, width, height, color, x, y, type) {
         this.id = id;
         this.type = type;
@@ -236,6 +253,7 @@
         this.y = y;
         this.update = function(variable) {
           if (this.type == "calendar") {
+            // Updates weekday calendar based on weekdays remaining
             var imageName = "images/calendarTracking/" + $weekDays + ".png";
             if (imageName != this.image.src) {
               this.image = new Image();
@@ -249,6 +267,7 @@
                   this.width, this.height);
             }
           } else {
+              // Updates reception percentage display
               var number = variable.toString();
               ctx.font = "20px Arial";
               ctx.fillStyle = "white";
@@ -256,6 +275,8 @@
           }
         }
       }
+
+      // Component used to draw reception face
       function face(width, height, image, x, y) {
         this.image = new Image();
         this.image.src = image;
@@ -263,6 +284,7 @@
         this.height = height;
         this.x = x;
         this.y = y;
+        // Changes face image based on city reception.
         this.update = function() {
           if ($cityReception > 74) {
             this.image.src = "images/receptionTracking/HighReception.png";
@@ -278,6 +300,8 @@
             this.width, this.height);
           }
       }
+
+      // Called each frame, updates all components.
       function updateGameArea() {
         myGameArea.clear();
         gameMap.update();
