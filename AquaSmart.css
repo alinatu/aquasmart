@@ -118,6 +118,8 @@ body {
     width: 100%;
     height: 65px;
     background: #ebf0f9;
+    position: fixed;
+    top: 0;
 }
       
 #navbar {
@@ -190,7 +192,6 @@ li > a:hover{
       
 
 #score {
-    margin-top: -2px;
     color: #d4d9e9;
     float: left;
     text-align: center;
