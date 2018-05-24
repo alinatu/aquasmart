@@ -342,12 +342,13 @@ function endTurn() {
     $barLevel = ($currentWater / $totalWater) * 100;
     $(".progress-bar").width($barLevel + "%");
     $("#userDays").html($summerDays);
-    logCityStatus();
-    randomSituations();
+    //logCityStatus();
+    //randomSituations();
     situations[0].chosen = false;
     situations[1].chosen = false;
     situations[2].chosen = false;
     endGame();
+    getSituations();
     //setDecision();
 }
 
